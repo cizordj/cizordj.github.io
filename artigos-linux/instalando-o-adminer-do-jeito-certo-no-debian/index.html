@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Instalando o Adminer do jeito certo no Debian</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="../../css/my.css">
+  </head>
+  <body class="bg-rosybrown fg-white">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-darkrosybrown">
+      <h1>Instalando o Adminer do jeito certo no Debian</h1>
+      <h2>Autor: Cézar Augusto de Campos</h2>
+      <h3><em>21 de setembro de 2020</em></h3>
+      <div class="text-just">
+        <p class="indent-letter">O Adminer, formalmente conhecido como PhpMinAdmin, é uma ferramenta para administração de banco de dados que trabalha no contexto WEB. Muitos tutoriais por aí ensinam a instalar o Adminer direto do código-fonte, em um único arquivo, sem mencionar que existe o pacote do mesmo programa para o Debian com todas as configurações prontas.</p>
+        <p>Neste tutorial, eu vou mostrar como instalar e configurar o Adminer no estilo Debian.</p>
+        <h2>Instalação do pacote</h2>
+        <p>Vamos assumir que você já tenha o Apache2 e algum banco de dados instalados, caso não tenha, eu sugiro que a instalação seja feita por esse comando:</p>
+        <code># apt-get install default-mysql-server apache2</code>
+        <p>Agora, instale o Adminer com esse comando:</p>
+        <code># apt-get install adminer --yes-install-recommends</code>
+        <p>Durante a instalação, o Adminer será compilado em um único arquivo, arquivo esse que você encontra no local <em>/usr/share/adminer/adminer.php</em>.</p>
+        <p>Não mexa neste arquivo.</p>
+        <h2>Configuração do apache</h2>
+        <p>O pacote Adminer traz, por padrão, um arquivo de configuração pronto para ser usado com o servidor Apache, ele vai estar nesse local: <em>/etc/apache2/conf-available/adminer.conf</em>.</p>
+        <p>Para fazer com que o Apache utilize esse arquivo, dê os seguintes comandos:</p>
+        <code># a2enconf adminer<br># systemctl reload apache2<br></code>
+        <p>A partir de agora, você pode acessar a interface do Adminer no seu navegador a partir do endereço:
+        <strong>http://localhost/adminer</strong></p>
+        <p>Se você quiser, você pode mudar a URL padrão, por questões de segurança, a partir do arquivo de configuração que acabamos de habilitar. Abra-o e altere o alias para a URL desejada.</p>
+        <code># vim /etc/apache2/conf-enabled/adminer.conf</code>
+        <br>
+        <samp><pre>
+Alias /URL_IMPOSSIVEL_DE_ACHAR /etc/adminer
+
+&ltDirectory /etc/adminer&gt
+  Require all granted
+  DirectoryIndex conf.php
+&lt/Directory&gt
+        </pre></samp>
+        <p>Após a alteração desse arquivo, recarregue o Apache.</p>
+        <code># systemctl reload apache2</code>
+        <br>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura1.png">
+        </div>
+        <h2>Perfumaria</h2>
+        <p>Se você é um camarada que gosta de embelezar as coisas, você pode baixar temas customizados para a interface do seu Adminer. Para isso, vá até o site:</p>
+        <ul>
+          <li>
+            <a href="https://www.adminer.org/">Adminer - Database management in a single PHP file</a>
+          </li>
+        </ul>
+        <p>...e baixe o CSS do tema que mais lhe agrada. No meu caso, eu baixei o tema Pepa-linha-dark pois é o tema que possui o visual mais consistente.</p>
+        <code># wget https://raw.githubusercontent.com/pepa-linha/Adminer-Design-Dark/master/adminer.css</code>
+        <br>
+        <p>Na documentação, diz que você deve colocar o "adminer.css" do lado do "adminer.php", porém isso não funciona no Debian. O local correto é o /etc/adminer, onde fica o arquivo "conf.php":</p>
+        <code># mv adminer.css /etc/adminer/</code>
+        <p>Se você atualizar a página, vai ver que o Adminer agora está customizado.</p>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura2.png">
+        </div>
+        <p>É isso, para fazer login no Adminer, crie um usuário no banco de dados e dê a ele as permissões necessárias para fazer o login, lembrando que não é recomendado entrar como root, pois pode expor muita coisa sobre o teu banco de dados na WEB.</p>
+        <h2>Fontes</h2>
+        <p>Arquivos de documentação no pacote do Adminer:</p>
+        <ul>
+          <li>/usr/share/doc/adminer/readme-designs.txt</li>
+          <li>/usr/share/doc/adminer/readme.txt</li>
+          <li>/usr/share/doc/adminer/README.Debian</li>
+        </ul>
+        <p>Testado no Debian Bullseye.</p>
+      </div>
+    </main>
+  </body>
+</html>

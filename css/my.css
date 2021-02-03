@@ -1,0 +1,33 @@
+code {
+    white-space:normal;
+    display: inline-table;
+}
+a:not([class]){
+    //color:rgb(129, 182, 255);
+    text-decoration: underline;
+}
+img{
+    padding-top: 1.5rem;
+    align: center;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+p {
+    text-align: justify !important;
+}
+.bg-midnightblue{
+  background-color: #072838 !important;
+}
+.bg-darkseagreen{
+  background-color: #093230 !important;
+}
+.bg-lightseagreen{
+  background-color: #20b2aa !important;
+}
+.bg-rosybrown{
+  background-color: #e7afaf !important;
+}
+.bg-darkrosybrown{
+  background-color: #120e0e !important;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Máscara simples em JavaScript</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="../../css/my.css">
+  </head>
+  <body class="bg-dark fg-black">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-lightOrange">
+      <h1>Máscara simples em JavaScript</h1>
+      <h2>Autor: Cézar Augusto de Campos</h2>
+      <h3><em>14 de setembro de 2019</em></h3>
+      <div class="text-just">
+        <p>A fim de mostrar como criar uma máscara do zero, esta dica vai lhe mostrar como fazer isso sem o <em>jQuery</em>. O propósito disso é mostrar a lógica de como uma máscara em <em>javascript</em>funciona e age nos formulários.</p>
+        <p>Neste exemplo vou mostrar como mascarar a entrada de uma placa de automóvel padrão brasileiro ABC-1234 de modo que todos os usuários do seu sistema preencham da mesma forma. Eu me deparei com essa situação enquanto fazia um "mock application" de um sistema web voltado a área de logística e não tinha nenhuma biblioteca javascript instalada.</p>
+        <p>Bom, comecemos então com o formulário em HTML.</p>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura1.png">
+        </div>
+        <p>Com esse código-fonte:</p>
+        <samp><pre>&lt!DOCTYPE html&gt
+&lthtml&gt
+&lthead&gt
+        &ltmeta charset="UTF-8"&gt
+        &lttitle&gtPlaca&lt/title&gt
+&lt/head&gt
+&ltbody&gt
+    &ltform&gt
+        &ltp&gt
+        &ltlabel&gtInsira a placa do carro:
+        &ltinput type="text" name="placa" onkeyup="validarPlaca(this)" placeholder="ABC-1234" maxlength="8" autofocus&gt
+        &lt!-- Ali o atributo "maxlength" evita que o usuário digite mais do que 8 caracteres --&gt
+        &lt/label&gt
+        &lt/p&gt
+    &lt/form&gt
+&lt/body&gt
+&lt/html&gt</pre></samp>
+          <p>O input deve chamar a função javascript a cada digitação do usuário, então a função se responsabilizará pela formatação do dado durante o preenchimento do formulário.</p>
+          <p>
+          Agora vamos implementar a função em javascript que vai manipular o dado de acordo o padrão que queremos (ABC-1234) e devolver ao formulário enquanto o usuário digita.</p>
+          <p>Para isso foi criado uma função que transforma as três primeiras letras em maiúsculas e adiciona um hífen automaticamente toda vez que o usuário termina de digitar as três primeiras letras.</p>
+          <samp><pre>&ltscript&gt
+function validarPlaca(entradaDoUsuario) {
+        var placa = entradaDoUsuario.value; // Passa para a variável 'placa' o que o usuário digitar no formulário
+
+        if (placa.length === 1 || placa.length === 2) {                       // Quando a string possuir 1 ou 2 dígitos
+                placaMaiuscula = placa.toUpperCase();                      // Passa a string para letras maiúsculas
+                document.forms[0].placa.value = placaMaiuscula;    // Coloca a string modificada de volta no formulário
+                return true;
+        }
+
+        if (placa.length === 3){                                                        // Quando a string possuir 3 dígitos
+                placa += "-";                                                                 // Adiciona um hífen
+                placaMaiuscula = placa.toUpperCase();                   // Passa a string para letras maiúsculas
+                document.forms[0].placa.value = placaMaiuscula; // Coloca a nova string de volta no formulário
+                return true;
+    }
+}
+&lt/script&gt</pre></samp>
+            <p>Após adicionar esse trecho de código no seu arquivo html você poderá ver o mascaramento em ação.</p>
+            <div class="img-container mw-50-md mx-auto">
+              <img src="./figura2.gif">
+            </div>
+            <p>É isso, eu usei o atributo onkeyup ao invés do onkeydown pois o último atrapalha um monte na hora de apagar, caso o usuário cometa um erro de digitação ele pode ficar frustrado ao perceber que não consegue apagar o que digitou XD. É bom ficar ligado nisso também.</p>
+            <p>Até a próxima =)</p>
+      </div>
+    </main>
+  </body>
+</html>
+

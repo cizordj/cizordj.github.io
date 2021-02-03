@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Você deixa a porta aberta?</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="../../css/my.css">
+  </head>
+  <body class="bg-darkAmber fg-black">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-yellow">
+      <h1>Você deixa a porta aberta?</h1>
+      <h2>Autor: Cézar Augusto de Campos</h2>
+      <h3><em>10 de abril de 2019</em></h3>
+      <div class="text-just">
+        <p class="indent-letter">Estava eu em um belo dia monitorando os logs do <em>PfSense</em> da organização onde eu trabalho, até que eu encontro um safadinho xing-ling tentando logar no Firewall via SSH.</p>
+        <br>
+         <samp><pre>Data          protocol   PID    Descrição
+Mar 31 08:46  sshd       87004  Invalid user ethos from 111.202.xxx.13
+Mar 31 08:46  sshd       87004  input_userauth_request: invalid user ethos [preauth]
+Mar 31 08:46  sshd       87004  Failed password for invalid user ethos from 111.202.xxx.13 port 62274 ssh2
+Mar 31 08:46  sshd       87004  Connection closed by 111.202.xxx.13 port 62274 [preauth]
+Mar 31 08:49  sshd       2536   Failed password for root from 111.202.xxx.13 port 19498 ssh2
+Mar 31 08:49  sshd       2536   Connection closed by 111.202.xxx.13 port 19498 [preauth]
+Mar 31 08:53  sshd       9984   Invalid user oracle from 111.202.xxx.13</pre></samp>
+           <p>Claro que ele ficou o dia inteiro tentando diversos nomes de usuários até achar um nome de usuário que fosse válido, para daí tentar diversas senhas diferentes. Mas como o brasileiro é um ser bastante troll, o nome de usuário e senha possuem caracteres especiais. rsrs</p>
+           <p>Como eu não costumo acessar o Firewall via SSH nem dentro e nem fora da organização, percebi que outras pessoas poderiam tentar invadir dessa forma através do serviço que eu nem uso. Então para resolver este buraco na segurança, o acesso via SSH foi desabilitado e as portas 22, 62274 e etc foram fechadas.</p>
+           <p>Além disso, usar caracteres especiais do nosso idioma como o cedilha por exemplo ajuda a impedir que gringos consigam acertar seu nome de usuário e muito menos a senha.</p>
+           <p>A lição que fica é, desabilite os serviços que você não usa, feche as portas da sua rede onde potenciais invasores poderiam usar para acessar sua máquina e o mais importante, se você tiver um servidor de ssh instalado na sua distro Linux pessoal, saiba que com o seu o IP é possível que alguém tente invadir por essa mesma porta.</p>
+           <p>Até a próxima =)</p>
+      </div>
+    </main>
+  </body>
+</html>

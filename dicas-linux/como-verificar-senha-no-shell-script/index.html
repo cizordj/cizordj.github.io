@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Como verificar senha no shell script</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="../../css/my.css">
+  </head>
+  <body class="bg-white fg-black">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-gray">
+      <h1>Como verificar senha no shell script</h1>
+      <h2>Autor: Cézar Augusto de Campos</h2>
+      <h3><em>29 de janeiro de 2019</em></h3>
+      <div class="text-just">
+        <p class="indent-letter">Olá tudo bem? Se por alguma razão bem aleatória você quer pôr uma senha no seu shell script para dar acesso a determinada função, ou qualquer outra coisa (só depende de você), dá para verificar se ela está correta sem colocar a sua senha de verdade no código-fonte.</p>
+        <h2>Método errado</h2>
+        <p>Aqui vou testar a autenticidade que, por incrível que pareça é bastante comum de se ver por aí.</p>
+        <samp><pre>#!bin/sh
+echo Digite a sua senha...
+read senha
+if [ $senha -eq "102374" ] ; then
+echo "Senha correta"
+else
+echo "Senha ERRADA!"
+fi</pre></samp>
+          <p>Por que este método é errado? Colocar a senha em texto puro no script é uma tremenda falha de segurança, qualquer espertinho pode dar um <em>grep</em> no seu script e localizá-la. Mas como verificar a senha sem expô-la no shell script? Usando uma soma de verificação.</p>
+          <p>Sinta-se livre para testar o código abaixo e digite a mesma senha que estava exposta no código acima.</p>
+          <samp><pre>#!/bin/sh
+echo Digite a sua senha...
+read senha
+echo "dbbe235510a12c4ceea53cfa2150859e  senha" > senha.md5
+echo $senha > senha
+md5sum -c --status senha.md5
+if [ $? -eq 0 ] ; then
+echo "Senha correta"
+else
+echo "Senha ERRADA!"
+fi
+rm senha.md5 senha</pre></samp>
+            <p>Viu como funciona? Foi criado uma forma de verificação da senha ao invés de expor no código fonte o seu conteúdo cru. Bem mais seguro, sem falar que você pode usar verificações ainda mais pesadas como <em>SHA256</em> ou <em>SHA512</em>.</p>
+            <h2>Criando a soma de verificação</h2>
+            <p>Para criar a soma de verificação da sua senha é simples. Faça no terminal:</p>
+            <code>$ echo sua_senha &gt arquivoqualquer</code>
+            <p>e depois:</p>
+            <code>$ md5sum arquivoqualquer</code>
+            <p>que vai sair com a soma de verificação da sua senha para você pô-la no código-fonte.</p>
+      </div>
+    </main>
+  </body>
+</html>

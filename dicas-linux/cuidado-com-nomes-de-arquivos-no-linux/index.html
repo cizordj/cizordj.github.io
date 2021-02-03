@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cuidado com nomes de arquivos no Linux</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="../../css/my.css">
+  </head>
+  <body class="bg-dark fg-white">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-darkEmerald">
+      <h1>Cuidado com nomes de arquivos no Linux</h1>
+      <h2>Autor: Cézar Augusto de Campos</h2>
+      <h3><em>22 de agosto de 2019</em></h3>
+      <div class="text-just">
+        <p> E aí, galera do VOL, tudo certo?</p>
+        <p>Então, eu estava em casa tentando gravar um CD usando o <em>XFBurn</em> para ouvir no carro e quebrando a cabeça do por quê desse erro:</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura1.png">
+      </div>
+      <p class="indent-letter">Eu não conseguia adicionar as músicas que queria gravar no XfBurn, esse erro aparecia para todas as 30 músicas na minha pasta. É sério, eu tentei de tudo, usando o "sudo", "chmod" na pasta, usar por linha de comando com aspas e nada dessas músicas funcionar no programa.</p>
+      <p>Então, eu me toquei que o Kernel Linux interpreta as coisas de um jeito peculiar, consegues notar o erro na foto acima?</p>
+      <p>É isso mesmo, o nome do arquivo possui um sustenido (ou hashtag) e isso internamente transformava em comentário o que estava após o símbolo. O nome do arquivo ia pela metade para o programa, por isso que o programa não achava o arquivo.</p>
+      <p>A solução mais simples e óbvia de todas, é renomear os arquivos tirando fora esse caractere e isso vale para tudo, não apenas música. Se você for editar uma foto, vídeo ou qualquer outra coisa, esse erro pode aparecer.</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura2.png">
+      </div>
+      <p>É isso, agora é só aproveitar o som!</p>
+      </div>
+    </main>
+  </body>
+</html>

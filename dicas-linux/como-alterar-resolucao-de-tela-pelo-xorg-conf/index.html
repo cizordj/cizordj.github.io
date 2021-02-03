@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Como alterar a resolução de tela pelo Xorg.conf</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="../../css/my.css">
+  </head>
+  <body class="bg-grayBlue fg-white">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-dark">
+      <h1>Como alterar a resolução de tela pelo Xorg.conf</h1>
+      <h2>Autor: Cézar Augusto de Campos</h2>
+      <h3><em>14 de maio de 2020<br>Editado: 2 de fevereiro de 2020<br>Razão: Alteração de título</em></h3>
+      <div class="text-just">
+        <p class="indent-letter">Recentemente eu tive que mudar o <em>driver de vídeo</em> no meu <em>Debian</em> e encontrei um problema que muitos aqui no VOL se depararam antes. A situação em que a resolução do monitor está errada e sua última saída foi mexer no <em>xorg.conf</em> para fixar a resolução correta.</p>
+        <p>Sim eu estou ciente dessa dica: <a href="https://www.vivaolinux.com.br/dica/Mudando-resolucao-de-tela-pelo-xorg.conf">Mudando resolução de tela pelo xorg.conf [Dica]</a></p>
+        <p>Porém o método que vou lhes apresentar é um pouquinho diferente.</p>
+        <p>Crie um novo arquivo de configuração (com o Xorg desligado):</p>
+        <code># X -configure</code>
+        <samp><pre>. . .
+Xorg detected your mouse at device /dev/input/mice.
+Please check your config if the mouse is still not
+operational, as by default Xorg tries to autodetect
+the protocol.
+
+Your xorg.conf file is /root/xorg.conf.new
+
+To test the server, run 'X -config /root/xorg.conf.new'</pre></samp>
+          <p>E agora movemos o arquivo para o diretório correto:</p>
+          <code># mv /root/xorg.conf.new /etc/X11/xorg.conf</code>
+          <p>Abra o arquivo com o seu editor de texto favorito:</p>
+          <code># editor /etc/X11/xorg.conf</code>
+          <p>Procure pela sessão "monitor" do arquivo, que é mais ou menos assim:</p>
+          <samp><pre> Section "Monitor"
+        Identifier   "Monitor0"
+        VendorName   "Monitor Vendor"
+        ModelName    "Monitor Model"
+EndSection</pre></samp>
+            <p>Como você pode ver, não está especificado nenhuma resolução para este monitor, então vamos fazer isso. Use o utilitário gtf para gerar a linha de configuração que você vai colocar no xorg.conf, a sintaxe é a seguinte:</p>
+            <code>$ gtf &ltlargura&gt &ltaltura&gt &ltframes por segundo&lt</code>
+            <p>No meu caso:</p>
+            <code># gtf 1280 720 60</code>
+            <samp><pre># 1280x720 @ 60.00 Hz (GTF) hsync: 44.76 kHz; pclk: 74.48 MHz
+  Modeline "1280x720_60.00"  74.48  1280 1336 1472 1664  720 721 724 746  -HSync +Vsync</pre></samp>
+              <p>Copie a linha Modeline para dentro da sessão "Monitor" do Xorg.conf:</p>
+              <samp><pre> Section "Monitor"
+        Identifier   "Monitor0"
+        VendorName   "Monitor Vendor"
+        ModelName    "Monitor Model"
+        <strong>Modeline     "1280x720_60.00"  74.48  1280 1336 1472 1664  720 721 724 746  -HSync +Vsyn</strong>
+EndSection</pre></samp>
+                <p>E agora para terminar adicione a opção "preferredMode" embaixo do Modeline:</p>
+                <samp><pre> Section "Monitor"
+        Identifier   "Monitor0"
+        VendorName   "Monitor Vendor"
+        ModelName    "Monitor Model"
+        Modeline     "1280x720_60.00"  74.48  1280 1336 1472 1664  720 721 724 746  -HSync +Vsyn
+        <strong>Option       "PreferredMode" "1280x720_60.00"</strong>
+EndSection</pre></samp>
+                  <p>Desse jeito o Xorg vai sempre usar esta resolução que escolhemos para este monitor em específico, não precisando alterar o modo de outros monitores.</p>
+                  <p>É isso.</p>
+      </div>
+    </main>
+  </body>
+</html>
+
+

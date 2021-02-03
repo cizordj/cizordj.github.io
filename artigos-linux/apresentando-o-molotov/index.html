@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Introdução ao Heimdall</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+    <link rel="stylesheet" href="../../css/my.css">
+  </head>
+  <body class="bg-black fg-white">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-darkGreen">
+      <h1>Apresentando o Molotov</h1>
+      <h2>Autor: Cézar Augusto de Campos</h2>
+      <h3><em>17 de janeiro de 2021</em></h3>
+      <div class="text-just">
+        <h2>O que é molotov</h2>
+        <p>Olá, pessoal.</p>
+        <p class="indent-letter">Eu gostaria de apresentar para vocês a solução que trago para as pessoas que querem criar um pendrive bootável do Windows 10, através do Linux usando um método bem simples, o Molotov.</p>
+        <p>O Molotov é um utilitário de linha de comando que criei após o <a href="https://github.com/slacka/WoeUSB/issues/311">bug das dependências do WoeUSB</a>. A razão pela qual eu criei este programa é porque o WoeUSB possui alguns problemas que eu viso corrigir com a criação do Molotov.</p>
+        <p>Quais problemas seriam esses?</p>
+        <ul>
+          <li>Código muito grande</li>
+          <li>Muitas dependências</li>
+          <li>Alto acoplamento</li>
+          <li>Difícil de manter</li>
+          <li>Não segue a filosofia Unix</li>
+        </ul>
+        <p>Além disso, ao tentar ler o código-fonte, encontrei vários comentários de pessoas que não entendiam o que aquela parte do código faz e por essa razão ninguém tinha coragem de tirar fora, entre outras coisinhas mais. O meu objetivo aqui não é difamar ninguém e muito menos o criador do WoeUSB pelos problemas que apresentei acima e sim explicar o por que meu programa é melhor.</p>
+        <p>O Molotov é:</p>
+        <ul>
+          <li>Fácil de usar;</li>
+          <li>Fácil de ler;</li>
+          <li>Pequeno;</li>
+          <li>Usa dependências nativas do Linux.</li>
+        </ul>
+        <p>Para usar o Molotov é bem simples, vá para a minha página no GitHub e baixe o pacote ".deb":</p>
+        <ul>
+          <li><a href="https://github.com/cizordj/molotov/releases/">Releases · cizordj/molotov · GitHub</a></li>
+        </ul>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura1.png">
+        </div>
+        <p>Após baixar o pacote, você instala ele com o seguinte comando:</p>
+        <code># apt-get install ./molotov_1.0_all.deb</code>
+        <p>E agora para usá-lo, é só digitar isso no terminal:</p>
+        <code># molotov -i <imagem-iso> -d &lt/dev/sdX&gt [opções]</code>
+        <p>Simples, não? Lembrando que o &ltseu_pendrive&gt dever ser um dispositivo bloco tal como /dev/sdX.</p>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura2.png">
+        </div>
+        <p>Além disso, o Molotov segue os <a href="https://www.gnu.org/prep/standards/standards.html#Command_002dLine-Interfaces">padrões de codificação GNU</a> para linha de comando, possui um manual de instruções e é nativo para o Debian Bullseye.</p>
+        <p>Então, espero que daqui a alguns anos o Molotov esteja em todas as distribuições derivadas.</p>
+        <p>Um abraço a todos.</p>
+      </div>
+    </main>
+  </body>
+</html>
