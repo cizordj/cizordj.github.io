@@ -3,12 +3,11 @@ code {
     display: inline-table;
 }
 a:not([class]){
-    //color:rgb(129, 182, 255);
+    color: inherit;
     text-decoration: underline;
 }
 img{
     padding-top: 1.5rem;
-    align: center;
 }
 h1, h2, h3 {
     text-align: center;
