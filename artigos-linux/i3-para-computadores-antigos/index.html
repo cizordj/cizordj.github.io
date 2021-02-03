@@ -13,110 +13,110 @@
       <h1>I3 para computadores antigos</h1>
       <h2>Autor: Cézar Augusto de Campos</h2>
       <h3><em>19 de agosto de 2020</em></h3>
-              <h2>Instalação do ambiente</h2>
-        <p class="indent-letter pt-5 pb-5">Bom dia a todos do VOL, hoje vou mostrar como vocês podem usar uma interface minimalista e bela para dar vida a um computador antigo de um jeito bem simples.</p>
-        <p>Aqui nessa dica eu mostro como fiz para ressuscitar um <em>notebook Acer Aspire 5570Z</em> de 32 bits e usá-lo no meu dia a dia como programador de sites.</p>
-        <p>O <em>i3</em> é um gerenciador de janelas conhecido pelo seu fluxo de trabalho orientado a teclado, isto é, nenhum mouse é necessário para a maioria das aplicações, além disso o i3wm consome poucos recursos de hardware e é muito customizável.</p>
-        <p>Tendo isso em mente vamos instalar o <a href="https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/weekly-builds/" target="_blank">Debian testing non-free</a> sem interface gráfica no computador. Após o primeiro boot entre como usuário root e faça aquela rotina de atualizações básicas antes de começar:</p>
-        <code># apt-get update<br>
-          # apt-get upgrade
-        </code>
-        <br>
-        <p>Agora precisamos instalar o i3 e um gerenciador de login. De todos os DM's, os mais simples que conheço são o Xdm e o Lightdm. Recomendo mais o Lightdm para não dar dor de cabeça, porém eu instalei o XDM no meu.</p>
-        <code># apt-get install i3 xdm</code>
-        <br>
-        <p>O xdm precisa ser precisa ser configurado pra iniciar o i3, então edite o seguinte arquivo:</p>
-        <code># editor /etc/X11/xdm/Xsession</code>
-        <br>
-        <p>Adicione 'i3' no final do arquivo e agora reinicie o computador:</p>
-        <code># systemctl reboot</code>
-        <p>Após a reinicialização a tela de login será apresentada a você, entre com o seu usuário e senha.</p>
-        <h2>Customização</h2>
-        <p>Na primeira vez que você iniciar a sessão no i3 ele vai estar mais ou menos desse jeito:</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura2.png">
-        </div>
-        <p>O programa que vamos usar para customizar o i3 chama-se <em>i3-themer</em>, esse script contém uma coleção de temas que você pode usar no seu ambiente.</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura3.gif">
-        </div>
-        <p>Para instalar o programa, instale o git e baixe o repositório:</p>
-        <code>$ sudo apt-get install git<br>
-          $ git clone https://github.com/cizordj/i3-themer.git --depth=1
-        </code>
-        <br>
-        <p>Instale as dependências recomendadas pelo i3-themer:</p>
-        <code>$ sudo apt-get install dunst polybar nitrogen rofi bash fonts-font-awesome xdg-utils sensible-utils alsa-utils rxvt-unicode</code>
-        <br>
-        <p>Além disso, para uma experiência completa instale os pacotes que vêm no próprio repositório do i3-themer:</p>
-        <code>$ cd i3-themer/assets/debian_dependencies/<br>
-          $ sudo apt-get install ./*.deb
-        </code>
-        <p>Esses pacotes não são encontrados no repositório padrão do Debian e por isso foram feitos manualmente.</p>
-        <p>Agora podemos aplicar o primeiro tema:</p>
-        <code>$ cd ../../<br>
-          $ ./i3-themer -a 000
-        </code>
-        <br>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura4.png">
-        </div>
-        <p>Simples assim, você pode ver todos os temas disponíveis aqui ou se você quiser, você pode listar todos os temas disponíveis com esse comando:</p>
-        <code>$ ./i3-themer -l</code>
-        <br>
-        <samp>000 001 002 003<br>004 005 006 007<br>008 009 010 011<br>012 013 014<br></samp>
-        <br>
-        <p>E aplicar de acordo:</p>
-        <code>$ ./i3-themer -a 005</code>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura5.png">
-        </div>
-        <p>Aqui vai uma lista de teclas de atalho pré-definidas nesses temas:</p>
-        <samp>Super+F1&#9;Alsamixer<br>Super+F2&#9;Navegador web padrão<br>Super+F3&#9;Gestor de arquivos<br>Super+F4&#9;Calculadora do gnome<br>Super+F5&#9;CMUS (aplicativo de música no terminal)<br>Super+0&#9;Menu de energia do Polybar<br>Super+D&#9;Menu de aplicativos<br>Print&#9;Tira screenshot da tela inteira<br>Shift+Print&#9;Tira screenshot parcial da tela<br>Alt+Print&#9;Tira screenshot da janela ativa<br></samp>
-        <p>Para demais atalhos, consulte o arquivo de configuração do i3 em ~/.config/i3/config.</p>
-        <p>i3-themer é de código aberto, se puder contribua com a melhoria do programa no GitHub, seja com novos temas ou código-fonte.</p>
-        <h2>Aplicativos</h2>
-        <p>Essa parte do artigo é extremamente pessoal, visto que isso depende das necessidades de cada um. O i3 não faz nada sozinho, então precisamos instalar alguns aplicativos.</p>
-        <h2>Navegador web</h2>
-        <p>Um navegador bom e que funciona até em notebooks de 32 bits é o Firefox, para instalá-lo diretamente em português brasileiro utilize o seguinte comando:</p>
-        <code># apt-get install firefox-esr-l10n-pt-br</code>
-        <Br>
-        <h2>Editor de texto</h2>
-        <p>Um editor que eu uso para programar é o NeoVim, ele fica ainda mais poderoso quanto se usa os plugins do site <a href="https://vim-bootstrap.com/" target="_blank">Vim-bootstrap</a>. Para instalar o NeoVim use o seguinte comando:</p>
-        <code># apt-get install neovim</code>
-        <br>
-        <p>Para instalar o plugins do site que mencionei instale as dependências:</p>
-        <code># apt-get install git exuberant-ctags ncurses-term curl</code>
-        <br>
-        <p>Entre no site <a href="https://vim-bootstrap.com/" target="_blank">vim-bootstrap.com</a>, escolha as linguagens de programação que você usa e baixe o arquivo de configuração. Após o download mova o arquivo de configuração para a pasta do NeoVim.</p>
-        <code>$ mkdir -p ~/.config/nvim<br>$ mv ~/Downloads/generate.vim ~/.config/nvim/init.vim<br></code>
-        <p>E agora abra o NeoVim para baixar os plugins automaticamente.</p>
-        <code>$ nvim</code>
-        <br>
-        <h2>Wi-Fi</h2>
-        <p>Como instalei o Debian em um notebook, precisei de uma ferramenta para gerenciar a rede sem fio. O wicd-curses foi para mim a ferramenta mais simples pois ela tem uma interface fácil.</p>
-        <code># apt-get install wicd-curses</code>
-        <br>
-        <p>Para ver as redes de WIFI disponíveis, digite isso no terminal:</p>
-        <code>$ wicd-curses</code>
-        <br>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura1.png">
-        </div>
-        <h2>Navegador de arquivos</h2>
-        <p>Isso depende inteiramente de você, o gerenciador que escolhi para a máquina velha é o thunar:</p>
-        <code># apt-get install thunar</code>
-        <p>Ele será aberto automaticamente pelo i3 quando você pressionar as teclas <em>Super+F3</em></p>
-        <h2>Git</h2>
-        <p>Se você é um camarada que trabalha com o git, é bom você configurar o seu e-mail e nome de usuário padrão para não perder seus pontos de contribuição no GitHub.</p>
-        <code>$ git config --global user.name "seuNomeDeUsuário"<br>$ git config --global user.email "seu email"<br></code>
-        <p>É isso, essa é uma forma de você reutilizar um computador antigo se você souber como se virar com o i3, lógico que mais aplicativos são necessários, tais como, visualizadores de PDF, de imagens, mas isso depende inteiramente da necessidade do usuário. O conteúdo deste artigo gerou o seguinte screenshot aqui no VOL: <a href="https://www.vivaolinux.com.br/screenshot/Tiling-window-manager-i3-notebook-velho/" target="_blank">Screenshot GNU/Linux &gt i3 + notebook velho</a></p>
-        <p>Over and out.</p>
-        <p>Fontes:</p>
-        <ul>
-          <li>Vim bootstrap - <a href="https://vim-bootstrap.com/" target="_blank">https://vim-bootstrap.com/</a></li>
-          <li>i3-themer - <a href="https://github.com/cizordj/i3-themer/" target="_blank">https://github.com/cizordj/i3-themer/</a></li>
-        </ul>
-      </main>
+      <h2>Instalação do ambiente</h2>
+      <p class="indent-letter pt-5 pb-5">Bom dia a todos do VOL, hoje vou mostrar como vocês podem usar uma interface minimalista e bela para dar vida a um computador antigo de um jeito bem simples.</p>
+      <p>Aqui nessa dica eu mostro como fiz para ressuscitar um <em>notebook Acer Aspire 5570Z</em> de 32 bits e usá-lo no meu dia a dia como programador de sites.</p>
+      <p>O <em>i3</em> é um gerenciador de janelas conhecido pelo seu fluxo de trabalho orientado a teclado, isto é, nenhum mouse é necessário para a maioria das aplicações, além disso o i3wm consome poucos recursos de hardware e é muito customizável.</p>
+      <p>Tendo isso em mente vamos instalar o <a href="https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/weekly-builds/" target="_blank">Debian testing non-free</a> sem interface gráfica no computador. Após o primeiro boot entre como usuário root e faça aquela rotina de atualizações básicas antes de começar:</p>
+      <code># apt-get update<br>
+        # apt-get upgrade
+      </code>
+      <br>
+      <p>Agora precisamos instalar o i3 e um gerenciador de login. De todos os DM's, os mais simples que conheço são o Xdm e o Lightdm. Recomendo mais o Lightdm para não dar dor de cabeça, porém eu instalei o XDM no meu.</p>
+      <code># apt-get install i3 xdm</code>
+      <br>
+      <p>O xdm precisa ser precisa ser configurado pra iniciar o i3, então edite o seguinte arquivo:</p>
+      <code># editor /etc/X11/xdm/Xsession</code>
+      <br>
+      <p>Adicione 'i3' no final do arquivo e agora reinicie o computador:</p>
+      <code># systemctl reboot</code>
+      <p>Após a reinicialização a tela de login será apresentada a você, entre com o seu usuário e senha.</p>
+      <h2>Customização</h2>
+      <p>Na primeira vez que você iniciar a sessão no i3 ele vai estar mais ou menos desse jeito:</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura2.png">
+      </div>
+      <p>O programa que vamos usar para customizar o i3 chama-se <em>i3-themer</em>, esse script contém uma coleção de temas que você pode usar no seu ambiente.</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura3.gif">
+      </div>
+      <p>Para instalar o programa, instale o git e baixe o repositório:</p>
+      <code>$ sudo apt-get install git<br>
+        $ git clone https://github.com/cizordj/i3-themer.git --depth=1
+      </code>
+      <br>
+      <p>Instale as dependências recomendadas pelo i3-themer:</p>
+      <code>$ sudo apt-get install dunst polybar nitrogen rofi bash fonts-font-awesome xdg-utils sensible-utils alsa-utils rxvt-unicode</code>
+      <br>
+      <p>Além disso, para uma experiência completa instale os pacotes que vêm no próprio repositório do i3-themer:</p>
+      <code>$ cd i3-themer/assets/debian_dependencies/<br>
+        $ sudo apt-get install ./*.deb
+      </code>
+      <p>Esses pacotes não são encontrados no repositório padrão do Debian e por isso foram feitos manualmente.</p>
+      <p>Agora podemos aplicar o primeiro tema:</p>
+      <code>$ cd ../../<br>
+        $ ./i3-themer -a 000
+      </code>
+      <br>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura4.png">
+      </div>
+      <p>Simples assim, você pode ver todos os temas disponíveis aqui ou se você quiser, você pode listar todos os temas disponíveis com esse comando:</p>
+      <code>$ ./i3-themer -l</code>
+      <br>
+      <samp>000 001 002 003<br>004 005 006 007<br>008 009 010 011<br>012 013 014<br></samp>
+      <br>
+      <p>E aplicar de acordo:</p>
+      <code>$ ./i3-themer -a 005</code>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura5.png">
+      </div>
+      <p>Aqui vai uma lista de teclas de atalho pré-definidas nesses temas:</p>
+      <samp>Super+F1&#9;Alsamixer<br>Super+F2&#9;Navegador web padrão<br>Super+F3&#9;Gestor de arquivos<br>Super+F4&#9;Calculadora do gnome<br>Super+F5&#9;CMUS (aplicativo de música no terminal)<br>Super+0&#9;Menu de energia do Polybar<br>Super+D&#9;Menu de aplicativos<br>Print&#9;Tira screenshot da tela inteira<br>Shift+Print&#9;Tira screenshot parcial da tela<br>Alt+Print&#9;Tira screenshot da janela ativa<br></samp>
+      <p>Para demais atalhos, consulte o arquivo de configuração do i3 em ~/.config/i3/config.</p>
+      <p>i3-themer é de código aberto, se puder contribua com a melhoria do programa no GitHub, seja com novos temas ou código-fonte.</p>
+      <h2>Aplicativos</h2>
+      <p>Essa parte do artigo é extremamente pessoal, visto que isso depende das necessidades de cada um. O i3 não faz nada sozinho, então precisamos instalar alguns aplicativos.</p>
+      <h2>Navegador web</h2>
+      <p>Um navegador bom e que funciona até em notebooks de 32 bits é o Firefox, para instalá-lo diretamente em português brasileiro utilize o seguinte comando:</p>
+      <code># apt-get install firefox-esr-l10n-pt-br</code>
+      <Br>
+      <h2>Editor de texto</h2>
+      <p>Um editor que eu uso para programar é o NeoVim, ele fica ainda mais poderoso quanto se usa os plugins do site <a href="https://vim-bootstrap.com/" target="_blank">Vim-bootstrap</a>. Para instalar o NeoVim use o seguinte comando:</p>
+      <code># apt-get install neovim</code>
+      <br>
+      <p>Para instalar o plugins do site que mencionei instale as dependências:</p>
+      <code># apt-get install git exuberant-ctags ncurses-term curl</code>
+      <br>
+      <p>Entre no site <a href="https://vim-bootstrap.com/" target="_blank">vim-bootstrap.com</a>, escolha as linguagens de programação que você usa e baixe o arquivo de configuração. Após o download mova o arquivo de configuração para a pasta do NeoVim.</p>
+      <code>$ mkdir -p ~/.config/nvim<br>$ mv ~/Downloads/generate.vim ~/.config/nvim/init.vim<br></code>
+      <p>E agora abra o NeoVim para baixar os plugins automaticamente.</p>
+      <code>$ nvim</code>
+      <br>
+      <h2>Wi-Fi</h2>
+      <p>Como instalei o Debian em um notebook, precisei de uma ferramenta para gerenciar a rede sem fio. O wicd-curses foi para mim a ferramenta mais simples pois ela tem uma interface fácil.</p>
+      <code># apt-get install wicd-curses</code>
+      <br>
+      <p>Para ver as redes de WIFI disponíveis, digite isso no terminal:</p>
+      <code>$ wicd-curses</code>
+      <br>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura1.png">
+      </div>
+      <h2>Navegador de arquivos</h2>
+      <p>Isso depende inteiramente de você, o gerenciador que escolhi para a máquina velha é o thunar:</p>
+      <code># apt-get install thunar</code>
+      <p>Ele será aberto automaticamente pelo i3 quando você pressionar as teclas <em>Super+F3</em></p>
+      <h2>Git</h2>
+      <p>Se você é um camarada que trabalha com o git, é bom você configurar o seu e-mail e nome de usuário padrão para não perder seus pontos de contribuição no GitHub.</p>
+      <code>$ git config --global user.name "seuNomeDeUsuário"<br>$ git config --global user.email "seu email"<br></code>
+      <p>É isso, essa é uma forma de você reutilizar um computador antigo se você souber como se virar com o i3, lógico que mais aplicativos são necessários, tais como, visualizadores de PDF, de imagens, mas isso depende inteiramente da necessidade do usuário. O conteúdo deste artigo gerou o seguinte screenshot aqui no VOL: <a href="https://www.vivaolinux.com.br/screenshot/Tiling-window-manager-i3-notebook-velho/" target="_blank">Screenshot GNU/Linux &gt i3 + notebook velho</a></p>
+      <p>Over and out.</p>
+      <p>Fontes:</p>
+      <ul>
+        <li>Vim bootstrap - <a href="https://vim-bootstrap.com/" target="_blank">https://vim-bootstrap.com/</a></li>
+        <li>i3-themer - <a href="https://github.com/cizordj/i3-themer/" target="_blank">https://github.com/cizordj/i3-themer/</a></li>
+      </ul>
+    </main>
   </body>
 </html>

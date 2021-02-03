@@ -13,9 +13,9 @@
       <h1>Como lidar com strings complicadas no PHP</h1>
       <h2>Autor: Cézar Augusto de Campos</h2>
       <h3><em>15 de abril de 2020</em></h3>
-              <p class="indent-letter">Imagine que você é um programador <em>PHP</em> e precisa fazer uma consulta no banco de dados com um monte de variáveis, você começa a escrever a declaração SQL e percebe que a string é muito complicada.</p>
-        <p>Pois é, essa é uma situação que passei recentemente e percebi que o código fica muito bagunçado, se você não souber concatenar as strings de um jeito mais limpo. Para você entender o drama, dê uma olhada no código abaixo:</p>
-        <samp><pre>
+      <p class="indent-letter">Imagine que você é um programador <em>PHP</em> e precisa fazer uma consulta no banco de dados com um monte de variáveis, você começa a escrever a declaração SQL e percebe que a string é muito complicada.</p>
+      <p>Pois é, essa é uma situação que passei recentemente e percebi que o código fica muito bagunçado, se você não souber concatenar as strings de um jeito mais limpo. Para você entender o drama, dê uma olhada no código abaixo:</p>
+      <samp><pre>
 &lt?php
 public function insert(Bill $bill, int $user_id) : bool
     {
@@ -28,15 +28,15 @@ public function insert(Bill $bill, int $user_id) : bool
         return $this-&gtaddRelation($user_id);
     }
 ?&gt
-        </pre></samp>
-        <p>Eu quero você repare na variável "$sql", olhe quantas linhas, pontos, aspas duplas e simples, eu tive que adicionar para formar a variável final. É uma parte do código difícil de olhar, pois é um balaio de gato, até mesmo um espaço fora do lugar poderia parar o sistema todo e mostrar um erro.</p>
-        <p>Se eu imprimisse a variável, ela ficaria assim:</p>
-        <samp>INSERT INTO `bill` (`description`, `price`, `expirationDate`, `barCode`, `billetBanking`, `paid`) VALUES ('Conta de luz', '220', '2020-05-04', NULL, 'um monte de dados binários aqui', CONV('0', 2, 10) + 0)</samp>
-        <p>Nada demais, esse era o resultado que eu queria chegar, porém como dizia o Robert C. Martin em seu livro Clean Code, "nenhuma parte do código deve ser ignorada", então volta e meia eu teria que voltar nessa parte para fazer alguma manutenção.</p>
-        <p>Pois bem, o PHP processa todas as variáveis dentro de chaves {} em uma string, não é necessário fechar a string para adicionar o valor com um ponto.</p>
-        <p>Outra coisa que me ajudou, é que ao quebrar as linhas de uma string, o PHP não vai quebrar a linha no resultado final, para isso você tem que colocar "\n". Se não colocar "\n", o PHP vai ajuntar tudo em uma linha só.</p>
-        <p>Exemplo:</p>
-        <samp><pre>&lt?php
+      </pre></samp>
+      <p>Eu quero você repare na variável "$sql", olhe quantas linhas, pontos, aspas duplas e simples, eu tive que adicionar para formar a variável final. É uma parte do código difícil de olhar, pois é um balaio de gato, até mesmo um espaço fora do lugar poderia parar o sistema todo e mostrar um erro.</p>
+      <p>Se eu imprimisse a variável, ela ficaria assim:</p>
+      <samp>INSERT INTO `bill` (`description`, `price`, `expirationDate`, `barCode`, `billetBanking`, `paid`) VALUES ('Conta de luz', '220', '2020-05-04', NULL, 'um monte de dados binários aqui', CONV('0', 2, 10) + 0)</samp>
+      <p>Nada demais, esse era o resultado que eu queria chegar, porém como dizia o Robert C. Martin em seu livro Clean Code, "nenhuma parte do código deve ser ignorada", então volta e meia eu teria que voltar nessa parte para fazer alguma manutenção.</p>
+      <p>Pois bem, o PHP processa todas as variáveis dentro de chaves {} em uma string, não é necessário fechar a string para adicionar o valor com um ponto.</p>
+      <p>Outra coisa que me ajudou, é que ao quebrar as linhas de uma string, o PHP não vai quebrar a linha no resultado final, para isso você tem que colocar "\n". Se não colocar "\n", o PHP vai ajuntar tudo em uma linha só.</p>
+      <p>Exemplo:</p>
+      <samp><pre>&lt?php
 
 $msg = "
 
@@ -62,20 +62,20 @@ echo $msg;
 
 // O l a m u n do
 ?&gt</pre></samp>
-          <p>No fim, a variável complicada ficou desse jeito aqui:</p>
-          <samp><pre>$sql = "INSERT INTO `bill` (`description`, `price`, `expirationDate`,
+        <p>No fim, a variável complicada ficou desse jeito aqui:</p>
+        <samp><pre>$sql = "INSERT INTO `bill` (`description`, `price`, `expirationDate`,
             `barCode`, `billetBanking`, `paid`)
             VALUES ('{$bill-&gtgetDescription()}', '{$bill-&gtgetPrice()}',
             '{$bill-&gtgetExpirationDate()}', '{$bill-&gtgetBarCode()}', '{$billetBanking}',
             CONV('0', 2, 10) + 0)";</pre></samp>
-            <p>Versus versão anterior:</p>
-            <samp><pre>$sql = "INSERT INTO `bill` (`description`, `price`, `expirationDate`, `barCode`, `billetBanking`, `paid`) ".
+          <p>Versus versão anterior:</p>
+          <samp><pre>$sql = "INSERT INTO `bill` (`description`, `price`, `expirationDate`, `barCode`, `billetBanking`, `paid`) ".
                 "VALUES ('".$bill-&gtgetDescription()."', '".$bill-&gtgetPrice()."', '".$bill-&gtgetExpirationDate()."', '".$bill-&gtgetBarCode()."', ".
                 "'".$billetBanking."', CONV('0', 2, 10) + 0)";</pre></samp>
-              <p>Com isso, eu evitei os problemas de concatenar strings com o ponto e todo aquele bolo de aspas duplas e simples.</p>
-              <p>Essa dica foi testada no PHP 7.3 no Debian Bullseye.</p>
-              <p>Over and out!</p>
-      </main>
+            <p>Com isso, eu evitei os problemas de concatenar strings com o ponto e todo aquele bolo de aspas duplas e simples.</p>
+            <p>Essa dica foi testada no PHP 7.3 no Debian Bullseye.</p>
+            <p>Over and out!</p>
+    </main>
   </body>
 </html>
 

@@ -14,30 +14,30 @@
       <h2>Autor: Cézar Augusto de Campos</h2>
       <h3><em>24 de janeiro de 2020</em></h3>
       <h3><em>Editado: 2 de fevereiro de 2021</em></h3>
-              <p>Olá, pessoal do VOL.</p>
-        <p class="indent-letter">Enfrentei este problema recentemente, quando precisei extrair um arquivo da Stock ROM do meu celular, baixei a stock ROM da <a href="https://www.sammobile.com/">Sammobile</a> e me deparei com arquivos .img impossíveis de abrir.</p>
-        <p>Primeiro, as novas ROMs da Samsung vêm comprimidas pelo algoritmo LZ4, após você extrair o ".tar", você vai se deparar com um monte desses tipos de arquivos. Para extraí-los, você precisa instalar o pacote não-livre na distros Debian-like com o seguinte comando:</p>
-        <code>$ sudo apt install liblz4-tool</code>
-        <p>E depois, para a descompressão:</p>
-        <code>$ lz4 -d system.img.lz4</code>
-        <p>Sendo "system.img.lz4" o arquivo que você quer extrair. Após a extração, você vai se deparar com um arquivo ".img" difícil de montar e que me inspirou a escrever essa dica.</p>
-        <p>Ele dava o seguinte erro quando eu tentava montar:</p>
-        <code>$ mount -o loop system.img /mnt/system</code>
-        <samp><pre>mount: /mnt/system: tipo de sistema de arquivos incorreto, opção inválida, superbloco inválido em /dev/loop3, página de código ou programa auxiliar faltando ou outro erro.</pre></samp>
-          <p>Então, consegui resolver esse impasse com a seguinte solução. Se estiver usando alguma distro Debian-like, instale o pacote "simg2img":</p>
-          <code>$ sudo apt install simg2img</code>
-          <p>Após isso, digite no terminal:</p>
-          <code>$ simg2img system.img system.raw</code>
-          <p>Sendo "system.img" o arquivo da ROM que você quer montar. Após a descompressão, você deve ter um arquivo RAW na sua pasta, então pegue e monte-o normalmente:</p>
-          <code>$ mount system.raw system/</code>
-          <p>Nesse caso, montei na pasta "system" do meu diretório atual, agora é só abrir esta pasta e fazer o que você quiser.</p>
-          <p>Mais detalhes em como reempacotar a imagem do sistema para você instalar no celular, você encontra neste link:</p>
-          <ul>
-            <li>
-              <a href="https://web.archive.org/web/20141021103926/http://andwise.net/?p=403">Unpack/repack ext4 Android system images « AndWise</a>
-            </li>
-          </ul>
-          <p>Over and out!</p>
-      </main>
+      <p>Olá, pessoal do VOL.</p>
+      <p class="indent-letter">Enfrentei este problema recentemente, quando precisei extrair um arquivo da Stock ROM do meu celular, baixei a stock ROM da <a href="https://www.sammobile.com/">Sammobile</a> e me deparei com arquivos .img impossíveis de abrir.</p>
+      <p>Primeiro, as novas ROMs da Samsung vêm comprimidas pelo algoritmo LZ4, após você extrair o ".tar", você vai se deparar com um monte desses tipos de arquivos. Para extraí-los, você precisa instalar o pacote não-livre na distros Debian-like com o seguinte comando:</p>
+      <code>$ sudo apt install liblz4-tool</code>
+      <p>E depois, para a descompressão:</p>
+      <code>$ lz4 -d system.img.lz4</code>
+      <p>Sendo "system.img.lz4" o arquivo que você quer extrair. Após a extração, você vai se deparar com um arquivo ".img" difícil de montar e que me inspirou a escrever essa dica.</p>
+      <p>Ele dava o seguinte erro quando eu tentava montar:</p>
+      <code>$ mount -o loop system.img /mnt/system</code>
+      <samp><pre>mount: /mnt/system: tipo de sistema de arquivos incorreto, opção inválida, superbloco inválido em /dev/loop3, página de código ou programa auxiliar faltando ou outro erro.</pre></samp>
+        <p>Então, consegui resolver esse impasse com a seguinte solução. Se estiver usando alguma distro Debian-like, instale o pacote "simg2img":</p>
+        <code>$ sudo apt install simg2img</code>
+        <p>Após isso, digite no terminal:</p>
+        <code>$ simg2img system.img system.raw</code>
+        <p>Sendo "system.img" o arquivo da ROM que você quer montar. Após a descompressão, você deve ter um arquivo RAW na sua pasta, então pegue e monte-o normalmente:</p>
+        <code>$ mount system.raw system/</code>
+        <p>Nesse caso, montei na pasta "system" do meu diretório atual, agora é só abrir esta pasta e fazer o que você quiser.</p>
+        <p>Mais detalhes em como reempacotar a imagem do sistema para você instalar no celular, você encontra neste link:</p>
+        <ul>
+          <li>
+            <a href="https://web.archive.org/web/20141021103926/http://andwise.net/?p=403">Unpack/repack ext4 Android system images « AndWise</a>
+          </li>
+        </ul>
+        <p>Over and out!</p>
+    </main>
   </body>
 </html>

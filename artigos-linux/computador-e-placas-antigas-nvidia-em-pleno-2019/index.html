@@ -14,91 +14,91 @@
       <h2>Autor: Cézar Augusto de Campos</h2>
       <h3><em>8 de fevereiro de 2019</em></h3>
       <br><br>
-              <h2>Entendendo o problema</h2>
-        <p>Os drivers de vídeo versão 304, 340 e 390, já são consideradas Legacy. Mas, o que é um <em>driver Legacy?</em></p>
-        <p>Um driver de vídeo Legacy é aquele que não é mais suportado pelo time de desenvolvedores, normalmente, são de GPUs da velha geração. Raramente eles recebem alguma atualização, mas quando recebem, é só para compatibilizar com as versões recentes do Kernel e do Xorg.</p>
-        <p>A cada versão considerada Legacy, uma lista enorme de placas de vídeos perdem a garantia de que vão funcionar.</p>
-        <h2>Último lançamento</h2>
-        <p class="indent-letter">A última versão do 304 foi lançada em 2017 para o kernel mais recente, que na época era o Linux 4.9 e o Xorg era 1.19, então, você tem que ter em mente que essas são versões na qual você deve olhar em sua distro antes de usá-la.</p>
-        <p>Por isso que distros mais novas, como Manjaro, Debian Buster, Ubuntu 18.10 e Linux Mint não funcionam direito e se funcionam, travam de vez em quando; isso porque elas trazem por padrão versões mais novas do kernel e do Xorg e assim, os drivers Legacy não funcionam nestas versões.</p>
-        <p>Além disso, distribuem com o driver de vídeo Nouveau. Neste caso, as distros Rolling Release não vão funcionar no seu velho computador, então, prefira as distribuições Fixed Release.</p>
-        <p>Como exemplo, o Debian estável e seus derivados, para ter certeza de que o Xorg e o Kernel não serão mexidos.</p>
-        <h2>Interfaces</h2>
-        <p>Além disso, nem todos os gerenciadores de janela e interface são compatíveis, das que testei, apenas XFCE e MATE funcionaram perfeitamente, as outras tiveram algum bug. Cinammon, Gnome 3, KDE, Budgie e Deepin, são exemplos.</p>
-        <p>Então, temos que achar uma distro LTS com interface XFCE, ou MATE, para o nosso velho computador.</p>
-        <h2>Procurando uma distro</h2>
-        <p>Com essas informações, podemos procurar a distro ideal, como a minha favorita é Debian estável, eu poderia mostrar como configurá-la. Mas, como não é amigável o suficiente, então achei outra ainda mais fácil.</p>
-        <p>Descobri o <em>Zorin OS</em> há pouco tempo e a julgar pela aparência e usabilidade, é tão fácil quanto o Deepin, mas com a robustez do Debian e Ubuntu LTS.</p>
-        <p>Baixe a versão lite da ISO nesse site e escolha se quer pagar, ou não:</p>
-        <ul>
-          <li><a target="_blank" href="https://zorinos.com/download/lite/">Zorin OS - Página de download</a></li>
-        </ul>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura1.png">
-        </div>
-        <p>Grave a ISO para algum pendrive e instale a distribuição no seu computador. Mas, só um detalhe, durante a instalação, não se esqueça de marcar a opção: "Baixar atualizações enquanto instala Zorin"</p>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura2.jpg">
-        </div>
-        <p>Como o resto da instalação é intuitiva, então vamos pular para a pós-instalação.</p>
-        <h2>Primeira inicialização</h2>
-        <p>Portanto, você acaba de instalar a distro e está inicializando-a pela primeira vez.</p>
-        <p>A sua beleza no gráfico traz até esperança a computadores velhos. Quase não dá pra acreditar que é uma interface XFCE de tão bem acabada, mas, infelizmente ela não funciona bem assim "fora da caixa", então teremos que fazer umas configurações extras.</p>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura3.png">
-        </div>
-        <p>A primeira coisa, é instalar um kernel compatível com a <em>Nvidia</em>. Por padrão, ele vem com a versão 4.15 genérica, então vamos instalar um kernel mais antigo. Abra o terminal <var>Ctrl+Alt+t</var> e dê um update no <em>apt</em>:</p>
-        <code>$ sudo apt update</code>
-        <p>E agora, instale o kernel lowlatency e seus headers:</p>
-        <code>$ sudo apt install linux-image-lowlatency linux-headers-lowlatency</code>
-        <p>Depois de instalar o kernel, é recomendável que você desinstale o kernel atual para você poder inicializar de vez no kernel lowlatency. Para isso, dê o seguinte comando:</p>
-        <code>$ sudo apt --purge remove linux-image-4.15* linux-headers-4.15* linux-modules-4.15*</code>
-        <p>Aparecerá uma mensagem dizendo, você está executando um kernel e tentando remover a mesma versão e perguntará se você quer cancelar a remoção, diga que NÃO!</p>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura4.png">
-        </div>
-        <p>Espere a desinstalação concluir e, por último, dê um <em>update</em> no bootloader:</p>
-        <code>$ sudo update-grub</code>
-        <p>A partir daí, sua nova missão é iniciar o sistema no kernel que você acabou de instalar. Para isso, digite reboot no terminal e espere reinicializar.</p>
-        <h2>Segunda inicialização</h2>
-        <p>Para termos certeza de que você inicializou com o kernel baixa latência, faremos o teste. Digite no terminal e veja a saída que ele dá:</p>
-        <code>$ uname -r</code>
-        <br>
-        <samp>4.4.0-141-lowlatency</samp>
-        <p>Se for parecida com essa, então você iniciou com o kernel certo.</p>
-        <p>Comecemos a instalação do bendito driver, invoque os poderes do apt com o seguinte comando:</p>
-        <code>$ sudo apt install nvidia-304</code>
-        <p>Isso irá instalar o driver na versão que está ali, junto também do build-essentials que irá compilar todo o seu kernel baixa latência, a fim dos drivers serem posto lá no meio. Se o texto final for semelhante a esse, então você está pronto para continuar:</p>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura5.png">
-        </div>
-        <p>O próximo passo, é configurar o X, faça isso com um só comando:</p>
-        <code>$ sudo nvidia-xconfig</code>
-        <p>Com o servidor X configurado, reinicie a máquina. ;)</p>
-        <h2>Conclusão</h2>
-        <p>Após a reinicialização se tudo der certo, o GRUB deve iniciar somente no kernel baixa latência, com os drivers de vídeo que você instalou.</p>
-        <p>Confira, após o login, se existe um aplicativo chamado Nvidia no menu de aplicações e abra-o. Se tiver uma cara igual a essa abaixo, então parabéns, você é o cara! Ou, a cara. rsrs</p>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura6.png">
-        </div>
-        <p>Aproveite seu "novo velho computador", enquanto as distros ainda suportam ele até 2021.</p>
-        <p>A simplicidade de um ambiente bonito, mesmo o seu hardware sendo antigo e mal suportado em uma interface leve com o XFCE. Se você for audacioso(a), dá até para jogar nesse estado.</p>
-        <p>É isso. Espero ter esclarecido o por quê as distros Linux não funcionarem de primeira em algumas máquinas, principalmente com drivers de código fechado, que não é obrigação das distribuições suportá-los. ;)</p>
-        <h2>Bibliografia</h2>
-        <ul>
-          <li>O que é um driver legacy?<br><a target="_blank" href="https://www.nvidia.com/object/IO_32667.html">What's a legacy driver?</a>
-          </li>
-          <li>Requisitos mínimos de software para o driver Legacy:<br><a target="_blank" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.137/README/minimumrequirements.html">Chapter 2. Minimum software requirements</a>
-          </li>
-          <li>Tabela com as versões de pacote no Ubuntu LTS (consultado a versão do Xorg):<br>
-            <a target="_blank" href="https://distrowatch.com/table.php?distribution=ubuntu">DistroWatch.com: Ubuntu</a>
-          </li>
-          <li>Tempo de suporte do Ubuntu LTS 16.04 (tempo até você comprar uma máquina nova):<br>
-            <a target="_blank" href="https://www.ubuntu.com/about/release-cycle">Ubuntu release cycle &lt&lt Ubuntu</a>
-          </li>
-          <li>Versões de lançamento Linux e suas datas:<br><a target="_blank" href="https://www.kernel.org/category/releases.html">The Linux Kernel Archives - Release</a>
-          </li>
-        </ul>
-      </main>
+      <h2>Entendendo o problema</h2>
+      <p>Os drivers de vídeo versão 304, 340 e 390, já são consideradas Legacy. Mas, o que é um <em>driver Legacy?</em></p>
+      <p>Um driver de vídeo Legacy é aquele que não é mais suportado pelo time de desenvolvedores, normalmente, são de GPUs da velha geração. Raramente eles recebem alguma atualização, mas quando recebem, é só para compatibilizar com as versões recentes do Kernel e do Xorg.</p>
+      <p>A cada versão considerada Legacy, uma lista enorme de placas de vídeos perdem a garantia de que vão funcionar.</p>
+      <h2>Último lançamento</h2>
+      <p class="indent-letter">A última versão do 304 foi lançada em 2017 para o kernel mais recente, que na época era o Linux 4.9 e o Xorg era 1.19, então, você tem que ter em mente que essas são versões na qual você deve olhar em sua distro antes de usá-la.</p>
+      <p>Por isso que distros mais novas, como Manjaro, Debian Buster, Ubuntu 18.10 e Linux Mint não funcionam direito e se funcionam, travam de vez em quando; isso porque elas trazem por padrão versões mais novas do kernel e do Xorg e assim, os drivers Legacy não funcionam nestas versões.</p>
+      <p>Além disso, distribuem com o driver de vídeo Nouveau. Neste caso, as distros Rolling Release não vão funcionar no seu velho computador, então, prefira as distribuições Fixed Release.</p>
+      <p>Como exemplo, o Debian estável e seus derivados, para ter certeza de que o Xorg e o Kernel não serão mexidos.</p>
+      <h2>Interfaces</h2>
+      <p>Além disso, nem todos os gerenciadores de janela e interface são compatíveis, das que testei, apenas XFCE e MATE funcionaram perfeitamente, as outras tiveram algum bug. Cinammon, Gnome 3, KDE, Budgie e Deepin, são exemplos.</p>
+      <p>Então, temos que achar uma distro LTS com interface XFCE, ou MATE, para o nosso velho computador.</p>
+      <h2>Procurando uma distro</h2>
+      <p>Com essas informações, podemos procurar a distro ideal, como a minha favorita é Debian estável, eu poderia mostrar como configurá-la. Mas, como não é amigável o suficiente, então achei outra ainda mais fácil.</p>
+      <p>Descobri o <em>Zorin OS</em> há pouco tempo e a julgar pela aparência e usabilidade, é tão fácil quanto o Deepin, mas com a robustez do Debian e Ubuntu LTS.</p>
+      <p>Baixe a versão lite da ISO nesse site e escolha se quer pagar, ou não:</p>
+      <ul>
+        <li><a target="_blank" href="https://zorinos.com/download/lite/">Zorin OS - Página de download</a></li>
+      </ul>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura1.png">
+      </div>
+      <p>Grave a ISO para algum pendrive e instale a distribuição no seu computador. Mas, só um detalhe, durante a instalação, não se esqueça de marcar a opção: "Baixar atualizações enquanto instala Zorin"</p>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura2.jpg">
+      </div>
+      <p>Como o resto da instalação é intuitiva, então vamos pular para a pós-instalação.</p>
+      <h2>Primeira inicialização</h2>
+      <p>Portanto, você acaba de instalar a distro e está inicializando-a pela primeira vez.</p>
+      <p>A sua beleza no gráfico traz até esperança a computadores velhos. Quase não dá pra acreditar que é uma interface XFCE de tão bem acabada, mas, infelizmente ela não funciona bem assim "fora da caixa", então teremos que fazer umas configurações extras.</p>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura3.png">
+      </div>
+      <p>A primeira coisa, é instalar um kernel compatível com a <em>Nvidia</em>. Por padrão, ele vem com a versão 4.15 genérica, então vamos instalar um kernel mais antigo. Abra o terminal <var>Ctrl+Alt+t</var> e dê um update no <em>apt</em>:</p>
+      <code>$ sudo apt update</code>
+      <p>E agora, instale o kernel lowlatency e seus headers:</p>
+      <code>$ sudo apt install linux-image-lowlatency linux-headers-lowlatency</code>
+      <p>Depois de instalar o kernel, é recomendável que você desinstale o kernel atual para você poder inicializar de vez no kernel lowlatency. Para isso, dê o seguinte comando:</p>
+      <code>$ sudo apt --purge remove linux-image-4.15* linux-headers-4.15* linux-modules-4.15*</code>
+      <p>Aparecerá uma mensagem dizendo, você está executando um kernel e tentando remover a mesma versão e perguntará se você quer cancelar a remoção, diga que NÃO!</p>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura4.png">
+      </div>
+      <p>Espere a desinstalação concluir e, por último, dê um <em>update</em> no bootloader:</p>
+      <code>$ sudo update-grub</code>
+      <p>A partir daí, sua nova missão é iniciar o sistema no kernel que você acabou de instalar. Para isso, digite reboot no terminal e espere reinicializar.</p>
+      <h2>Segunda inicialização</h2>
+      <p>Para termos certeza de que você inicializou com o kernel baixa latência, faremos o teste. Digite no terminal e veja a saída que ele dá:</p>
+      <code>$ uname -r</code>
+      <br>
+      <samp>4.4.0-141-lowlatency</samp>
+      <p>Se for parecida com essa, então você iniciou com o kernel certo.</p>
+      <p>Comecemos a instalação do bendito driver, invoque os poderes do apt com o seguinte comando:</p>
+      <code>$ sudo apt install nvidia-304</code>
+      <p>Isso irá instalar o driver na versão que está ali, junto também do build-essentials que irá compilar todo o seu kernel baixa latência, a fim dos drivers serem posto lá no meio. Se o texto final for semelhante a esse, então você está pronto para continuar:</p>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura5.png">
+      </div>
+      <p>O próximo passo, é configurar o X, faça isso com um só comando:</p>
+      <code>$ sudo nvidia-xconfig</code>
+      <p>Com o servidor X configurado, reinicie a máquina. ;)</p>
+      <h2>Conclusão</h2>
+      <p>Após a reinicialização se tudo der certo, o GRUB deve iniciar somente no kernel baixa latência, com os drivers de vídeo que você instalou.</p>
+      <p>Confira, após o login, se existe um aplicativo chamado Nvidia no menu de aplicações e abra-o. Se tiver uma cara igual a essa abaixo, então parabéns, você é o cara! Ou, a cara. rsrs</p>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura6.png">
+      </div>
+      <p>Aproveite seu "novo velho computador", enquanto as distros ainda suportam ele até 2021.</p>
+      <p>A simplicidade de um ambiente bonito, mesmo o seu hardware sendo antigo e mal suportado em uma interface leve com o XFCE. Se você for audacioso(a), dá até para jogar nesse estado.</p>
+      <p>É isso. Espero ter esclarecido o por quê as distros Linux não funcionarem de primeira em algumas máquinas, principalmente com drivers de código fechado, que não é obrigação das distribuições suportá-los. ;)</p>
+      <h2>Bibliografia</h2>
+      <ul>
+        <li>O que é um driver legacy?<br><a target="_blank" href="https://www.nvidia.com/object/IO_32667.html">What's a legacy driver?</a>
+        </li>
+        <li>Requisitos mínimos de software para o driver Legacy:<br><a target="_blank" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.137/README/minimumrequirements.html">Chapter 2. Minimum software requirements</a>
+        </li>
+        <li>Tabela com as versões de pacote no Ubuntu LTS (consultado a versão do Xorg):<br>
+          <a target="_blank" href="https://distrowatch.com/table.php?distribution=ubuntu">DistroWatch.com: Ubuntu</a>
+        </li>
+        <li>Tempo de suporte do Ubuntu LTS 16.04 (tempo até você comprar uma máquina nova):<br>
+          <a target="_blank" href="https://www.ubuntu.com/about/release-cycle">Ubuntu release cycle &lt&lt Ubuntu</a>
+        </li>
+        <li>Versões de lançamento Linux e suas datas:<br><a target="_blank" href="https://www.kernel.org/category/releases.html">The Linux Kernel Archives - Release</a>
+        </li>
+      </ul>
+    </main>
   </body>
 </html>

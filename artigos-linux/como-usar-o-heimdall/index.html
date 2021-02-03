@@ -13,124 +13,124 @@
       <h1>Como usar o Heimdall</h1>
       <h2>Autor: Cézar Augusto de Campos</h2>
       <h3><em>24 de março de 2019</em></h3>
-              <h2>Preparação</h2>
-        <p>Se você não sabe o que é, ou não tem o <em>Heimdall</em> instalado, leia este artigo:</p>
-        <br>
-        <a href="../introducao-ao-heimdall/index.html">Introdução ao Heimdall</a>
-        <br>
-        <h2>Introdução</h2>
-        <p class="indent-letter">No mundo do Android, as pessoas que possuem um celular da <em>Samsung</em> se acostumam a utilizar o Odin para fazer a instalação da <em>Stock ROM</em> e custom recoveries. Isso é até normal, pois toda a comunidade faz isso e os tutoriais, em sua maioria, se voltam ao uso do Odin por ser a ferramenta oficial da Samsung.</p>
-        <p>Porém, quando se trata de distribuições Linux, o Odin não funciona (pois não foi feito para Linux) e os usuários não têm o que fazer, senão a recorrer a algum computador com o Windows para fazer isso.</p>
-        <p>Agora que temos o Heimdall como alternativa, vamos aprender agora como se faz para instalar uma Stock ROM no seu Galaxy.</p>
-        <h2>Download da stock ROM</h2>
-        <p>Este é o passo que, em minha opinião, é o mais chato do artigo, visto que o download pode demorar algumas horas, pois todas as distribuidoras de firmware adoram limitar a banda de rede para os usuários gratuitos A não ser que você vire usuário premium, a taxa de download pode beirar alguns Kilobytes por segundo.</p>
-        <p>Vá para o site <a href="https://samdb.org/pt/">PT | SamDb.org</a> e escreva na caixa de pesquisa o modelo exato do seu aparelho. Para saber o modelo do seu celular Android, vá em: Configurações -&gt Sobre o dispositvo -&gt Modelo do dispositivo.</p>
-        <p>Neste artigo usaremos como exemplo um Galaxy Grand Prime, cujo modelo é SM-G531H.</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura1.png">
-        </div>
-        <p>Nesse site, digite e clique no resultado que aparecer do seu aparelho e não dê Enter. Agora, feita a pesquisa, vamos escolher um firmware para o nosso aparelho.</p>
-        <p>Obs.: existe a questão de nem todas as bandas de base serem compatíveis, mas para não complicar o artigo, escolha sempre a ROM do seu país, Ok?</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura2.png">
-        </div>
-        <p>Neste caso, escolhi a variante ZTO mais recente do Brasil, pois ela é uma ROM neutra. As variantes ZTA e ZTR acompanham bloatwares das operadoras.</p>
-        <p>Na página de download, escolha a opção "Velocidade Lenta" e aguarde 60 segundos, se não aparecer um contador de 60 segundos, o jeito é se registrar mesmo. No meu caso não precisou, mas se precisar é só fazer uma conta e logar para efetuar o download.</p>
-        <p>Vai aparecer uma tela escrito "Velocidade lenta" de novo, você pode clicar nela para começar o download.</p>
-        <p>Opcionalmente, você pode querer usar o wget, visto que erros podem acontecer durante o download e o wget é mais firme para baixar.</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura3.png">
-        </div>
-        <p>Para isso, clique com o botão direito do mouse sobre o "Velocidade lenta" e copie o link, tal como na imagem acima e cole no terminal:</p>
-        <code>$ wget &ltlink que você copiou&gt -O SM-G531H-Stock.zip</code>
-        <p>Agora, vá tomar um café, ou tirar um cochilo, pois o download demorará bastante.</p>
-        <h2>Preparação do arquivo</h2>
-        <p>Uma vez que o arquivo tenha sido baixado, é hora de mexer com ele para funcionar no Heimdall. No Windows com o Odin, basta você extrair o ".zip" e usar o arquivo tal como está, porém no Linux um esforcinho a mais é necessário.</p>
-        <p>Pegue o seu arquivo e extraia.</p>
-        <code>$ unzip SM-G531H-Stock.zip</code>
-        <br>
-        <samp>Archive:  SM-G531H-Stock.zip<br>inflating: G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar.md5</samp>
-        <p>Note que o nome do arquivo termina com ".tar.md5". Pois bem, renomeie o arquivo tirando o ".md5" no final.</p>
-        <code>$ mv G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar.md5 G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar --verbose</code>
-        <samp>'G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar.md5' -> 'G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar'</samp>
-        <p>Agora que ele é um arquivo ".tar", podemos extraí-lo de novo.</p>
-        <code>$ tar -xvf G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar</code>
+      <h2>Preparação</h2>
+      <p>Se você não sabe o que é, ou não tem o <em>Heimdall</em> instalado, leia este artigo:</p>
+      <br>
+      <a href="../introducao-ao-heimdall/index.html">Introdução ao Heimdall</a>
+      <br>
+      <h2>Introdução</h2>
+      <p class="indent-letter">No mundo do Android, as pessoas que possuem um celular da <em>Samsung</em> se acostumam a utilizar o Odin para fazer a instalação da <em>Stock ROM</em> e custom recoveries. Isso é até normal, pois toda a comunidade faz isso e os tutoriais, em sua maioria, se voltam ao uso do Odin por ser a ferramenta oficial da Samsung.</p>
+      <p>Porém, quando se trata de distribuições Linux, o Odin não funciona (pois não foi feito para Linux) e os usuários não têm o que fazer, senão a recorrer a algum computador com o Windows para fazer isso.</p>
+      <p>Agora que temos o Heimdall como alternativa, vamos aprender agora como se faz para instalar uma Stock ROM no seu Galaxy.</p>
+      <h2>Download da stock ROM</h2>
+      <p>Este é o passo que, em minha opinião, é o mais chato do artigo, visto que o download pode demorar algumas horas, pois todas as distribuidoras de firmware adoram limitar a banda de rede para os usuários gratuitos A não ser que você vire usuário premium, a taxa de download pode beirar alguns Kilobytes por segundo.</p>
+      <p>Vá para o site <a href="https://samdb.org/pt/">PT | SamDb.org</a> e escreva na caixa de pesquisa o modelo exato do seu aparelho. Para saber o modelo do seu celular Android, vá em: Configurações -&gt Sobre o dispositvo -&gt Modelo do dispositivo.</p>
+      <p>Neste artigo usaremos como exemplo um Galaxy Grand Prime, cujo modelo é SM-G531H.</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura1.png">
+      </div>
+      <p>Nesse site, digite e clique no resultado que aparecer do seu aparelho e não dê Enter. Agora, feita a pesquisa, vamos escolher um firmware para o nosso aparelho.</p>
+      <p>Obs.: existe a questão de nem todas as bandas de base serem compatíveis, mas para não complicar o artigo, escolha sempre a ROM do seu país, Ok?</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura2.png">
+      </div>
+      <p>Neste caso, escolhi a variante ZTO mais recente do Brasil, pois ela é uma ROM neutra. As variantes ZTA e ZTR acompanham bloatwares das operadoras.</p>
+      <p>Na página de download, escolha a opção "Velocidade Lenta" e aguarde 60 segundos, se não aparecer um contador de 60 segundos, o jeito é se registrar mesmo. No meu caso não precisou, mas se precisar é só fazer uma conta e logar para efetuar o download.</p>
+      <p>Vai aparecer uma tela escrito "Velocidade lenta" de novo, você pode clicar nela para começar o download.</p>
+      <p>Opcionalmente, você pode querer usar o wget, visto que erros podem acontecer durante o download e o wget é mais firme para baixar.</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura3.png">
+      </div>
+      <p>Para isso, clique com o botão direito do mouse sobre o "Velocidade lenta" e copie o link, tal como na imagem acima e cole no terminal:</p>
+      <code>$ wget &ltlink que você copiou&gt -O SM-G531H-Stock.zip</code>
+      <p>Agora, vá tomar um café, ou tirar um cochilo, pois o download demorará bastante.</p>
+      <h2>Preparação do arquivo</h2>
+      <p>Uma vez que o arquivo tenha sido baixado, é hora de mexer com ele para funcionar no Heimdall. No Windows com o Odin, basta você extrair o ".zip" e usar o arquivo tal como está, porém no Linux um esforcinho a mais é necessário.</p>
+      <p>Pegue o seu arquivo e extraia.</p>
+      <code>$ unzip SM-G531H-Stock.zip</code>
+      <br>
+      <samp>Archive:  SM-G531H-Stock.zip<br>inflating: G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar.md5</samp>
+      <p>Note que o nome do arquivo termina com ".tar.md5". Pois bem, renomeie o arquivo tirando o ".md5" no final.</p>
+      <code>$ mv G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar.md5 G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar --verbose</code>
+      <samp>'G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar.md5' -> 'G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar'</samp>
+      <p>Agora que ele é um arquivo ".tar", podemos extraí-lo de novo.</p>
+      <code>$ tar -xvf G531HVJS0ARI1_G531HZTO0ARH2_G531HUBU0AQI1_HOME.tar</code>
 
-        <samp>
-          <br>boot.img<br>
-          recovery.img<br>
-          system.img<br>
-          cache.img<br>
-          hidden.img<br>
-          SPRDCP.img<br>
-          SPRDDSP.img<br></samp>
-        <p>Dava para fazer isso via interface gráfica também, sem problemas.</p>
-        <p>Note que saiu um monte de arquivos com a extensão ".img", é com eles que o nosso programa Heimdall vai trabalhar. É bom você salvar esses arquivos em uma pasta separada, para fins de organização juntamente com o arquivo ".pit" que veremos adiante.</p>
-        <h2>EXTRAÇÃO DO ARQUIVO PIT</h2>
-        <p>Obs.: Antes de começar, se o seu celular tiver FAP LOCK, vá nas opções do desenvolvedor e ative a opção "Desbloquear por OEM" antes de prosseguir.</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura4.png">
-        </div>
-        <p>É agora que colocamos o celular em modo download, desligue o aparelho e pressione os botões POWER + VOLUME BAIXO + HOME por alguns segundos até vibrar. Ignore o aviso pressionando VOLUME CIMA para continuar. Conecte o seu celular ao computador com um cabo USB (de qualidade) e então partiremos ao Heimdall.</p>
-        <h2>VIA INTERFACE GRÁFICA</h2>
-        <p>Comecemos pela interface gráfica. Digite em um terminal qualquer para lançar o Heimdall.</p>
-        <code>$ sudo heimdall-frontend</code>
-        <p>Vá na aba: "Utilities"</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura5.png">
-        </div>
-        <p>Para testar a conexão, clique em Detect Device, se aparecer "Device detected", então está tudo certo. Na área escrita "Download PIT" tem um botão escrito "Save As", clique lá para escolher aonde salvar o seu arquivo PIT. E por último clique em "Download".</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura6.png">
-        </div>
-        <p>"Pit file download succesful" é o que deve aparecer. Confira aonde você salvou o arquivo PIT para ter certeza de que ele não tem 0 kbytes, se tiver apague-o e repita o procedimento.</p>
-        <h2>Via linha de comando</h2>
-        <p>Se você é uma daquelas pessoas que preferem o terminal, bastava apenas digitar:</p>
-        <code>$ sudo heimdall download-pit --output arquivo.pit</code>
-        <br>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura7.png">
-        </div>
-        <p>Após isso, o arquivo será salvo no diretório atual.</p>
-        <p>É bom você fazer um becape deste arquivo para usos futuros, quem sabe... pois vamos precisar dele adiante.</p>
-        <h2>Instalação da stock ROM</h2>
-        <p>É agora que vem o momento mais importante, é quando vamos instalar a stock ROM do seu aparelho. Você já tem o arquivo ".pit" e os outros arquivos ".img" naquela pasta. Primeiro, vou mostrar em interface gráfica e depois por linha de comando.</p>
-        <p>Coloque o seu aparelho em modo download, conecte ao computador e abra o Heimdall com esse comando:</p>
-        <code>$ sudo heimdall-frontend</code>
-        <br>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura8.png">
-        </div>
-        <p>Na seção "PIT" existe o botão "Browse", então clique ali para selecionarmos o arquivo ".pit" gerado anteriormente. Com o arquivo ".pit" selecionado, comecemos a selecionar os arquivos ".img" para cada partitição.</p>
-        <p>Agora vem a parte boa, na seção "Partition Files" clique em "Add".</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura9.png">
-        </div>
-        <p>Agora a seção "Partition Details" vai te dar a opção de escolher uma "Partition Name", ou nome da partição e note que logo abaixo está escrito: "File" (boot.img) e depois "Browse". O que quer dizer, é que você deve selecionar o arquivo "boot.img" de um daqueles arquivos ".img" que você descompactou anteriormente. Este arquivo será queimado na partição KERNEL.</p>
-        <p>Agora, clique em "Add" de novo e selecione outro nome de partição, é claro que eles não vão estar em ordem igual aqui, então você vai ter que selecionar uma partição por vez até o parâmetro "File" mostrar um nome de arquivo que você possua. Como no meu caso, foram só sete arquivos, você não vai preencher todas as trinta partições.</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura10.png">
-        </div>
-        <p>Preste bem atenção nos nomes dos arquivos que você está flasheando nas partições, não vá colocar o "boot.img" na partição RECOVERY por exemplo. Vá adicionando partições até que todos os arquivos ".img" que você baixou estejam selecionados.</p>
-        <p>A sua tela "Partition Files" deve estar mais ou menos assim:</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura11.png">
-        </div>
-        <p>Se você adicionou alguma partição por engano, selecione-a e depois clique em REMOVE.</p>
-        <p>Tudo preenchido, nenhum arquivo faltando, basta dar um START.</p>
-        <div class="img-container mw-50-md mx-auto">
-          <img src="./figura12.png">
-        </div>
-        <p>Se tudo der certo, o seu telefone deve reiniciar com a nova stock rom instalada. =)</p>
-        <h2>Via terminal</h2>
-        <p>A instalação pelo terminal é mais direto ao ponto. A principal diferença, é que ao invés de selecionarmos os arquivos pelo mouse um por um, nós vamos passar todos eles através de ARGUMENTOS pela linha de comando.</p>
-        <p>Com o celular em modo download conectado ao PC, faça um teste de conexão:</p>
-        <code># heimdall detect</code>
-        <br>
-        <samp>Device detected</samp>
-        <p>Tudo certo, então vamos instalar a stock rom:</p>
-        <code># heimdall flash --pit arquivo.pit --KERNEL boot.img --CACHE cache.img --HIDDEN hidden.img --RECOVERY recovery.img --WDSP SPRDDSP.img --MODEM SPRDCP.img --SYSTEM system.img</code>
-        <samp><pre>
+      <samp>
+        <br>boot.img<br>
+        recovery.img<br>
+        system.img<br>
+        cache.img<br>
+        hidden.img<br>
+        SPRDCP.img<br>
+        SPRDDSP.img<br></samp>
+      <p>Dava para fazer isso via interface gráfica também, sem problemas.</p>
+      <p>Note que saiu um monte de arquivos com a extensão ".img", é com eles que o nosso programa Heimdall vai trabalhar. É bom você salvar esses arquivos em uma pasta separada, para fins de organização juntamente com o arquivo ".pit" que veremos adiante.</p>
+      <h2>EXTRAÇÃO DO ARQUIVO PIT</h2>
+      <p>Obs.: Antes de começar, se o seu celular tiver FAP LOCK, vá nas opções do desenvolvedor e ative a opção "Desbloquear por OEM" antes de prosseguir.</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura4.png">
+      </div>
+      <p>É agora que colocamos o celular em modo download, desligue o aparelho e pressione os botões POWER + VOLUME BAIXO + HOME por alguns segundos até vibrar. Ignore o aviso pressionando VOLUME CIMA para continuar. Conecte o seu celular ao computador com um cabo USB (de qualidade) e então partiremos ao Heimdall.</p>
+      <h2>VIA INTERFACE GRÁFICA</h2>
+      <p>Comecemos pela interface gráfica. Digite em um terminal qualquer para lançar o Heimdall.</p>
+      <code>$ sudo heimdall-frontend</code>
+      <p>Vá na aba: "Utilities"</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura5.png">
+      </div>
+      <p>Para testar a conexão, clique em Detect Device, se aparecer "Device detected", então está tudo certo. Na área escrita "Download PIT" tem um botão escrito "Save As", clique lá para escolher aonde salvar o seu arquivo PIT. E por último clique em "Download".</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura6.png">
+      </div>
+      <p>"Pit file download succesful" é o que deve aparecer. Confira aonde você salvou o arquivo PIT para ter certeza de que ele não tem 0 kbytes, se tiver apague-o e repita o procedimento.</p>
+      <h2>Via linha de comando</h2>
+      <p>Se você é uma daquelas pessoas que preferem o terminal, bastava apenas digitar:</p>
+      <code>$ sudo heimdall download-pit --output arquivo.pit</code>
+      <br>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura7.png">
+      </div>
+      <p>Após isso, o arquivo será salvo no diretório atual.</p>
+      <p>É bom você fazer um becape deste arquivo para usos futuros, quem sabe... pois vamos precisar dele adiante.</p>
+      <h2>Instalação da stock ROM</h2>
+      <p>É agora que vem o momento mais importante, é quando vamos instalar a stock ROM do seu aparelho. Você já tem o arquivo ".pit" e os outros arquivos ".img" naquela pasta. Primeiro, vou mostrar em interface gráfica e depois por linha de comando.</p>
+      <p>Coloque o seu aparelho em modo download, conecte ao computador e abra o Heimdall com esse comando:</p>
+      <code>$ sudo heimdall-frontend</code>
+      <br>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura8.png">
+      </div>
+      <p>Na seção "PIT" existe o botão "Browse", então clique ali para selecionarmos o arquivo ".pit" gerado anteriormente. Com o arquivo ".pit" selecionado, comecemos a selecionar os arquivos ".img" para cada partitição.</p>
+      <p>Agora vem a parte boa, na seção "Partition Files" clique em "Add".</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura9.png">
+      </div>
+      <p>Agora a seção "Partition Details" vai te dar a opção de escolher uma "Partition Name", ou nome da partição e note que logo abaixo está escrito: "File" (boot.img) e depois "Browse". O que quer dizer, é que você deve selecionar o arquivo "boot.img" de um daqueles arquivos ".img" que você descompactou anteriormente. Este arquivo será queimado na partição KERNEL.</p>
+      <p>Agora, clique em "Add" de novo e selecione outro nome de partição, é claro que eles não vão estar em ordem igual aqui, então você vai ter que selecionar uma partição por vez até o parâmetro "File" mostrar um nome de arquivo que você possua. Como no meu caso, foram só sete arquivos, você não vai preencher todas as trinta partições.</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura10.png">
+      </div>
+      <p>Preste bem atenção nos nomes dos arquivos que você está flasheando nas partições, não vá colocar o "boot.img" na partição RECOVERY por exemplo. Vá adicionando partições até que todos os arquivos ".img" que você baixou estejam selecionados.</p>
+      <p>A sua tela "Partition Files" deve estar mais ou menos assim:</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura11.png">
+      </div>
+      <p>Se você adicionou alguma partição por engano, selecione-a e depois clique em REMOVE.</p>
+      <p>Tudo preenchido, nenhum arquivo faltando, basta dar um START.</p>
+      <div class="img-container mw-50-md mx-auto">
+        <img src="./figura12.png">
+      </div>
+      <p>Se tudo der certo, o seu telefone deve reiniciar com a nova stock rom instalada. =)</p>
+      <h2>Via terminal</h2>
+      <p>A instalação pelo terminal é mais direto ao ponto. A principal diferença, é que ao invés de selecionarmos os arquivos pelo mouse um por um, nós vamos passar todos eles através de ARGUMENTOS pela linha de comando.</p>
+      <p>Com o celular em modo download conectado ao PC, faça um teste de conexão:</p>
+      <code># heimdall detect</code>
+      <br>
+      <samp>Device detected</samp>
+      <p>Tudo certo, então vamos instalar a stock rom:</p>
+      <code># heimdall flash --pit arquivo.pit --KERNEL boot.img --CACHE cache.img --HIDDEN hidden.img --RECOVERY recovery.img --WDSP SPRDDSP.img --MODEM SPRDCP.img --SYSTEM system.img</code>
+      <samp><pre>
 . . .
 Uploading KERNEL
 100%
@@ -140,20 +140,20 @@ Uploading CACHE
 100%
 CACHE upload successful
 . . .</pre></samp>
-          <p>Se a sua saída de texto for mais ou menos assim e der sucesso em todas as partições, o seu telefone vai reiniciar já na stock ROM. =)</p>
-          <h2>Explicação</h2>
-          <p>O parâmetro "--pit" deve ser procedido do local onde está o arquivo ".pit" e os demais são os nomes das partições e seus arquivos: "--RECOVERY recovery.img --KERNEL boot.img --WDSP SPRDDSP.img..."</p>
-          <p>Onde:</p>
-          <ul>
-            <li>"--RECOVERY" é a partição recovery do seu celular;</li>
-            <li>"recovery.img" é o arquivo de imagem que será gravado nela.</li>
-          </ul>
-          <p>Você pode um dia se perguntar, mas e esses nomes complicados? "--WDSP SPRDDSP.img"</p>
-          <p>Como vou saber o nome de cada partição onde cada arquivo vai? Bem, pequeno gafanhoto, aí você perguntou demais, mas vamos ao trabalho.</p>
-          <p>O arquivo ".pit" que você extraiu vai ser útil, digite no terminal:</p>
-          <code>$ heimdall print-pit --file arquivo.pit</code>
-          <p>Ele vai imprimir um texto enorme detalhando todas as trinta partições do celular, é em cada bloco de texto que eu vejo o nome da partição e o arquivo que vai nela. Isso tem que ser anotado para depois ser passado como argumento ao Heimdall. Por exemplo:</p>
-          <samp><pre>
+        <p>Se a sua saída de texto for mais ou menos assim e der sucesso em todas as partições, o seu telefone vai reiniciar já na stock ROM. =)</p>
+        <h2>Explicação</h2>
+        <p>O parâmetro "--pit" deve ser procedido do local onde está o arquivo ".pit" e os demais são os nomes das partições e seus arquivos: "--RECOVERY recovery.img --KERNEL boot.img --WDSP SPRDDSP.img..."</p>
+        <p>Onde:</p>
+        <ul>
+          <li>"--RECOVERY" é a partição recovery do seu celular;</li>
+          <li>"recovery.img" é o arquivo de imagem que será gravado nela.</li>
+        </ul>
+        <p>Você pode um dia se perguntar, mas e esses nomes complicados? "--WDSP SPRDDSP.img"</p>
+        <p>Como vou saber o nome de cada partição onde cada arquivo vai? Bem, pequeno gafanhoto, aí você perguntou demais, mas vamos ao trabalho.</p>
+        <p>O arquivo ".pit" que você extraiu vai ser útil, digite no terminal:</p>
+        <code>$ heimdall print-pit --file arquivo.pit</code>
+        <p>Ele vai imprimir um texto enorme detalhando todas as trinta partições do celular, é em cada bloco de texto que eu vejo o nome da partição e o arquivo que vai nela. Isso tem que ser anotado para depois ser passado como argumento ao Heimdall. Por exemplo:</p>
+        <samp><pre>
 --- Entry #29 ---
 Binary Type: 0 (AP)
 Device Type: 2 (MMC)
@@ -167,46 +167,46 @@ File Size (Obsolete): 0
 Partition Name: HIDDEN
 Flash Filename: hidden.img
 FOTA Filename:
-          </pre></samp>
-          <p>Veja que na linha "Partition Name" está "HIDDEN" toda em maiúscula e embaixo "hidden.img" indicando o arquivo a ser instalado. O argumento fica assim: "--HIDDEN hidden.img"</p>
-          <p>Ou, pode ser o número da partição. O Heimdall também aceita: "--26 hidden.img"</p>
-          <p>E assim você vai juntando argumentos até o comando ficar completo:</p>
-          <code># heimdall flash --pit arquivo.pit --KERNEL boot.img --CACHE cache.img --HIDDEN hidden.img --RECOVERY recovery.img --WDSP SPRDDSP.img --MODEM SPRDCP.img --SYSTEM system.img</code>
-          <p>É assim que se faz pelo terminal, pequenos gafanhotos. ;-)</p>
-          <p>Bom, se o seu objetivo era só instalar a Stock ROM, o artigo acaba por aqui. Mas se você quiser explorar mais uma funcionalidade do Heimdall, passe para a próxima página.</p>
-          <h2>Como criar um Heimdall package</h2>
-          <p>Isso tudo seria mais fácil se fosse que nem no Odin, onde você só escolhe o arquivo e instala, nada de comandos, arquivo ".pit" e partições do celular. Pois bem, o Heimdall também é capaz de fazer isso se todas as distribuidoras de firmware distribuíssem Heimdall packages, ou pacotes do Heimdall. Com eles, você só carrega o pacote na aba Load Package do Heimdall e estaria tudo certo.</p>
-          <p>Mas, como ninguém distribui esses pacotes, você pode ser um dos primeiros a fazer isso e facilitar a vida de outros usuários do Heimdall que possuem o mesmo aparelho que você.</p>
-          <p>Aproveitando o embalo que você instalou a stock ROM pela interface gráfica do Heimdall e tem todos os arquivos e partições selecionados, você pode querer criar um pacote para si mesmo no futuro, ou para outros usuários.</p>
-          <p>É muito simples, do jeito que o programa estava na hora que você instalou a stock ROM pela interface gráfica, todos os arquivos ".img" para suas respectivas partições, a aba "Create Package" vai se tornar clicável.</p>
-          <p>É obrigatório ter o nome de um desenvolvedor e o nome de um aparelho suportado. Se for apenas para uso pessoal, você pode preencher qualquer coisa, mas se você pretende distribuir internet à fora, é no mínimo ÉTICO que você preencha todas as informações corretamente para evitar bricks desnecessários de outras pessoas.</p>
-          <div class="img-container mw-50-md mx-auto">
-            <img src="./figura13.png">
-          </div>
-          <p>No campo "Firmware Name" é ideal que você coloque o mesmo nome que veio quando você baixou a ROM pela primeira vez. Este nome usualmente é a versão da banda de base usado para identificar ROMs únicas de cada país e operadoras.</p>
-          <div class="img-container mw-50-md mx-auto">
-            <img src="./figura14.png">
-          </div>
-          <p>Na aba "Device Info" você vai preencher os dados do aparelho à qual esta ROM pode ser instalada. No "Product Code" se coloca o modelo do aparelho (conforme a documentação pede).</p>
-          <p>Após todas as informações serem preenchidas, o botão "Build" vai se tornar clicável e é aí que o pacote é criado.</p>
-          <p>Você então escolhe um nome para o arquivo e a pasta onde ele será salvo.</p>
-          <div class="img-container mw-50-md mx-auto">
-            <img src="./figura15.png">
-          </div>
-          <p>Mais tarde, se você quiser usar este pacote, você pode descarrega-lo pela aba "Load Package" do Heimdall.</p>
-          <p>É isso.</p>
-          <h2>Conclusão</h2>
-          <p>Pronto! Agora você sabe como fazer um monte de coisas no seu Samsung Galaxy sem depender mais do Odin para isso! É recomendável que você não instale binários de terceiros, caso seu aparelho ainda esteja na garantia.</p>
-          <p>O autor se exime da responsabilidade por qualquer soft-brick, guerra nuclear e fim do mundo e como sabemos, você foi avisado.</p>
-          <p>Espero ter ajudado aqueles que perguntaram no VOL antigamente e não havia uma resposta na época e também espero ajudar os novos usuários que migram para o Linux e são entusiastas do Android (assim como eu) a se virar com as ferramentas que tem. Qualquer dúvida é só perguntar =-).</p>
-          <p>Para todos um forte abraço.</p>
-          <h2>Bibliografia</h2>
-          <p>Muita tentativa e erro, muito soft-brick, muita leitura e participação em fóruns estrangeiros. Além disso, a leitura da documentação do Heimdall é SUPER recomendada, mexo com o meu celular Android desde 2014 e até hoje continuo fuçando nas configurações dele.</p>
-          <ul>
-            <li>Documentação do Heimdall para Linux -&gt Apêndice A:<br>
-              <a href="https://gitlab.com/BenjaminDobell/Heimdall/tree/master/Linux">Linux - master - Benjamin Dobell / Heimdall - GitLab</a>
-            </li>
-          </ul>
-      </main>
+        </pre></samp>
+        <p>Veja que na linha "Partition Name" está "HIDDEN" toda em maiúscula e embaixo "hidden.img" indicando o arquivo a ser instalado. O argumento fica assim: "--HIDDEN hidden.img"</p>
+        <p>Ou, pode ser o número da partição. O Heimdall também aceita: "--26 hidden.img"</p>
+        <p>E assim você vai juntando argumentos até o comando ficar completo:</p>
+        <code># heimdall flash --pit arquivo.pit --KERNEL boot.img --CACHE cache.img --HIDDEN hidden.img --RECOVERY recovery.img --WDSP SPRDDSP.img --MODEM SPRDCP.img --SYSTEM system.img</code>
+        <p>É assim que se faz pelo terminal, pequenos gafanhotos. ;-)</p>
+        <p>Bom, se o seu objetivo era só instalar a Stock ROM, o artigo acaba por aqui. Mas se você quiser explorar mais uma funcionalidade do Heimdall, passe para a próxima página.</p>
+        <h2>Como criar um Heimdall package</h2>
+        <p>Isso tudo seria mais fácil se fosse que nem no Odin, onde você só escolhe o arquivo e instala, nada de comandos, arquivo ".pit" e partições do celular. Pois bem, o Heimdall também é capaz de fazer isso se todas as distribuidoras de firmware distribuíssem Heimdall packages, ou pacotes do Heimdall. Com eles, você só carrega o pacote na aba Load Package do Heimdall e estaria tudo certo.</p>
+        <p>Mas, como ninguém distribui esses pacotes, você pode ser um dos primeiros a fazer isso e facilitar a vida de outros usuários do Heimdall que possuem o mesmo aparelho que você.</p>
+        <p>Aproveitando o embalo que você instalou a stock ROM pela interface gráfica do Heimdall e tem todos os arquivos e partições selecionados, você pode querer criar um pacote para si mesmo no futuro, ou para outros usuários.</p>
+        <p>É muito simples, do jeito que o programa estava na hora que você instalou a stock ROM pela interface gráfica, todos os arquivos ".img" para suas respectivas partições, a aba "Create Package" vai se tornar clicável.</p>
+        <p>É obrigatório ter o nome de um desenvolvedor e o nome de um aparelho suportado. Se for apenas para uso pessoal, você pode preencher qualquer coisa, mas se você pretende distribuir internet à fora, é no mínimo ÉTICO que você preencha todas as informações corretamente para evitar bricks desnecessários de outras pessoas.</p>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura13.png">
+        </div>
+        <p>No campo "Firmware Name" é ideal que você coloque o mesmo nome que veio quando você baixou a ROM pela primeira vez. Este nome usualmente é a versão da banda de base usado para identificar ROMs únicas de cada país e operadoras.</p>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura14.png">
+        </div>
+        <p>Na aba "Device Info" você vai preencher os dados do aparelho à qual esta ROM pode ser instalada. No "Product Code" se coloca o modelo do aparelho (conforme a documentação pede).</p>
+        <p>Após todas as informações serem preenchidas, o botão "Build" vai se tornar clicável e é aí que o pacote é criado.</p>
+        <p>Você então escolhe um nome para o arquivo e a pasta onde ele será salvo.</p>
+        <div class="img-container mw-50-md mx-auto">
+          <img src="./figura15.png">
+        </div>
+        <p>Mais tarde, se você quiser usar este pacote, você pode descarrega-lo pela aba "Load Package" do Heimdall.</p>
+        <p>É isso.</p>
+        <h2>Conclusão</h2>
+        <p>Pronto! Agora você sabe como fazer um monte de coisas no seu Samsung Galaxy sem depender mais do Odin para isso! É recomendável que você não instale binários de terceiros, caso seu aparelho ainda esteja na garantia.</p>
+        <p>O autor se exime da responsabilidade por qualquer soft-brick, guerra nuclear e fim do mundo e como sabemos, você foi avisado.</p>
+        <p>Espero ter ajudado aqueles que perguntaram no VOL antigamente e não havia uma resposta na época e também espero ajudar os novos usuários que migram para o Linux e são entusiastas do Android (assim como eu) a se virar com as ferramentas que tem. Qualquer dúvida é só perguntar =-).</p>
+        <p>Para todos um forte abraço.</p>
+        <h2>Bibliografia</h2>
+        <p>Muita tentativa e erro, muito soft-brick, muita leitura e participação em fóruns estrangeiros. Além disso, a leitura da documentação do Heimdall é SUPER recomendada, mexo com o meu celular Android desde 2014 e até hoje continuo fuçando nas configurações dele.</p>
+        <ul>
+          <li>Documentação do Heimdall para Linux -&gt Apêndice A:<br>
+            <a href="https://gitlab.com/BenjaminDobell/Heimdall/tree/master/Linux">Linux - master - Benjamin Dobell / Heimdall - GitLab</a>
+          </li>
+        </ul>
+    </main>
   </body>
 </html>
