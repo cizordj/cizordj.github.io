@@ -1,6 +1,8 @@
 code {
     white-space:normal;
     display: inline-table;
+    background-color: #004d6f;
+    color: #fff;
 }
 a:not([class]){
     color: inherit;
