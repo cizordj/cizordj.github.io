@@ -34,7 +34,6 @@
           <input type="reset" class="button" value="Limpar">
           <input type="submit" class="button" value="Enviar">
         </div>
-        </div>
       </form>
     </main>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
@@ -49,11 +48,10 @@
           headers: headers
         }).then(
           function(response){
-            Metro.infobox.create("<h1>Mensagem enviada com sucesso!</h1>
-              <p>A sua solicitação foi efetuada com sucesso, assim que eu
-              puder retornarei o mais breve possível.</p>", "success");
+            var title = "<h1>Mensagem enviada com sucesso!</h1>";
+            var message = "<p>A sua solicitação foi efetuada com sucesso, assim que eu puder retornarei o mais breve possível.</p>";
+            Metro.infobox.create(title+message, "success");
             form.reset();
-            window.location="..";
           },
           function(xhr){
             Metro.infobox.create("<h1>Opss...</h1><p>Alguma coisa deu errada, verifique se não faltou preencher mais nada.</p>", "bg-darkCrimson fg-white");
