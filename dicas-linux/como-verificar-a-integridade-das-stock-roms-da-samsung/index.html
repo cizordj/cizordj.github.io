@@ -10,12 +10,12 @@
   </head>
   <body class="bg-dark fg-white">
     <main class="container mt-10 mb-10 pt-5 pb-5">
-      <h1>Como verificar a integridade das stock ROMs da Samsung</h1>
-      <h2>Autor: Cézar Augusto de Campos</h2>
-      <h3><em>28 de outubro de 2020</em></h3>
+      <h1 class="text-center">Como verificar a integridade das stock ROMs da Samsung</h1>
+      <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
+      <h3 class="text-center"><em>28 de outubro de 2020</em></h3>
       <p class="indent-letter">Essa dica é pra você que baixa <em>stock ROMs</em> para o seu celular da <em>Samsung</em> e gostaria de ver se eles estão inteiros antes de instalá-los no telefone. O processo é bem simples e pode ser feito em qualquer distribuição Linux.</p>
-      <p>Hoje de manhã baixei uma nova ROM pro meu celular que foi lançada no começo de Outubro com novos patches de segurança, a transferência levou mais de seis horas, então pra garantir que tudo esteja certo eu vou mostrar pra vocês como vou ver se a stock ROM não foi corrompida durante o download.</p>
-      <p>O arquivo que baixei é um pequeno zip de uns 3 GB mais ou menos. Depois de extraído ele liberou novos arquivos que totalizam 4 GB mais ou menos.</p>
+      <p class="text-just">Hoje de manhã baixei uma nova ROM pro meu celular que foi lançada no começo de Outubro com novos patches de segurança, a transferência levou mais de seis horas, então pra garantir que tudo esteja certo eu vou mostrar pra vocês como vou ver se a stock ROM não foi corrompida durante o download.</p>
+      <p class="text-just">O arquivo que baixei é um pequeno zip de uns 3 GB mais ou menos. Depois de extraído ele liberou novos arquivos que totalizam 4 GB mais ou menos.</p>
       <code>$ unzip SM-A205G_1_20200925080504_axdd64ux41_fac.zip</code>
       <samp><pre>Archive: SM-A205G_1_20200925080504_axdd64ux41_fac.zip
   inflating: BL_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship.tar.md5  
@@ -23,20 +23,20 @@
   inflating: CP_A205GNDXS7BTI2_CP16788700_CL19166873_QB34239128_REV00_user_low_ship.tar.md5  
   inflating: HOME_CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar.md5  
   inflating: CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar.md5</pre></samp>
-        <p>Como você pode perceber todos os arquivos terminam com md5, antes de você instalar no celular você normalmente tira esse md5 do nome e extrai o arquivo tar, mas na verdade esse md5 está ali pra avisar que a soma de verificação está no final do arquivo, como você confere isso? Com o comando tail:</p>
+        <p class="text-just">Como você pode perceber todos os arquivos terminam com md5, antes de você instalar no celular você normalmente tira esse md5 do nome e extrai o arquivo tar, mas na verdade esse md5 está ali pra avisar que a soma de verificação está no final do arquivo, como você confere isso? Com o comando tail:</p>
         <code>$ tail -n 1 AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar.md5</code>
         <br>
         <samp>3d38dbcf7b4c14bb3d78eeec47614284 AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar</samp>
-        <p>Agora que sabemos a soma vamos conferir ela com o comando md5sum. Copie e cole esta saída de texto e salve em um arquivo separado.</p>
+        <p class="text-just">Agora que sabemos a soma vamos conferir ela com o comando md5sum. Copie e cole esta saída de texto e salve em um arquivo separado.</p>
         <blockquote>3d38dbcf7b4c14bb3d78eeec47614284  AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar</blockquote>
-        <p>Renomeie o arquivo que você quer verificar, tirando o md5 no final pra que o nome fique igual no texto acima, ao mesmo tempo você tem que remover a última linha do arquivo pois ela não está inclusa na soma de verificação. Por sorte dá pra fazer essas duas coisas com um único comando:</p>
+        <p class="text-just">Renomeie o arquivo que você quer verificar, tirando o md5 no final pra que o nome fique igual no texto acima, ao mesmo tempo você tem que remover a última linha do arquivo pois ela não está inclusa na soma de verificação. Por sorte dá pra fazer essas duas coisas com um único comando:</p>
         <code>$ head -n -1 AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar.md5 > AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar</code>
-        <p>Ele vai gerar um novo arquivo sem o md5 no final, o processo pode demorar dependendo da velocidade do teu HD. Agora use o md5sum pra ver se o arquivo está íntegro.</p>
+        <p class="text-just">Ele vai gerar um novo arquivo sem o md5 no final, o processo pode demorar dependendo da velocidade do teu HD. Agora use o md5sum pra ver se o arquivo está íntegro.</p>
         <code>$ md5sum -c arquivo_de_texto_que_voce_salvou.txt</code>
         <br>
         <samp>AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar: SUCESSO</samp>
-        <p>Ótimo, isso quer dizer que não vou precisar baixar a ROM de novo, faça isso para todos os arquivos que vieram compactados e você saberá se é seguro atualizar a ROM do seu celular ou não, agora só falta checar se os outros arquivos estão inteiros também.</p>
-        <p>Como o processo é demorado eu fiz um pequeno script que automatiza tudo.</p>
+        <p class="text-just">Ótimo, isso quer dizer que não vou precisar baixar a ROM de novo, faça isso para todos os arquivos que vieram compactados e você saberá se é seguro atualizar a ROM do seu celular ou não, agora só falta checar se os outros arquivos estão inteiros também.</p>
+        <p class="text-just">Como o processo é demorado eu fiz um pequeno script que automatiza tudo.</p>
         <blockquote>#!/bin/bash<br>
           for file in *.md5<br>
           do<br>
@@ -47,7 +47,7 @@
           head -n -1 "$file" &gt "${file/.md5/}"<br>
           done<br>
           md5sum -c SUMS</blockquote>
-        <p>Se você ficou curioso, a saída que deu foi essa:</p>
+        <p class="text-just">Se você ficou curioso, a saída que deu foi essa:</p>
         <code>$ ./checar.sh</code>
         <br>
         <samp><pre>AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar: SUCESSO
@@ -55,7 +55,7 @@ BL_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship.tar: SUCESSO
 CP_A205GNDXS7BTI2_CP16788700_CL19166873_QB34239128_REV00_user_low_ship.tar: SUCESSO
 CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar: SUCESSO
 HOME_CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar: SUCESSO</pre></samp>
-          <p>Em caso de erro a saída vai ser essa:</p>
+          <p class="text-just">Em caso de erro a saída vai ser essa:</p>
           <code>$ ./checar.sh</code>
           <br>
           <samp><pre>AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar: FALHOU
@@ -64,7 +64,7 @@ CP_A205GNDXS7BTI2_CP16788700_CL19166873_QB34239128_REV00_user_low_ship.tar: FALH
 CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar: FALHOU
 HOME_CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar: FALHOU
 md5sum: AVISO: 5 somas de verificação calculadas NÃO coincidem</pre></samp>
-            <p>É isso, um abraço aí pra todos vocês que mexem com Android.</p>
+            <p class="text-just">É isso, um abraço aí pra todos vocês que mexem com Android.</p>
     </main>
   </body>
 </html>

@@ -10,25 +10,25 @@
   </head>
   <body class="bg-black">
     <main class="container mt-10 mb-10 pt-5 pb-5 bg-lightYellow">
-      <h1>Como desbloquear o bootloader em celulares Samsung</h1>
-      <h2>Autor: Cézar Augusto de Campos</h2>
-      <h3><em>27 de abril de 2020</em></h3>
+      <h1 class="text-center">Como desbloquear o bootloader em celulares Samsung</h1>
+      <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
+      <h3 class="text-center"><em>27 de abril de 2020</em></h3>
       <p class="indent-letter mt-10">Olá. Se você pretende fazer <em>root</em> no seu smartphone <em>Samsung</em>, então o primeiro obstáculo a se passar é o bloqueio do <em>bootloader</em>. Infelizmente, nem todos os aparelhos podem ser desbloqueados, pois isso depende do país, do modelo do smartphone e da política da Samsung para aquele país.</p>
       <p class="mb-10"><strong>NOTA</strong>: vale ressaltar que o desbloqueio do bootloader causa perda de garantia e o autor não se responsabiliza por isso, os seus dados também serão excluídos, então faça algum becape.</p>
-      <h2>O que é bootloader</h2>
-      <p>O bootloader, também chamado de gerenciador de inicialização, é o programa responsável por inicializar o sistema Android, a recovery e o modo download. Em smartphones Samsung, o bootloader possui um mecanismo que impede você de instalar versões customizadas do Android, sejam elas da própria Samsung ou não, e além do mais o bootloader somente pode ser atualizado para versões mais novas, nunca para as mais antigas.</p>
-      <p>Para identificar a versão do seu bootloader, vá em:<p>
-      <p>Configurações → Sobre o telefone → Informações de software → Versão da banda de base</p>
-      <p>Resultado do meu: <samp>A205GNDXS<strong>5</strong>ATA2</samp></p>
-      <p>Preste atenção no quinto último dígito deste código, esta é a versão do seu bootloader, no meu caso a versão é <strong>5</strong>.</p>
-      <h2>Habilitando o modo desenvolvedor</h2>
-      <p>Habilite o modo desenvolvedor, vá em: Configurações → Sobre o telefone → Informações do software - Toque o "Número de compilação" 7 vezes.</p>
-      <p>Isso vai mostrar as opções do desenvolvedor nas configurações do Android. Vá para as opções do desenvolvedor: Configurações → Opções do desenvolvedor.</p>
-      <div class="img-container mw-50-md mx-auto">
+      <h2 class="text-center">O que é bootloader</h2>
+      <p class="text-just">O bootloader, também chamado de gerenciador de inicialização, é o programa responsável por inicializar o sistema Android, a recovery e o modo download. Em smartphones Samsung, o bootloader possui um mecanismo que impede você de instalar versões customizadas do Android, sejam elas da própria Samsung ou não, e além do mais o bootloader somente pode ser atualizado para versões mais novas, nunca para as mais antigas.</p>
+      <p class="text-just">Para identificar a versão do seu bootloader, vá em:<p class="text-just">
+      <p class="text-just">Configurações → Sobre o telefone → Informações de software → Versão da banda de base</p>
+      <p class="text-just">Resultado do meu: <samp>A205GNDXS<strong>5</strong>ATA2</samp></p>
+      <p class="text-just">Preste atenção no quinto último dígito deste código, esta é a versão do seu bootloader, no meu caso a versão é <strong>5</strong>.</p>
+      <h2 class="text-center">Habilitando o modo desenvolvedor</h2>
+      <p class="text-just">Habilite o modo desenvolvedor, vá em: Configurações → Sobre o telefone → Informações do software - Toque o "Número de compilação" 7 vezes.</p>
+      <p class="text-just">Isso vai mostrar as opções do desenvolvedor nas configurações do Android. Vá para as opções do desenvolvedor: Configurações → Opções do desenvolvedor.</p>
+      <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura1.jpg">
       </div>
-      <p>Como você pode ver, a opção "desbloquear bootloader" não está presente, então você vai ter que esperar 7 dias para isso (teoricamente). Esse é um truque que a Samsung implementou para impedir que os desenvolvedores desbloqueiem o bootloader por engano.</p>
-      <p>Existe uma forma de contornar essa espera? Sim:</p>
+      <p class="text-just">Como você pode ver, a opção "desbloquear bootloader" não está presente, então você vai ter que esperar 7 dias para isso (teoricamente). Esse é um truque que a Samsung implementou para impedir que os desenvolvedores desbloqueiem o bootloader por engano.</p>
+      <p class="text-just">Existe uma forma de contornar essa espera? Sim:</p>
       <ul>
         <li>Primeiro, você deve desligar as conexões com a internet, deixe seu smartphone totalmente offline.</li>
         <li>Ajuste a data manualmente para 8 dias antes de hoje.</li>
@@ -36,25 +36,25 @@
         <li>Agora conecte o aparelho à Internet.</li>
         <li>Vá em Configurações e atualize o Android: Configurações → Atualização de software → Baixar e instalar.</li>
       </ul>
-      <p>Você vai ver uma mensagem de toast dizendo "Registrando o dispositivo", este truque fará com que o smartphone 'pense' que foi desbloqueado 8 dias atrás e vai liberar a opção no menu dos desenvolvedores para você desbloquear o bootloader.</p>
-      <p>Agora, você pode voltar à data atual ajustando a data e hora conforme a rede.</p>
-      <p>Vá nas opções do desenvolvedor:</p>
-      <div class="img-container mw-50-md mx-auto">
+      <p class="text-just">Você vai ver uma mensagem de toast dizendo "Registrando o dispositivo", este truque fará com que o smartphone 'pense' que foi desbloqueado 8 dias atrás e vai liberar a opção no menu dos desenvolvedores para você desbloquear o bootloader.</p>
+      <p class="text-just">Agora, você pode voltar à data atual ajustando a data e hora conforme a rede.</p>
+      <p class="text-just">Vá nas opções do desenvolvedor:</p>
+      <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura2.jpg">
       </div>
-      <p>...e selecione a opção <strong>"Desbloqueio por OEM"</strong>.</p>
-      <p>No meu está em cinza, porque eu já fiz este processo antes, mas para você não acabou ainda. O próximo passo é reiniciar o celular no modo download, faça isso via ADB ou teclas de combinação:</p>
+      <p class="text-just">...e selecione a opção <strong>"Desbloqueio por OEM"</strong>.</p>
+      <p class="text-just">No meu está em cinza, porque eu já fiz este processo antes, mas para você não acabou ainda. O próximo passo é reiniciar o celular no modo download, faça isso via ADB ou teclas de combinação:</p>
       <code>$ adb reboot bootloader</code>
-      <h2>Via teclas de combinação</h2>
-      <p>Desligue o celular, conecte-o no PC e antes que ele acenda a tela, pressione os dois botões de volume ao mesmo tempo - Testado no <em>Galaxy-A20</em>.</p>
-      <p>Uma vez em modo download, segure o botão de volume pra cima até ele desbloquear o bootloader.</p>
-      <p>NOTA: este procedimento vai apagar todos os seus dados e reiniciar automaticamente.</p>
-      <p>Agora o bootloader foi liberado? A resposta ainda é não, temos que confirmar o desbloqueio para que o aparelho não rejeite os binários modificados futuramente evitando esse famigerado erro:</p>
+      <h2 class="text-center">Via teclas de combinação</h2>
+      <p class="text-just">Desligue o celular, conecte-o no PC e antes que ele acenda a tela, pressione os dois botões de volume ao mesmo tempo - Testado no <em>Galaxy-A20</em>.</p>
+      <p class="text-just">Uma vez em modo download, segure o botão de volume pra cima até ele desbloquear o bootloader.</p>
+      <p class="text-just">NOTA: este procedimento vai apagar todos os seus dados e reiniciar automaticamente.</p>
+      <p class="text-just">Agora o bootloader foi liberado? A resposta ainda é não, temos que confirmar o desbloqueio para que o aparelho não rejeite os binários modificados futuramente evitando esse famigerado erro:</p>
       <blockquote class="m-5"><samp>Only official released binaries are allowed to be flashed</samp></blockquote>
-      <p>Veja: <a href="https://forum.xda-developers.com/galaxy-note-8/help/official-released-binaries-allowed-to-t3681883">Only Official binaries are allowed to be flashed</a></p>
-      <p>Passe as configurações iniciais do aparelho, de preferência conectado à Internet. Não coloque muitos dados aqui, pois o dispositivo será formatado depois quando você fizer root. Ative as opções de desenvolvedor e confirme se a opção "Desbloqueio por OEM" está acinzentada, assim como a imagem acima.</p>
-      <p>Pronto! Seu bootloader deve aceitar agora binários não oficiais, permitindo você a fazer root e instalar custom ROMs.</p>
-      <p>Over 'n out!</p>
+      <p class="text-just">Veja: <a href="https://forum.xda-developers.com/galaxy-note-8/help/official-released-binaries-allowed-to-t3681883">Only Official binaries are allowed to be flashed</a></p>
+      <p class="text-just">Passe as configurações iniciais do aparelho, de preferência conectado à Internet. Não coloque muitos dados aqui, pois o dispositivo será formatado depois quando você fizer root. Ative as opções de desenvolvedor e confirme se a opção "Desbloqueio por OEM" está acinzentada, assim como a imagem acima.</p>
+      <p class="text-just">Pronto! Seu bootloader deve aceitar agora binários não oficiais, permitindo você a fazer root e instalar custom ROMs.</p>
+      <p class="text-just">Over 'n out!</p>
     </main>
   </body>
 </html>
