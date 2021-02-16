@@ -8,15 +8,6 @@ a:not([class]){
     color: inherit;
     text-decoration: underline;
 }
-img{
-    padding-top: 1.5rem;
-}
-h1, h2, h3 {
-    text-align: center;
-}
-p {
-    text-align: justify !important;
-}
 .bg-midnightblue{
   background-color: #072838 !important;
 }
