@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Contato</title>
     <meta name="metro4:locale" content="pt-BR">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
+  <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
+
     <link rel="stylesheet" href="../css/articles.css">
   </head>
-  <body class="bg-black fg-white">
-    <main class="container mt-10 mb-10 pt-5 pb-5 bg-darkTeal">
+  <body>
+    <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1>Contato</h1>
       <p class="text-just">Se você quiser entrar em contato comigo você pode preencher o formulário
       a abaixo, note que para preservar a sua identidade os campos com dados pessoais
@@ -29,7 +29,7 @@
           <option>Outros</option>
         </select>
         <textarea placeholder="Ao escrever a mensagem favor providenciar links que possam interessar"
-                  name="Mensagem" data-role="textarea" class="mt-4 bg-scheme" required></textarea>
+                  name="Mensagem" data-role="textarea" class="mt-4" required></textarea>
         <div class="mt-3 text-center">
           <input type="reset" class="button" value="Limpar">
           <input type="submit" class="button" value="Enviar">
@@ -54,7 +54,7 @@
             form.reset();
           },
           function(xhr){
-            Metro.infobox.create("<h1>Opss...</h1><p>Alguma coisa deu errada, verifique se não faltou preencher mais nada.</p>", "bg-darkCrimson fg-white");
+            Metro.infobox.create("<h1>Opss...</h1><p>Alguma coisa deu errada, verifique se não faltou preencher mais nada.</p>", "bg-darkCrimson");
           }
         );
       }

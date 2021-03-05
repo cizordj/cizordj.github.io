@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Como verificar a integridade das stock ROMs da Samsung</title>
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
     <link rel="stylesheet" href="../../css/articles.css">
   </head>
-  <body class="bg-dark fg-white">
+  <body>
     <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1 class="text-center">Como verificar a integridade das stock ROMs da Samsung</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
@@ -18,10 +17,10 @@
       <p class="text-just">O arquivo que baixei é um pequeno zip de uns 3 GB mais ou menos. Depois de extraído ele liberou novos arquivos que totalizam 4 GB mais ou menos.</p>
       <code>$ unzip SM-A205G_1_20200925080504_axdd64ux41_fac.zip</code>
       <samp><pre>Archive: SM-A205G_1_20200925080504_axdd64ux41_fac.zip
-  inflating: BL_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship.tar.md5  
-  inflating: AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar.md5  
-  inflating: CP_A205GNDXS7BTI2_CP16788700_CL19166873_QB34239128_REV00_user_low_ship.tar.md5  
-  inflating: HOME_CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar.md5  
+  inflating: BL_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship.tar.md5
+  inflating: AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar.md5
+  inflating: CP_A205GNDXS7BTI2_CP16788700_CL19166873_QB34239128_REV00_user_low_ship.tar.md5
+  inflating: HOME_CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar.md5
   inflating: CSC_OMC_OWO_A205GOWO7BTI2_CL19425033_QB34239415_REV00_user_low_ship.tar.md5</pre></samp>
         <p class="text-just">Como você pode perceber todos os arquivos terminam com md5, antes de você instalar no celular você normalmente tira esse md5 do nome e extrai o arquivo tar, mas na verdade esse md5 está ali pra avisar que a soma de verificação está no final do arquivo, como você confere isso? Com o comando tail:</p>
         <code>$ tail -n 1 AP_A205GUBS7BTI2_CL19166873_QB34239128_REV00_user_low_ship_meta_OS10.tar.md5</code>

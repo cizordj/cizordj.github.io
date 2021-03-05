@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Como modificar a tela do bootloader do Android</title>
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
     <link rel="stylesheet" href="../../css/articles.css">
   </head>
-  <body class="bg-black fg-black">
-    <main class="container mt-10 mb-10 pt-5 pb-5 bg-lightAmber">
+  <body>
+    <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1 class="text-center">Como modificar a tela do bootloader do Android</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>6 de novembro de 2020</em></h3>
@@ -72,7 +71,7 @@
       <p class="text-just">Não se esqueça de alterar o modo do arquivo para o mesmo que tava antes, no meu caso era o 0444.</p>
       <code>$ chmod 0444 boot_warning.jpg</code>
       <p class="text-just">Alguns modos podem variar dependendo o arquivo.</p>
-      <p class="text-just">O próximo arquivo que vamos editar é o "svb_orange.jpg", ele é o responsável pela segunda mensagem na tela de boot:</p> 
+      <p class="text-just">O próximo arquivo que vamos editar é o "svb_orange.jpg", ele é o responsável pela segunda mensagem na tela de boot:</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura2.png">
       </div>
@@ -92,7 +91,7 @@
       <samp><pre>. . .
 Uploading PARAM
 100%
-PARAM upload successful 
+PARAM upload successful
 
 Ending session...
 Rebooting device...
