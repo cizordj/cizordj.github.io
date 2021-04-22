@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>O que eu acho do FreeBSD</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
+    <link rel="stylesheet" href="../../css/articles.css">
+    <link rel="stylesheet" href="/css/common.css">
+  </head>
+  <body>
+    <main class="container mt-10 mb-10 pt-5 pb-5">
+      <h1 class="text-center">O que eu acho do FreeBSD</h1>
+      <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
+      <h3 class="text-center"><em>21 de abril de 2020</em></h3>
+      <p class="indent-letter text-just">Usar FreeBSD é como ter um carro esportivo exótico que você pode exibir para as pessoas
+      e deixar elas impressionadas com o quão foda você é por estar usando o FreeBSD.
+      Um carro esportivo é caro de se manter, você obtém a atenção das pessoas, mas não consegue usá-lo para trabalhar porque a
+      gasolina está muito cara. Nesse caso você guarda o esportivo na garagem e só liga ele nos fins de semana para relaxar e
+      curtir um pouco, você gosta de andar nesse esportivo porque diferente dos outros carros ele dá mais tesão de dirigir
+      (quem é homem sabe do que eu estou falando) e este carro faz você se sentir especial de alguma forma,
+      mas por que toda essa ladainha sobre carros esportivos? Porque usar o FreeBSD no desktop é a mesma coisa.</p>
+      <div class="img-container mx-auto mw-75-md mt-5 mb-5">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ford_Escort_XR3_cabriolet_registered_September_1989_1597cc.jpg/1024px-Ford_Escort_XR3_cabriolet_registered_September_1989_1597cc.jpg" lazy-loading alt="um carro esportivo antigo muito foda">
+      </div>
+      <p class="text-just">Eu instalei o FreeBSD porque eu queria conhecer o ZFS, mas depois que eu descobri que dava para usar
+      a mesma coisa no Linux eu desinstalei o FreeBSD na mesma hora. Isso não é um discurso de ódio contra o BSD, o que estou
+      querendo dizer aqui é que isso é um sistema muito complicado de usar e inviável para o dia a dia.
+      Quando você migra para o BSD você na hora percebe por que eles inventaram o <strong>systemd</strong>, tudo no BSD, ou melhor,
+      para quase tudo no BSD você precisa ser <b>root</b> para que funcione, quase nada funciona fora da caixa e se você é um
+      usuário de Linux você deve estar acostumado com quase todos os pacotes sendo configurados sozinhos.</p>
+      <p class="text-just">O FreeBSD é um sistema operacional muito casca grossa! Ele exige muita paciência e conhecimento técnico do
+      usuário, é como entrar para o Linux pela primeira vez a diferença é que no BSD você não pode contar com a ajuda da "comunidade"
+      pois todos costumam ser rigorosos para com os iniciantes, então quando se trata da instalação e a configuração é só você e o
+      manual.</p>
+      <h2 class="text-center">As manhas do FreeBSD</h2>
+      <p class="text-just">Isso é para você que já tem conhecimento em como funciona um sistema do tipo Unix como o Linux.
+      Logo no final da instalação você deve criar um novo usuário e adicionar ele no grupo <em>wheel</em> para que você consiga usar
+      o comando <code>su -</code> dentro daquele usuário.
+      Outros grupos relevantes são:</p>
+      <ul>
+        <li>video (para subir alguma interface gráfica)</li>
+        <li>audio (para ouvir música)</li>
+        <li>sudo (se quiser usar sudo)</li>
+      </ul>
+      <p class="text-just">E se não me engano existia outro grupo para você poder usar a impressora, caso contrário o sistema de 
+      impressão (CUPS) não funcionaria.</p>
+      <p class="text-just">Além dessas manhas com as contas de usuário também tive que configurar manualmente um monte de serviços
+      do sistema que por padrão não vêm habilitados, aliás, quase tudo no BSD você como usuário deve habilitar manualmente em
+      <code>/etc/rc.conf</code>. Isso vale para drivers de vídeo, drivers de áudio, interfaces gráficas e serviços de impressão.</p>
+      <p class="text-just">Eu tive muitas outras dores ao usar FreeBSD, mas eu não vou expor aqui para não parecer desabafo.</p>
+      <h2 class="text-center">A falta que o systemd faz</h2>
+      <p class="text-just">Agora bancando o advogado do diabo, o systemd fez muita falta para mim no FreeBSD, após 6 meses
+      usando-o como meu
+      sistema operacional principal eu percebia que muita coisa era mais difícil de gerenciar porque não existia o comando
+      <code>systemctl</code>. Eu sei... eu sei... As pessoas que vêm do Linux ficam muito mal acostumadas com esse monte de regalias
+      que as empresas de software trazem para gente, porque quase tudo você imaginar pode ser gerenciado com os comandos da suíte
+      de aplicações do <strong>systemd</strong>. No FreeBSD eu não conseguia achar os logs do sistema, não conseguia achar os
+      registros de uma aplicação específica e também eu não conseguia ver o status geral de todos os serviços igual o comando
+      <code>systemctl</code> proporciona no Linux.</p>
+      <p class="text-just">A parte mais difícil de todas era a montagem de disco, para quase tudo no BSD você tem que instalar um pacote
+      e configurá-lo para iniciar junto com o sistema e o mesmo vale para os drivers de sistema de arquivos. Então se você quisesse
+      espetar um pendrive e abri-lo no terminal você primeiro teria que instalar o <code>fusefs-ntfs</code> e carregar o módulo
+      correspondente para daí sim você conseguir montar o sistema de arquivos, o mesmo vale para <em>fat32</em>, <em>ext4</em>
+      e afins.</p>
+      <p class="text-just">Com o systemd você consegue desligar o computador mesmo não sendo root, com o BSD não.</p>
+      <h2 class="text-center">O <em>update-alternatives</em> do Debian</h2>
+      <p class="text-just">O Debian possui um sistema de alternativas que deixa o sistema operacional ciente de quais programas
+      resolvem certos problemas, o Debian sabe quantos emuladores de terminal existem, quantas interfaces gráficas estão instaladas,
+      qual é o idioma atual e por aí vai... No BSD tudo tem que ser configurado na unha, desde a resolução de tela
+      até o leiaute do teclado. Eu lembro que no FreeBSD eu não conseguia configurar nem o emulador de terminal padrão porque ele
+      não possui um <code>x-terminal-emulator</code>, também não conseguia configurar as variáveis de ambiente pois cada interface
+      gráfica lidava com as coisas de uma forma diferente (enquanto que no Debian tudo fica em <em>/etc/environment</em>).
+      Eu me lembro que até o cursor do mouse era impossível de mudar porque o FreeBSD não possui um <code>x-cursor-theme</code>
+      igual ao Debian, eu falo do Debian porque tenho mais experiência com ele, mas quando se trata da comparação entre
+      BSDs e Linux eu uso o Debian como referência.</p>
+      <h2 class="text-center">Conclusão, tudo é feito para Linux</h2>
+      <p class="text-just">Infelizmente quase nada do que eu usei no FreeBSD tinha suporte nativo, isso inclui drivers de vídeo
+      e áudio. Eu tive que recompilar o kernel com o suporte Linux habilitado ou em outros casos eu não teria como usar uma interface
+      gráfica no meu desktop e nem ouvir música. Tive problemas para lidar com o Wi-Fi e bluetooth, também tive problemas com pendrives,
+      e por último o que o mais me incomodou é que eu não conseguia usar o escaner da minha impressora no FreeBSD, porque o programa
+      que fazia o escaneamento dependia de algum módulo do <strong>systemd</strong> (vai a merda systemd!) e por isso eu tinha ficado
+      estressado e desinstalei o sistema operacional.</p>
+      <p class="text-just">Em resumo, usar o FreeBSD é como ter um carro esportivo exótico que não serve para se usar no dia a dia, mas
+      apenas para passear fim de semana e se exibir para os amigos. O FreeBSD é uma belezinha como um sistema operacional,
+      porém fica nas mãos do usuário o poder de decisão se vale a pena fazer a migração, este sistema é um sistema muito nichado
+      querendo ou não e por mais que haja pessoas que o usam no desktop eu ainda duvido que essas pessoas possuam alguma paz de
+      espírito.</p>
+      <p class="text-just">É isso, não leve a sério tudo o que eu escrevi nessa página, leve na brincadeira. Isso nada mais é do que
+      um relato sobre o meu uso do FreeBSD por 6 meses no meu desktop principal.</p>
+    </main>
+  </body>
+</html>
