@@ -23,3 +23,6 @@ a:not([class]){
 .bg-darkrosybrown{
   background-color: #120e0e !important;
 }
+p {
+  text-align: justify !important;
+}
