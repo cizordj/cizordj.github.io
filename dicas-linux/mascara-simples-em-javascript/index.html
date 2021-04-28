@@ -13,13 +13,13 @@
       <h1 class="text-center">Máscara simples em JavaScript</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>14 de setembro de 2019</em></h3>
-      <p class="text-just">A fim de mostrar como criar uma máscara do zero, esta dica vai lhe mostrar como fazer isso sem o <em>jQuery</em>. O propósito disso é mostrar a lógica de como uma máscara em <em>javascript</em>funciona e age nos formulários.</p>
-      <p class="text-just">Neste exemplo vou mostrar como mascarar a entrada de uma placa de automóvel padrão brasileiro ABC-1234 de modo que todos os usuários do seu sistema preencham da mesma forma. Eu me deparei com essa situação enquanto fazia um "mock application" de um sistema web voltado a área de logística e não tinha nenhuma biblioteca javascript instalada.</p>
-      <p class="text-just">Bom, comecemos então com o formulário em HTML.</p>
+      <p>A fim de mostrar como criar uma máscara do zero, esta dica vai lhe mostrar como fazer isso sem o <em>jQuery</em>. O propósito disso é mostrar a lógica de como uma máscara em <em>javascript</em>funciona e age nos formulários.</p>
+      <p>Neste exemplo vou mostrar como mascarar a entrada de uma placa de automóvel padrão brasileiro ABC-1234 de modo que todos os usuários do seu sistema preencham da mesma forma. Eu me deparei com essa situação enquanto fazia um "mock application" de um sistema web voltado a área de logística e não tinha nenhuma biblioteca javascript instalada.</p>
+      <p>Bom, comecemos então com o formulário em HTML.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura1.png">
       </div>
-      <p class="text-just">Com esse código-fonte:</p>
+      <p>Com esse código-fonte:</p>
       <samp><pre>&lt!DOCTYPE html&gt
 &lthtml&gt
 &lthead&gt
@@ -37,10 +37,10 @@
     &lt/form&gt
 &lt/body&gt
 &lt/html&gt</pre></samp>
-        <p class="text-just">O input deve chamar a função javascript a cada digitação do usuário, então a função se responsabilizará pela formatação do dado durante o preenchimento do formulário.</p>
-        <p class="text-just">
+        <p>O input deve chamar a função javascript a cada digitação do usuário, então a função se responsabilizará pela formatação do dado durante o preenchimento do formulário.</p>
+        <p>
         Agora vamos implementar a função em javascript que vai manipular o dado de acordo o padrão que queremos (ABC-1234) e devolver ao formulário enquanto o usuário digita.</p>
-        <p class="text-just">Para isso foi criado uma função que transforma as três primeiras letras em maiúsculas e adiciona um hífen automaticamente toda vez que o usuário termina de digitar as três primeiras letras.</p>
+        <p>Para isso foi criado uma função que transforma as três primeiras letras em maiúsculas e adiciona um hífen automaticamente toda vez que o usuário termina de digitar as três primeiras letras.</p>
         <samp><pre>&ltscript&gt
 function validarPlaca(entradaDoUsuario) {
         var placa = entradaDoUsuario.value; // Passa para a variável 'placa' o que o usuário digitar no formulário
@@ -59,12 +59,12 @@ function validarPlaca(entradaDoUsuario) {
     }
 }
 &lt/script&gt</pre></samp>
-          <p class="text-just">Após adicionar esse trecho de código no seu arquivo html você poderá ver o mascaramento em ação.</p>
+          <p>Após adicionar esse trecho de código no seu arquivo html você poderá ver o mascaramento em ação.</p>
           <div class="img-container mw-50-md mx-auto mb-3">
             <img src="./figura2.gif">
           </div>
-          <p class="text-just">É isso, eu usei o atributo onkeyup ao invés do onkeydown pois o último atrapalha um monte na hora de apagar, caso o usuário cometa um erro de digitação ele pode ficar frustrado ao perceber que não consegue apagar o que digitou XD. É bom ficar ligado nisso também.</p>
-          <p class="text-just">Até a próxima =)</p>
+          <p>É isso, eu usei o atributo onkeyup ao invés do onkeydown pois o último atrapalha um monte na hora de apagar, caso o usuário cometa um erro de digitação ele pode ficar frustrado ao perceber que não consegue apagar o que digitou XD. É bom ficar ligado nisso também.</p>
+          <p>Até a próxima =)</p>
     </main>
   </body>
 </html>

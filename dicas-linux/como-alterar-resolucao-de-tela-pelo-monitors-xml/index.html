@@ -14,13 +14,13 @@
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>16 de julho de 2020</em></h3>
       <p class="indent-letter">As interfaces modernas não respeitam mais o <em>Xorg.conf</em>, isto é, se você fixar uma resolução de tela no seu arquivo <em>Xorg</em> as interfaces ainda podem ignorá-lo e exibir a imagem na resolução de tela errada. Essa dica visa mostrar como fixar a resolução de tela em interfaces modernas como <em>Gnome</em> e o <em>Pantheon</em> sem que o seu monitor seja reconhecido.</p>
-      <p class="text-just">As pessoas que usam um adaptador no cabo de vídeo (como eu) sofrem do mal do monitor não ser reconhecido e isso acarreta na tela com a resolução errada. Em qualquer distribuição Linux e em qualquer interface gráfica a imagem sempre vai estar errada e as pessoas têm que recorrer a métodos manuais para fixar a resolução de tela.</p>
-      <p class="text-just">O Gnome e o Pantheon leem um arquivo chamado monitors.xml para definir uma resolução de tela, esse arquivo encontra-se em dois lugares:</p>
-      <p class="text-just">Na pasta HOME do usuário:</p>
+      <p>As pessoas que usam um adaptador no cabo de vídeo (como eu) sofrem do mal do monitor não ser reconhecido e isso acarreta na tela com a resolução errada. Em qualquer distribuição Linux e em qualquer interface gráfica a imagem sempre vai estar errada e as pessoas têm que recorrer a métodos manuais para fixar a resolução de tela.</p>
+      <p>O Gnome e o Pantheon leem um arquivo chamado monitors.xml para definir uma resolução de tela, esse arquivo encontra-se em dois lugares:</p>
+      <p>Na pasta HOME do usuário:</p>
       <samp>/home/$USER/.config/monitors.xml</samp>
-      <p class="text-just">e na pasta da tela de login do sistema:</p>
+      <p>e na pasta da tela de login do sistema:</p>
       <samp>/var/lib/gdm3/.config/monitors.xml</samp>
-      <p class="text-just">Dependendo de qual seja a sua interface a pasta de login pode variar, se você tem um monitor que não é reconhecido então você terá que preencher esses dois arquivos a fim de resolver o problema. O formato desse arquivo é mais ou menos esse:</p>
+      <p>Dependendo de qual seja a sua interface a pasta de login pode variar, se você tem um monitor que não é reconhecido então você terá que preencher esses dois arquivos a fim de resolver o problema. O formato desse arquivo é mais ou menos esse:</p>
       <samp><pre>&ltmonitors version="2"&gt
   &ltconfiguration&gt
     &ltlogicalmonitor&gt
@@ -44,21 +44,21 @@
     &lt/logicalmonitor&gt
   &lt/configuration&gt
 &lt/monitors&gt</pre></samp>
-        <p class="text-just">Mas calma, você não precisa ser um expert e escrever isso do zero, vamos com um passo a passo mais simples.</p>
-        <p class="text-just">No Elementary OS, vá em:</p>
-        <p class="text-just">Configurações do sistema -> Telas -> Configurações do monitor</p>
-        <p class="text-just">defina a resolução correta do seu monitor de salve.</p>
+        <p>Mas calma, você não precisa ser um expert e escrever isso do zero, vamos com um passo a passo mais simples.</p>
+        <p>No Elementary OS, vá em:</p>
+        <p>Configurações do sistema -> Telas -> Configurações do monitor</p>
+        <p>defina a resolução correta do seu monitor de salve.</p>
         <div class="img-container mw-50-md mx-auto mb-3">
           <img src="./figura1.png">
         </div>
-        <p class="text-just">Agora você terá o arquivo monitors.xml na sua pasta de usuário, para aplicar a mesma resolução na tela de login copie o arquivo para o diretório do sistema.</p>
-        <p class="text-just">No caso do Elementary OS:</p>
+        <p>Agora você terá o arquivo monitors.xml na sua pasta de usuário, para aplicar a mesma resolução na tela de login copie o arquivo para o diretório do sistema.</p>
+        <p>No caso do Elementary OS:</p>
         <code>$ sudo cp /home/$USER/.config/monitors.xml /var/lib/lightdm/.config/</code>
-        <p class="text-just">Se você estiver usando a interface Gnome, o comando é esse:</p>
+        <p>Se você estiver usando a interface Gnome, o comando é esse:</p>
         <code>$ sudo cp /home/$USER/.config/monitors.xml /var/lib/gdm3/.config/</code>
-        <p class="text-just">Pronto! A resolução de tela agora estará fixada tanto na tela de login quanto na sessão do usuário.</p>
-        <p class="text-just">É isso.</p>
-        <p class="text-just">* Testado no Debian Gnome e Elementary OS.</p>
+        <p>Pronto! A resolução de tela agora estará fixada tanto na tela de login quanto na sessão do usuário.</p>
+        <p>É isso.</p>
+        <p>* Testado no Debian Gnome e Elementary OS.</p>
     </main>
   </body>
 </html>

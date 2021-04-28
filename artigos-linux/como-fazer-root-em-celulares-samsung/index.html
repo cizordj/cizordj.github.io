@@ -18,8 +18,8 @@
       <h2 class="text-center">A máscara mágica para Android</h2>
       <p class="indent-letter">O Magisk é uma suíte de ferramentas open source para Android que fornece o acesso root, scripts e módulos que facilitam a customização do sistema. Ele te fornece esses recursos se instalando na partição recovery do celular.</p>
       <h2 class="text-center">Como faremos o Root</h2>
-      <p class="text-just">Basicamente o que vamos fazer é pegar o firmware original do smartphone, remendar o Magisk nele e instalar de volta usando o Heimdall.</p>
-      <p class="text-just">Alguns avisos antes de começar:</p>
+      <p>Basicamente o que vamos fazer é pegar o firmware original do smartphone, remendar o Magisk nele e instalar de volta usando o Heimdall.</p>
+      <p>Alguns avisos antes de começar:</p>
       <ul>
         <li>Esse artigo destina-se a aparelhos Samsung lançados a partir de 2019.</li>
         <li>Fazer root em um aparelho Samsung causará perda da garantia e fará o Knox parar de funcionar, então prossiga por sua própria conta e risco.</li>
@@ -27,64 +27,64 @@
         <li>Você perderá os seus dados, então FAÇA BECAPE!</li>
       </ul>
       <h2 class="text-center">Baixando os arquivos necessários</h2>
-      <p class="text-just">Faça download do seu firmware em qualquer um dos sites:</p>
+      <p>Faça download do seu firmware em qualquer um dos sites:</p>
       <ul>
         <li><a href="https://samdb.org/pt" target="_blank">Banco de dados de firmware da Samsung. Atualizações oficiais da Samsung downloads gratuitos. - [PT] | Samdb.Org</a></li>
         <li><a href="https://www.sammobile.com/firmwares/" target="_blank">Sammobile  firmwares</a></li>
       </ul>
-      <p class="text-just">Descompacte o arquivo e envie o AP para o seu celular. Já no celular instale o Magisk manager cujo apk poderá ser baixado aqui:</p>
+      <p>Descompacte o arquivo e envie o AP para o seu celular. Já no celular instale o Magisk manager cujo apk poderá ser baixado aqui:</p>
       <ul>
         <li><a href="https://github.com/topjohnwu/Magisk#download" target="_blank">https://github.com/topjohnwu/Magisk#download</a></li>
       </ul>
-      <p class="text-just">Se você pesquisar na internet você verá que o Magisk possui dezenas de sites, não confie neles! Sempre baixe os artefatos da página do desenvolvedor no Github.</p>
-      <p class="text-just">Dentro do Magisk Manager vá em:</p>
-      <p class="text-just">Instalar -&gt Instalar -&gt Selecionar e patchear um arquivo;</p>
-      <p class="text-just">e selecione o arquivo AP que você acabou de passar do computador.</p>
+      <p>Se você pesquisar na internet você verá que o Magisk possui dezenas de sites, não confie neles! Sempre baixe os artefatos da página do desenvolvedor no Github.</p>
+      <p>Dentro do Magisk Manager vá em:</p>
+      <p>Instalar -&gt Instalar -&gt Selecionar e patchear um arquivo;</p>
+      <p>e selecione o arquivo AP que você acabou de passar do computador.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura1.png">
       </div>
-      <p class="text-just">Após finalizado o processo você verá uma tela assim:</p>
+      <p>Após finalizado o processo você verá uma tela assim:</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura2.png">
       </div>
-      <p class="text-just">Na pasta download do seu celular vai haver um novo arquivo chamado "magisk_patched.tar" que contém o firmware modificado com o Magisk pré-instalado. Passe este arquivo para o computador.</p>
+      <p>Na pasta download do seu celular vai haver um novo arquivo chamado "magisk_patched.tar" que contém o firmware modificado com o Magisk pré-instalado. Passe este arquivo para o computador.</p>
       <h2 class="text-center">Instalação do Magisk</h2>
       <p class="indent-letter">Reinicie o celular em modo download e instale o <em>"magisk_patched.tar"</em> no slot AP se estiver usando o Odin junto com os outros arquivos BL, CP e HOME_CSC que você baixou anteriormente.</p>
-      <p class="text-just">Se você não tiver acesso ao Odin você pode descompactar todos os arquivos BL, CP, HOME_CSC e magisk_patched.tar em arquivos de imagem, uma vez que tenha esses arquivos você deve abrir o <em>Heimdall-frontend</em> e instalar cada um em uma partição específica do celular. <a href="../como-usar-o-heimdall/index.html" target="_blank">Nesse artigo</a> eu mostro como fazer isso.</p>
+      <p>Se você não tiver acesso ao Odin você pode descompactar todos os arquivos BL, CP, HOME_CSC e magisk_patched.tar em arquivos de imagem, uma vez que tenha esses arquivos você deve abrir o <em>Heimdall-frontend</em> e instalar cada um em uma partição específica do celular. <a href="../como-usar-o-heimdall/index.html" target="_blank">Nesse artigo</a> eu mostro como fazer isso.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura3.png">
       </div>
-      <p class="text-just">Se optar pelo Heimdall ficará igual esta imagem e sim, é recomendável que você instale o sistema todo e não somente os arquivos que o Magisk modificou, caso contrário a sua partição de dados ( /data ) será encolhida.</p>
-      <p class="text-just">Outra coisa, você deve desmarcar a opção "auto reboot" no Odin, caso esteja usando o Heimdall marque a opção "no reboot".</p>
-      <p class="text-just">Tudo certo, agora clique para começar a instalação!</p>
+      <p>Se optar pelo Heimdall ficará igual esta imagem e sim, é recomendável que você instale o sistema todo e não somente os arquivos que o Magisk modificou, caso contrário a sua partição de dados ( /data ) será encolhida.</p>
+      <p>Outra coisa, você deve desmarcar a opção "auto reboot" no Odin, caso esteja usando o Heimdall marque a opção "no reboot".</p>
+      <p>Tudo certo, agora clique para começar a instalação!</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura4.png">
       </div>
       <h2 class="text-center">Pós instalação</h2>
-      <p class="text-just">Agora temos o <em>Magisk</em> instalado, porém ainda não podemos usar o aparelho. Devemos fazer uma restauração de fábrica.</p>
+      <p>Agora temos o <em>Magisk</em> instalado, porém ainda não podemos usar o aparelho. Devemos fazer uma restauração de fábrica.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura5.png">
       </div>
-      <p class="text-just">Saia do modo download segurando as teclas:</p>
+      <p>Saia do modo download segurando as teclas:</p>
       <kbd>Botão liga/desliga + Volume baixo</kbd>
       <br>
-      <p class="text-just">E imediatamente segure os botões para ir a recovery:</p>
+      <p>E imediatamente segure os botões para ir a recovery:</p>
       <kbd>Botão liga/desliga + Volume cima</kbd>
       <br>
-      <p class="text-just">Segure por uns 3 ou 4 segundos.</p>
-      <p class="text-just">Na tela de recuperação do aparelho procure a opção: <strong>wipe data/factory reset</strong></p>
+      <p>Segure por uns 3 ou 4 segundos.</p>
+      <p>Na tela de recuperação do aparelho procure a opção: <strong>wipe data/factory reset</strong></p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura6.png">
       </div>
-      <p class="text-just">Selecione "yes" para formatar o aparelho.</p>
-      <p class="text-just">Agora podemos inciar o sistema normalmente, é normal que o aparelho reinicie algumas vezes sozinho durante a primeira inicialização.</p>
-      <p class="text-just">Depois que o aparelho ligar, preencha as configurações iniciais normalmente, você deve ver o aplicativo do Magisk na tela inicial, se não estiver lá então você deve instalar o APK manualmente igual você fez na página 1.</p>
-      <p class="text-just">Quando você abrir o Magisk pela primeira vez ele deve pedir para fazer algumas configurações extras, deixe ele fazer o seu trabalho e reiniciar o dispositivo automaticamente.</p>
-      <p class="text-just">E voilà você tem o Magisk instalado!</p>
+      <p>Selecione "yes" para formatar o aparelho.</p>
+      <p>Agora podemos inciar o sistema normalmente, é normal que o aparelho reinicie algumas vezes sozinho durante a primeira inicialização.</p>
+      <p>Depois que o aparelho ligar, preencha as configurações iniciais normalmente, você deve ver o aplicativo do Magisk na tela inicial, se não estiver lá então você deve instalar o APK manualmente igual você fez na página 1.</p>
+      <p>Quando você abrir o Magisk pela primeira vez ele deve pedir para fazer algumas configurações extras, deixe ele fazer o seu trabalho e reiniciar o dispositivo automaticamente.</p>
+      <p>E voilà você tem o Magisk instalado!</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura7.png">
       </div>
-      <p class="text-just">É isso, espero ter esclarecido sobre como fazer root em aparelhos Samsung. Não deixe de ler a documentação do Magisk e o fórum xda developers para mais informações, o inglês lá é obrigatório.</p>
+      <p>É isso, espero ter esclarecido sobre como fazer root em aparelhos Samsung. Não deixe de ler a documentação do Magisk e o fórum xda developers para mais informações, o inglês lá é obrigatório.</p>
       <h2 class="text-center">Referências</h2>
       <ul>
         <li><a href="https://topjohnwu.github.io/Magisk/" target="_blank">Página oficial do Magisk</a></li>
