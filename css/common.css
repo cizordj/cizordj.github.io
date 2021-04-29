@@ -2,3 +2,31 @@ body {
 background-color: black;
 color: white;
 }
+code {
+    white-space:normal;
+    display: inline-table;
+    background-color: #004d6f;
+    color: #fff;
+}
+a:not([class]){
+    color: inherit;
+    text-decoration: underline;
+}
+.bg-midnightblue{
+  background-color: #072838 !important;
+}
+.bg-darkseagreen{
+  background-color: #093230 !important;
+}
+.bg-lightseagreen{
+  background-color: #20b2aa !important;
+}
+.bg-rosybrown{
+  background-color: #e7afaf !important;
+}
+.bg-darkrosybrown{
+  background-color: #120e0e !important;
+}
+p {
+  text-align: justify !important;
+}
