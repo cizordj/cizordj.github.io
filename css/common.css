@@ -28,5 +28,5 @@ a:not([class]){
   background-color: #120e0e !important;
 }
 p {
-  text-align: justify !important;
+  text-align: justify;
 }
