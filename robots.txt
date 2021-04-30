@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /gpg/cac_pubkey.txt
+Disallow: *.png$
+Disallow: *.jpg$
+Disallow: *.jpeg$
+Sitemap: https://cizordj.github.io/sitemap.xml
