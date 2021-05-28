@@ -51,4 +51,15 @@ h1, h2 {
       <h1 id="light-title">No</h1>
       <h2 id="light-subtitle">Your browser is not telling us anything about your preference for a dark theme</h2>
   </body>
+  <script>
+var userLang = navigator.language || navigator.userLanguage;
+switch(userLang){
+  case "pt-BR":
+    document.getElementById("dark-title").innerText = "Sim";
+    document.getElementById("dark-subtitle").innerText = "Seu navegador nos diz que você quer usar um tema escuro na internet";
+    document.getElementById("light-title").innerText = "Não";
+    document.getElementById("light-subtitle").innerText = "Seu navegador não nos diz nada sobre você querer usar um tema escuro";
+    break;
+}
+  </script>
 </html>
