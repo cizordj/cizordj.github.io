@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Do I prefer a black theme?</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta name="description" content="This page tells you whether you prefer a black theme or not.">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+<style>
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 98vh;
+  font-family: 'Quicksand', sans-serif;
+}
+h1, h2 {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: black;
+  }
+  #dark-title, #dark-subtitle {
+    color: white;
+    display: unset;
+  }
+}
+@media (prefers-color-scheme: light){
+  body{
+    background-color: white;
+  }
+  #light-title, #light-subtitle {
+    color: black;
+    display: unset;
+  }
+}
+</style>
+  </head>
+  <body>
+      <h1 id="dark-title">Yes</h1>
+      <h2 id="dark-subtitle">Your browser tells us that you want to view our page using the dark mode</h2>
+      <h1 id="light-title">No</h1>
+      <h2 id="light-subtitle">Your browser is not telling us anything about your preference for a dark theme</h2>
+  </body>
+</html>
