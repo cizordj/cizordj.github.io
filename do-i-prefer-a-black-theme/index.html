@@ -12,7 +12,7 @@
     <link rel="canonical" href="https://cizordj.github.io/do-i-prefer-a-black-theme/index.html"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
-<style>
+    <style>
 body {
   display: flex;
   flex-direction: column;
@@ -25,34 +25,34 @@ body {
 h1, h2 {
   display: none;
 }
-@media (prefers-color-scheme: dark) {
-  body{
-    background-color: black;
+  @media (prefers-color-scheme: dark) {
+    body{
+      background-color: black;
+    }
+    #dark-title, #dark-subtitle {
+      color: white;
+      display: unset;
+    }
   }
-  #dark-title, #dark-subtitle {
-    color: white;
-    display: unset;
+  @media (prefers-color-scheme: light){
+    body{
+      background-color: white;
+    }
+    #light-title, #light-subtitle {
+      color: black;
+      display: unset;
+    }
   }
-}
-@media (prefers-color-scheme: light){
-  body{
-    background-color: white;
-  }
-  #light-title, #light-subtitle {
-    color: black;
-    display: unset;
-  }
-}
-</style>
+    </style>
   </head>
   <body>
-      <h1 id="dark-title">Yes</h1>
-      <h2 id="dark-subtitle">Your browser tells us that you want to view our page using the dark mode</h2>
-      <h1 id="light-title">No</h1>
-      <h2 id="light-subtitle">Your browser is not telling us anything about your preference for a dark theme</h2>
+    <h1 id="dark-title">Yes</h1>
+    <h2 id="dark-subtitle">Your browser tells us that you want to view our page using the dark mode</h2>
+    <h1 id="light-title">No</h1>
+    <h2 id="light-subtitle">Your browser is not telling us anything about your preference for a dark theme</h2>
   </body>
   <script>
-var userLang = navigator.language || navigator.userLanguage;
+    var userLang = navigator.language || navigator.userLanguage;
 switch(userLang){
   case "pt-BR":
     document.getElementById("dark-title").innerText = "Sim";
