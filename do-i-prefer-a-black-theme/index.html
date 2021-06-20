@@ -25,24 +25,24 @@ body {
 h1, h2 {
   display: none;
 }
-  @media (prefers-color-scheme: dark) {
-    body{
-      background-color: black;
+    @media (prefers-color-scheme: dark) {
+      body{
+        background-color: black;
+      }
+      #dark-title, #dark-subtitle {
+        color: white;
+        display: unset;
+      }
     }
-    #dark-title, #dark-subtitle {
-      color: white;
-      display: unset;
+    @media (prefers-color-scheme: light){
+      body{
+        background-color: white;
+      }
+      #light-title, #light-subtitle {
+        color: black;
+        display: unset;
+      }
     }
-  }
-  @media (prefers-color-scheme: light){
-    body{
-      background-color: white;
-    }
-    #light-title, #light-subtitle {
-      color: black;
-      display: unset;
-    }
-  }
     </style>
   </head>
   <body>

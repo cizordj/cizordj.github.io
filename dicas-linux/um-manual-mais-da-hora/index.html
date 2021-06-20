@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
   <body class="bg-black fg-white">
-    <main class="container mt-10 mb-10 pt-5 pb-5">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-dark">
       <h1 class="text-center">Um manual mais da hora</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>13 de abril de 2021</em></h3>
@@ -18,23 +18,23 @@
       <div class="img-container mw-50-md mx-auto">
         <img src="./figura1.png">
       </div>
-      <p>Para quem gosta de perfumaria (como eu), existem duas alternativas para deixar a leitura de manuais no
+      <p class="text-just">Para quem gosta de perfumaria (como eu), existem duas alternativas para deixar a leitura de manuais no
       Linux mais agradável e elas vão impressionar você devido a tamanha facilidade que é configurar.</p>
       <h2 class="text-center">Passos</h2>
-      <p>1. Most</p>
+      <p class="text-just">1. Most</p>
       <div class="img-container mw-50-md mx-auto">
         <img src="./figura2.png">
       </div>
-      <p>Para usar o most como o programa padrão para ler manuais, primeiro é preciso instalá-lo:</p>
+      <p class="text-just">Para usar o most como o programa padrão para ler manuais, primeiro é preciso instalá-lo:</p>
       <code># apt-get install most</code>
-      <p>E depois defini-lo como leitor padrão através de uma variável de ambiente.
+      <p class="text-just">E depois defini-lo como leitor padrão através de uma variável de ambiente.
       Coloque o seguinte texto dentro de <em>/etc/environment:</em></p>
       <code>MANPAGER="/usr/bin/most"</code>
-      <p>2. Vim</p>
+      <p class="text-just">2. Vim</p>
       <div class="img-container mw-50-md mx-auto">
         <img src="./figura3.png">
       </div>
-      <p>Se você é um camarada mais acostumado com o VIM,
+      <p class="text-just">Se você é um camarada mais acostumado com o VIM,
       então vai ser fácil defini-lo como leitor padrão de manuais.
       Basta você adicionar o seguinte dentro do arquivo <em>/etc/environment:</em></p>
       <code>MANPAGER="/usr/bin/vim -c 'set ft=man nomod nolist'"</code>
@@ -43,7 +43,7 @@
         <li>Testado no Debian</li>
         <li> A configuração de variáveis de ambiente pode variar em outras distribuições</li>
       </ul>
-      <p>É isso pessoal, até a próxima dica.</p>
+      <p class="text-just">É isso pessoal, até a próxima dica.</p>
     </main>
   </body>
 </html>

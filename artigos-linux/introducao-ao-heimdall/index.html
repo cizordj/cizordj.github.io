@@ -9,89 +9,91 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
   <body class="bg-black fg-white">
-    <main class="container mt-10 mb-10 pt-5 pb-5">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-dark">
       <h1 class="text-center">Introdução ao Heimdall</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>10 de março de 2019</em></h3>
       <h2 class="text-center">Uma Alternativa ao Odin para Linux</h2>
       <p class="indent-letter">Entusiastas do mundo Android que gostam de "flashear" customs ROMs em seus aparelhos, instalar novas recoveries ou até mesmo fazer root, veem tutoriais no YouTube ensinando a fazer isso apenas no Odin para Windows, a famosa ferramenta vazada da Samsung que, além de ser proprietária, não é oficialmente suportada e mesmo assim é a mais usada pela comunidade.</p>
-      <p>
+      <p class="text-just">
       Estes, quando migram para o Linux não encontram uma alternativa à altura e muitas vezes se sentem obrigados a recorrer a um PC com Windows para usar o Odin, eu muitas vezes tive que fazer isso.
       </p>
-      <p>
+      <p class="text-just">
       Alguns até tentam rodar o Odin pelo Wine, mas que por motivos adversos, o programa não tem acesso direto à porta USB onde o celular está conectado. Sem essa funcionalidade, o programa se torna inútil. </p>
-      <p>
+      <p class="text-just">
       Além do Odin, existe uma alternativa chamada "JOdin", que é uma alternativa em código aberto feita em JAVA e por isso funcionaria em qualquer plataforma, mas eu tive muita dificuldade em baixar e usar no Linux, e também é limitado a binários pequenos, ou seja, você não pode instalar Stock ROMs com ele.
       </p>
-      <p>
+      <p class="text-just">
       Após muita pesquisa, descobri o Heimdall, a internet possui muito pouco conteúdo sobre ele e por isso os novos Linuxers podem passar tempos dependendo do Odin do Windows ainda para este tipo de coisa. O Heimdall é livre, open-source e funciona nativamente no Linux sem precisar de emulação do Windows e nem nada, dependendo apenas da biblioteca "libusb" para fazer a comunicação com o celular (nenhum driver da Samsung é necessário).</p>
       <h2 class="text-center">O que é Heimdall</h2>
       <div class="img-container mw-25-md mx-auto">
         <img src="./figura1.png">
       </div>
-      <p>Heimdall é um software multiplataforma feito sob a licença MIT pela Glass Echidna para instalar firmwares em aparelhos Samsung. Ao contrário do Odin, que só roda no Windows, o Heimdall pode funcionar em qualquer plataforma, é rápido e não tem a limitação do Java Odin que mencionei antes.</p>
-      <p>
+      <p class="text-just">Heimdall é um software multiplataforma feito sob a licença MIT pela Glass Echidna para instalar firmwares em aparelhos Samsung. Ao contrário do Odin, que só roda no Windows, o Heimdall pode funcionar em qualquer plataforma, é rápido e não tem a limitação do Java Odin que mencionei antes.</p>
+      <p class="text-just">
       Ele possui dois binários, um backend chamado Heimdall para os usuários hardcore e o binário front-end, para os usuários comuns. Ambos fazem a mesma coisa que o Odin, desde que você saiba manuseá-los.</p>
       <h2 class="text-center">É perigoso?</h2>
-      <p>Mexer com o firmware do seu aparelho nem sempre é seguro, você pode causar um "soft-brick" se instalar o binário errado, pois cada aparelho é único e uma simples letrinha no modelo faz diferença, além disso, cada modelo possui um arquivo "pit" que é único para cada variante e usar arquivos pit pegos da internet, nunca é recomendável.</p>
+      <p class="text-just">Mexer com o firmware do seu aparelho nem sempre é seguro, você pode causar um "soft-brick" se instalar o binário errado, pois cada aparelho é único e uma simples letrinha no modelo faz diferença, além disso, cada modelo possui um arquivo "pit" que é único para cada variante e usar arquivos pit pegos da internet, nunca é recomendável.</p>
       <h2 class="text-center">Soft-brick</h2>
-      <p>Em uma tradução literal, significa "software quebrado". Quando o seu aparelho liga, mas o sistema não inicializa por causa de alguma incompatibilidade.</p>
-      <p>A maioria dos soft-bricks podem ser recuperados ao reinstalar a Stock ROM do aparelho, então, não se preocupe muito.</p>
+      <p class="text-just">Em uma tradução literal, significa "software quebrado". Quando o seu aparelho liga, mas o sistema não inicializa por causa de alguma incompatibilidade.</p>
+      <p class="text-just">A maioria dos soft-bricks podem ser recuperados ao reinstalar a Stock ROM do aparelho, então, não se preocupe muito.</p>
       <h2 class="text-center">O que dá para fazer no Heimdall?</h2>
-      <p>A princípio, instalar custom recoveries, kernels, stock ROMs e até mesmo extrair o arquivo pit sem necessitar acesso root no aparelho.</p>
+      <p class="text-just">A princípio, instalar custom recoveries, kernels, stock ROMs e até mesmo extrair o arquivo pit sem necessitar acesso root no aparelho.</p>
       <h2 class="text-center">Arquivo pit, oi?</h2>
-      <p>Arquivo pit (Partition Information Table) é uma tabela de partições única para cada modelo de aparelho. É sempre recomendável que você use o arquivo que sair do seu celular para trabalhar com o Heimdall, se o arquivo errado for usado para o seu aparelho, é soft-brick na certa.
+      <p class="text-just">Arquivo pit (Partition Information Table) é uma tabela de partições única para cada modelo de aparelho. É sempre recomendável que você use o arquivo que sair do seu celular para trabalhar com o Heimdall, se o arquivo errado for usado para o seu aparelho, é soft-brick na certa.
 
       Se você usou o Odin a vida inteira, provavelmente nunca tenha precisado deste arquivo, embora o Odin faça automaticamente a cópia do pit antes de modificar seu aparelho. Ele é quem dita o quanto cada partição vai ocupar de memória no seu aparelho e as atualizações OTA da fabricante podem trazer novas versões do pit, por isso, é sempre recomendável usar o pit que estiver no seu aparelho.
 
       Chega de enrolação e vamos instalar o Heimdall.</p>
       <h2 class="text-center">Como compilar</h2>
-      <p>As distribuições nem sempre trazem a última versão em seus repositórios e por isso o Heimdall pode não funcionar corretamente sem as correções de bugs. Por isso, vamos compilá-lo direto do código-fonte.</p>
+      <p class="text-just">As distribuições nem sempre trazem a última versão em seus repositórios e por isso o Heimdall pode não funcionar corretamente sem as correções de bugs. Por isso, vamos compilá-lo direto do código-fonte.</p>
       <h2 class="text-center">Dependências</h2>
-      <p>Vamos começar com as dependências necessárias, como exemplo, usarei a distribuição Zorin OS que é baseada no Ubuntu Xenial para a compilação:</p>
+      <p class="text-just">Vamos começar com as dependências necessárias, como exemplo, usarei a distribuição Zorin OS que é baseada no Ubuntu Xenial para a compilação:</p>
       <code>$ sudo apt install build-essential cmake zlib1g-dev qt5-default libusb-1.0-0-dev git</code>
-      <p>Obs.: a instalação do GIT não é obrigatória, mas facilita o download do código-fonte.</p>
-      <p>Pronto. Com as dependências instaladas, baixemos o código-fonte com o git:</p>
+      <p class="text-just">Obs.: a instalação do GIT não é obrigatória, mas facilita o download do código-fonte.</p>
+      <p class="text-just">Pronto. Com as dependências instaladas, baixemos o código-fonte com o git:</p>
       <code>$ git clone https://gitlab.com/BenjaminDobell/Heimdall.git</code>
-      <p>Isso criará uma pasta no local chamada "Heimdall", entre nela com:</p>
+      <p class="text-just">Isso criará uma pasta no local chamada "Heimdall", entre nela com:</p>
       <code>$ cd Heimdall</code>
-      <p>E agora, começamos a série de comandos para compilar.</p>
+      <p class="text-just">E agora, começamos a série de comandos para compilar.</p>
       <code>$ mkdir build<br>$ cd build<br>$ cmake -DCMAKE_BUILD_TYPE=Release ..</code>
       <br>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura2.png">
       </div>
-      <p>Se nenhum erro aparecer até agora, então você está pronto para compilar. Para começar digite:</p>
+      <p class="text-just">Se nenhum erro aparecer até agora, então você está pronto para compilar. Para começar digite:</p>
       <code>$ make</code>
       <br>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura3.png">
       </div>
-      <p>Isso vai levar horas, dependendo do seu hardware, mas quando o processo tiver terminado, você ainda não terá o Heimdall instalado, apenas os binários dele. Para instalar o Heimdall de vez, digite o comando final: </p>
+      <p class="text-just">Isso vai levar horas, dependendo do seu hardware, mas quando o processo tiver terminado, você ainda não terá o Heimdall instalado, apenas os binários dele. Para instalar o Heimdall de vez, digite o comando final: </p>
       <code>$ sudo make install</code>
       <br>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src"./figura4.png">
       </div>
-      <p>Pronto! Agora você tem o Heimdall instalado em seu computador, tanto o frontend quanto o backend.</p>
-      <p>Para ter certeza de que ele foi instalado, digite no terminal:</p>
+      <p class="text-just">Pronto! Agora você tem o Heimdall instalado em seu computador, tanto o frontend quanto o backend.</p>
+      <p class="text-just">Para ter certeza de que ele foi instalado, digite no terminal:</p>
       <code>$ heimdall version</code>
       <br>
-      <samp>v1.4.2</samp>
-      <p>...que deve retornar com a versão que você acabou de compilar.</p>
-      <p>Para usar o Heimdall com interface gráfica, basta digitar no terminal:</p>
-      <code>$ sudo heimdall-frontend</code>
-      <br>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura5.png">
-      </div>
-      <p>Sim, o Heimdall precisa de root para funcionar, igual o Odin precisa de administrador no Windows, a não ser que você mude as permissões da porta USB no seu Linux, o que dará muito trabalho.</p>
-      <p>É isso, espero ter sido útil ao mostrar que existe uma alternativa viável e que dá para modificar o seu celular Galaxy sem recorrer mais ao Odin.</p>
-      <h2 class="text-center">Bibliografia</h2>
-      <p>Site oficial do Heimdall - Glass Echidna (perguntas frequentes):</p>
-      <a class="fg-lightBlue" target="_blank" href="https://www.glassechidna.com.au/heimdall/">Heimdall &lt&lt&lt Glass Echidna</a>
-      <p>Documentação do Heimdall para Linux - Apêndice B:</p>
-      <a class="fg-lightBlue" target="_blank" href="https://gitlab.com/BenjaminDobell/Heimdall/raw/master/Linux/README">BenjaminDobell/Heimdall/README</a>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp>v1.4.2</samp>
+</div>
+        <p class="text-just">...que deve retornar com a versão que você acabou de compilar.</p>
+        <p class="text-just">Para usar o Heimdall com interface gráfica, basta digitar no terminal:</p>
+        <code>$ sudo heimdall-frontend</code>
+        <br>
+        <div class="img-container mw-50-md mx-auto mb-3">
+          <img src="./figura5.png">
+        </div>
+        <p class="text-just">Sim, o Heimdall precisa de root para funcionar, igual o Odin precisa de administrador no Windows, a não ser que você mude as permissões da porta USB no seu Linux, o que dará muito trabalho.</p>
+        <p class="text-just">É isso, espero ter sido útil ao mostrar que existe uma alternativa viável e que dá para modificar o seu celular Galaxy sem recorrer mais ao Odin.</p>
+        <h2 class="text-center">Bibliografia</h2>
+        <p class="text-just">Site oficial do Heimdall - Glass Echidna (perguntas frequentes):</p>
+        <a class="fg-lightBlue" target="_blank" href="https://www.glassechidna.com.au/heimdall/">Heimdall &lt&lt&lt Glass Echidna</a>
+        <p class="text-just">Documentação do Heimdall para Linux - Apêndice B:</p>
+        <a class="fg-lightBlue" target="_blank" href="https://gitlab.com/BenjaminDobell/Heimdall/raw/master/Linux/README">BenjaminDobell/Heimdall/README</a>
     </main>
   </body>
 </html>

@@ -9,31 +9,33 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
   <body class="bg-black fg-white">
-    <main class="container mt-10 mb-10 pt-5 pb-5">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-dark">
       <h1 class="text-center">Servidor web simples sem instalar nada</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>24 de junho de 2020</em></h3>
       <p class="indent-letter">Essa dica é para aqueles <em>web designers</em> que querem testar o próprio site antes de ir pro ar, mas não querem instalar o Apache ou o Nginx para não ocupar muito espaço no computador.</p>
-      <p>O <em>Busybox</em> já vem instalado em muitas distribuições e com ele um servidor web simples. Essa dica visa facilitar o dia a dia de programadores e web designers que lidam com diversos sites ao mesmo tempo e querem testar as suas soluções antes de ir para o ar.</p>
-      <p>Para instalar o Busybox no <em>Debian</em>:</p>
+      <p class="text-just">O <em>Busybox</em> já vem instalado em muitas distribuições e com ele um servidor web simples. Essa dica visa facilitar o dia a dia de programadores e web designers que lidam com diversos sites ao mesmo tempo e querem testar as suas soluções antes de ir para o ar.</p>
+      <p class="text-just">Para instalar o Busybox no <em>Debian</em>:</p>
       <code># apt install busybox</code>
-      <p>Para iniciar o servidor no diretório atual:</p>
+      <p class="text-just">Para iniciar o servidor no diretório atual:</p>
       <code>$ busybox httpd -p 127.0.0.1:8080 -h $PWD</code>
-      <p>Para derrubar o servidor:</p>
+      <p class="text-just">Para derrubar o servidor:</p>
       <code>$ pkill busybox</code>
-      <p>Simples assim! E se você quiser pode criar duas funções e colocá-las no fim do seu <em>.bashrc</em> para poder iniciar e parar o servidor com um comando mais fácil:</p>
-      <samp><pre>function start_web_server(){
+      <p class="text-just">Simples assim! E se você quiser pode criar duas funções e colocá-las no fim do seu <em>.bashrc</em> para poder iniciar e parar o servidor com um comando mais fácil:</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre>function start_web_server(){
     busybox httpd -p 127.0.0.1:8080 -h $PWD
 }
 
 function stop_web_server(){
     pkill busybox
 }</pre></samp>
-        <p>E então basta entrar no repositório do seu site e digitar:</p>
+</div>
+        <p class="text-just">E então basta entrar no repositório do seu site e digitar:</p>
         <code>$ start_web_server</code>
-        <p>e para terminar:</p>
+        <p class="text-just">e para terminar:</p>
         <code>$ stop_web_server</code>
-        <p>É isso.</p>
+        <p class="text-just">É isso.</p>
     </main>
   </body>
 </html>

@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
   <body class="bg-black fg-white">
-    <main class="container mt-10 mb-10 pt-5 pb-5">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-dark">
       <h1 class="text-center">Como customizar sua ROM Android</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>1 de dezembro de 2020</em></h3>
       <h3 class="text-center"><em>Editado em 1 de fevereiro de 2021</em></h3>
       <h6 class="text-center"><em>Razão: Correção de frases ambíguas</em></h6>
-      <p>Eu dedico esse artigo aos entusiastas do mundo Android que gostam de mexer na ROM de seus aparelhos, sejam bem vindos ao fórum Viva o Linux. Hoje eu vou mostrar para vocês como customizar a ROM do seu Android de acordo com as suas preferências através do computador. Viva o Linux!</p>
+      <p class="text-just">Eu dedico esse artigo aos entusiastas do mundo Android que gostam de mexer na ROM de seus aparelhos, sejam bem vindos ao fórum Viva o Linux. Hoje eu vou mostrar para vocês como customizar a ROM do seu Android de acordo com as suas preferências através do computador. Viva o Linux!</p>
       <h2 class="text-center">Resumo</h2>
       <p class="indent-letter">Mostrarei para você como customizar a ROM original do celular com as ferramentas que você pode encontrar na sua distribuição Linux. Todas as modificações do Android serão feitas dentro do seu ambiente de desktop, antes de serem passadas para o celular. A vantagem é que você vai aproveitar de toda a versatilidade que o desktop tem para te oferecer nessas horas, além disso, para usufruir das vantagens deste processo você não precisa ter root no aparelho, somente o bootloader e o vbmeta desbloqueado.</p>
-      <p>NOTA 1: esse artigo se aplica a celulares da Samsung compatíveis com o projeto Treble, lançados a partir de 2019 com Android 9 ou superior.</p>
-      <p>NOTA 2: Se o aparelho for novo, você perderá a garantia.</p>
+      <p class="text-just">NOTA 1: esse artigo se aplica a celulares da Samsung compatíveis com o projeto Treble, lançados a partir de 2019 com Android 9 ou superior.</p>
+      <p class="text-just">NOTA 2: Se o aparelho for novo, você perderá a garantia.</p>
       <h2 class="text-center">Motivação</h2>
-      <p>Você pode me perguntar, mas pra quê perder tempo fuçando no sistema do aparelho? Bem, as razões são essas:</p>
+      <p class="text-just">Você pode me perguntar, mas pra quê perder tempo fuçando no sistema do aparelho? Bem, as razões são essas:</p>
       <ul>
         <li>Diversão;</li>
         <li>Liberar espaço;</li>
@@ -29,110 +29,115 @@
         <li>Remover serviços do Google;</li>
         <li>Instalar APPs no sistema.</li>
       </ul>
-      <p>E é basicamente isso que nós vamos fazer hoje, nós vamos pegar a ROM original de um Samsung Galaxy A20 e modificá-lo de acordo com as minhas necessidades, nesse processo você aprenderá a fazer cada uma dessas etapas e poderá customizar a ROM de outros aparelhos conforme você queira.</p>
-      <p>A ideia desse artigo não é desmoralizar e nem difamar as fabricantes de celular pelo que elas mandam no aparelho, tampouco servirá de base para artigos enviesados em prol do Software Livre, tudo aqui será didático e para fins de aprendizado somente.</p>
+      <p class="text-just">E é basicamente isso que nós vamos fazer hoje, nós vamos pegar a ROM original de um Samsung Galaxy A20 e modificá-lo de acordo com as minhas necessidades, nesse processo você aprenderá a fazer cada uma dessas etapas e poderá customizar a ROM de outros aparelhos conforme você queira.</p>
+      <p class="text-just">A ideia desse artigo não é desmoralizar e nem difamar as fabricantes de celular pelo que elas mandam no aparelho, tampouco servirá de base para artigos enviesados em prol do Software Livre, tudo aqui será didático e para fins de aprendizado somente.</p>
       <h2 class="text-center">Como vamos fazer</h2>
-      <p>Basicamente, o que vamos fazer é pegar a stock ROM de um Galaxy A20 e fazer as seguintes modificações:</p>
+      <p class="text-just">Basicamente, o que vamos fazer é pegar a stock ROM de um Galaxy A20 e fazer as seguintes modificações:</p>
       <ul>
         <li>Remover todos os aplicativos inutilizados que vêm de fábrica;</li>
         <li>Instalar um arquivo hosts para bloqueio de propagandas;</li>
         <li>Remover alguns serviços do Google;</li>
         <li>Instalar a Aurora Store.</li>
       </ul>
-      <p>Para quem não sabe, a Aurora Store é uma alternativa em Software Livre para o Google Play Store, ideal para quem não tem conta no Google e ao mesmo tempo quer baixar aplicativos direto da Google Play. Além disso, a instalação do Aurora Store no sistema vai servir de aprendizado para aqueles que querem saber como uma loja de aplicativos funciona.</p>
+      <p class="text-just">Para quem não sabe, a Aurora Store é uma alternativa em Software Livre para o Google Play Store, ideal para quem não tem conta no Google e ao mesmo tempo quer baixar aplicativos direto da Google Play. Além disso, a instalação do Aurora Store no sistema vai servir de aprendizado para aqueles que querem saber como uma loja de aplicativos funciona.</p>
       <h2 class="text-center">Requisitos</h2>
-      <p>Antes de começar, vale atentar aos requisitos que você precisa ter:</p>
+      <p class="text-just">Antes de começar, vale atentar aos requisitos que você precisa ter:</p>
       <ul>
         <li>Familiaridade com o terminal Linux;</li>
         <li>Um computador com Linux e espaço no HD;</li>
         <li>Alguma noção de Android.</li>
       </ul>
-      <p>Seu telefone precisa ter:</p>
+      <p class="text-just">Seu telefone precisa ter:</p>
       <ul>
         <li>O bootloader desbloqueado</li>
         <li>A partição VBMETA vazia</li>
       </ul>
-      <p>No final do artigo, eu entro em detalhes sobre como esvaziar o VBMETA sem fazer root no aparelho.</p>
+      <p class="text-just">No final do artigo, eu entro em detalhes sobre como esvaziar o VBMETA sem fazer root no aparelho.</p>
       <h2 class="text-center">Ambiente</h2>
-      <p>Não é necessário muita coisa para se customizar o Android no Linux, só algumas ferramentas de linha de comando. Elas podem ser encontradas no pacote "android-tools-fsutils" no Debian estável (Buster), Elementary ou Ubuntu 18.04:</p>
+      <p class="text-just">Não é necessário muita coisa para se customizar o Android no Linux, só algumas ferramentas de linha de comando. Elas podem ser encontradas no pacote "android-tools-fsutils" no Debian estável (Buster), Elementary ou Ubuntu 18.04:</p>
       <code># apt-get install android-tools-fsutils</code>
-      <p>Com o ambiente preparado vamos começar a brincadeira.</p>
+      <p class="text-just">Com o ambiente preparado vamos começar a brincadeira.</p>
       <h2 class="text-center">Como montar as partições do Android</h2>
-      <p>A partições do Android são, em sua maioria, imagens esparsas de algum sistema de arquivos EXT4. O Android, quando inicia, monta as partições a partir de blocos que são arquivos de imagem somente leitura, elas permanecem assim pelo resto da vida, a não ser que o fabricante torne a modificá-los através de alguma atualização ou o usuário instale uma ROM customizada.</p>
-      <p>Algumas partições podem conter arquivos TAR, ao invés de um sistema de arquivos, como mostrado no artigo:</p>
+      <p class="text-just">A partições do Android são, em sua maioria, imagens esparsas de algum sistema de arquivos EXT4. O Android, quando inicia, monta as partições a partir de blocos que são arquivos de imagem somente leitura, elas permanecem assim pelo resto da vida, a não ser que o fabricante torne a modificá-los através de alguma atualização ou o usuário instale uma ROM customizada.</p>
+      <p class="text-just">Algumas partições podem conter arquivos TAR, ao invés de um sistema de arquivos, como mostrado no artigo:</p>
       <ul>
         <li><a class="fg-lightBlue" href="../como-modificar-a-tela-do-bootloader-do-android/index.html">Como modificar a tela do bootloader do Android</a></li>
       </ul>
-      <p>Mas por quê as imagens são esparsas? A ideia por trás disso é economizar espaço, visto que o armazenamento de memória nos celulares é muito limitado. Os Bytes vazios são cortados e o tamanho da imagem só aumenta conforme o usuário adiciona dados ao aparelho, consumindo apenas o espaço guardado nele, isso no caso da partição de dados que é dinâmica.</p>
-      <p>Para montar uma imagem esparsa no Linux, você primeiro tem que converter ela para uma imagem crua e depois montá-la. Note que depois da conversão, o arquivo de imagem vai mostrar o seu real tamanho.</p>
+      <p class="text-just">Mas por quê as imagens são esparsas? A ideia por trás disso é economizar espaço, visto que o armazenamento de memória nos celulares é muito limitado. Os Bytes vazios são cortados e o tamanho da imagem só aumenta conforme o usuário adiciona dados ao aparelho, consumindo apenas o espaço guardado nele, isso no caso da partição de dados que é dinâmica.</p>
+      <p class="text-just">Para montar uma imagem esparsa no Linux, você primeiro tem que converter ela para uma imagem crua e depois montá-la. Note que depois da conversão, o arquivo de imagem vai mostrar o seu real tamanho.</p>
       <h2 class="text-center">Download da stock ROM</h2>
-      <p>Primeiro, baixe a ROM original do seu aparelho no site da Samsung, pesquise pelo modelo do celular, país e operadora. Os sites onde você pode baixar são esses, mas podem haver muitos outros também:</p>
+      <p class="text-just">Primeiro, baixe a ROM original do seu aparelho no site da Samsung, pesquise pelo modelo do celular, país e operadora. Os sites onde você pode baixar são esses, mas podem haver muitos outros também:</p>
       <ul>
         <li><a class="fg-lightBlue" href="https://www.sammobile.com/firmwares/" target="_blank">Site oficial da Samsung</a></li>
         <li><a class="fg-lightBlue" href="https://samdb.org/" target="_blank">SamDB</a></li>
         <li><a class="fg-lightBlue" href="https://samfw.com/" target="_blank">SamFW</a></li>
         <li><a class="fg-lightBlue" href="https://kfhost.net/" target="_blank">KFhost</a></li>
       </ul>
-      <p>Após descompactar o arquivo ".zip", você vai ver que os arquivos terminam com ".tar".md5. Você pode verificar a integridade deles com essa dica:</p>
+      <p class="text-just">Após descompactar o arquivo ".zip", você vai ver que os arquivos terminam com ".tar".md5. Você pode verificar a integridade deles com essa dica:</p>
       <ul>
         <li><a class="fg-lightBlue" href="../../dicas-linux/como-verificar-a-integridade-das-stock-roms-da-samsung/index.html">Como verificar a integridade das stock ROMs da Samsung</a></li>
       </ul>
-      <p>Se decidir pular a verificação, então descompacte os arquivos com qualquer programa de sua preferência. Se a ROM tiver comprimida com LZ4, instale o seguinte pacote para descomprimi-lo:</p>
+      <p class="text-just">Se decidir pular a verificação, então descompacte os arquivos com qualquer programa de sua preferência. Se a ROM tiver comprimida com LZ4, instale o seguinte pacote para descomprimi-lo:</p>
       <code># apt install liblz4-tool</code>
-      <p>E depois para descomprimir:</p>
+      <p class="text-just">E depois para descomprimir:</p>
       <code>$ lz4 -d seu_arquivo_compactado.lz4</code>
-      <p>Após descomprimir todos os arquivos, você terá agora uma pasta cheia de binários. Eu recomendo criar uma pasta separada só para guardá-los, para fins de organização.</p>
+      <p class="text-just">Após descomprimir todos os arquivos, você terá agora uma pasta cheia de binários. Eu recomendo criar uma pasta separada só para guardá-los, para fins de organização.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura1.png">
       </div>
-      <p>Eu chamei esta pasta de "stock" pois é aonde vão ficar os arquivos originais sem modificação, caso alguma coisa dê errado nós teremos um becape.</p>
-      <p>Crie uma outra pasta para guardar os seus arquivos modificados, afim de não se perderem. Na imagem abaixo, pode-se notar que eu criei outra pasta chamada "modified", pois é onde vão ficar os arquivos do Android modificado.</p>
+      <p class="text-just">Eu chamei esta pasta de "stock" pois é aonde vão ficar os arquivos originais sem modificação, caso alguma coisa dê errado nós teremos um becape.</p>
+      <p class="text-just">Crie uma outra pasta para guardar os seus arquivos modificados, afim de não se perderem. Na imagem abaixo, pode-se notar que eu criei outra pasta chamada "modified", pois é onde vão ficar os arquivos do Android modificado.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura2.png">
       </div>
-      <p>Com o terminal aberto nesta pasta, vamos converter a imagem do sistema Android para um formato que o Linux "possa entender":</p>
+      <p class="text-just">Com o terminal aberto nesta pasta, vamos converter a imagem do sistema Android para um formato que o Linux "possa entender":</p>
       <code>$ simg2img ./stock/system.img ./modified/system.raw</code>
-      <p>Entre na pasta "modified" e monte a imagem do sistema como usuário root:</p>
+      <p class="text-just">Entre na pasta "modified" e monte a imagem do sistema como usuário root:</p>
       <code>$ cd modified<br>
         $ mkdir system<br>
         $ sudo mount ./system.raw ./system/<br>
       </code>
-      <p>Agora, nós temos a imagem do sistema montada na pasta "system" do nosso diretório de ROMs customizadas, dentro dela podemos fazer virtualmente qualquer coisa.</p>
-      <p>Vamos montar a partição product:</p>
+      <p class="text-just">Agora, nós temos a imagem do sistema montada na pasta "system" do nosso diretório de ROMs customizadas, dentro dela podemos fazer virtualmente qualquer coisa.</p>
+      <p class="text-just">Vamos montar a partição product:</p>
       <code>$ mkdir product<br>
         $ simg2img ../stock/product.img product.raw<br>
         $ sudo mount ./product.raw ./product/<br>
       </code>
-      <p>Pronto, agora vamos começar a customização na próxima página.</p>
+      <p class="text-just">Pronto, agora vamos começar a customização na próxima página.</p>
       <h2 class="text-center">Como remover bloatwares</h2>
-      <p>Primeiro, vamos começar removendo os <em>Bloatwares</em>. Para quem não sabe, <em>Bloatwares</em> são aplicativos que vem instalados de fábrica e são impossíveis de se remover pelo usuário, normalmente esses aplicativos nunca não usados e consomem bateria e espaço no armazenamento interno.</p>
-      <p>Quando você liga um celular Android pela primeira vez, o sistema começa a construir o cache do <em>Dalvik</em> e instalar os aplicativos do sistema na partição de dados, alguns aplicativos são apenas pacotes vazios que serão mais tarde instalados pela PlayStore sem a interação do usuário.</p>
-      <p>Esses aplicativos são chamados de <em>STUB</em> e você normalmente vai querer removê-los nesse processo de <em>Debloat</em>.</p>
-      <p>Os aplicativos de sistema no Android são guardados nas pastas <em>/system/priv-app/</em> e <em>/system/app/</em>. Além dela, existem outras partições que guardam aplicativos de terceiros e de operadoras como por exemplo as partições hidden e product, nós abordaremos essas partições mais pro final. Vamos começar removendo os aplicativos não essenciais da partição do sistema.</p>
+      <p class="text-just">Primeiro, vamos começar removendo os <em>Bloatwares</em>. Para quem não sabe, <em>Bloatwares</em> são aplicativos que vem instalados de fábrica e são impossíveis de se remover pelo usuário, normalmente esses aplicativos nunca não usados e consomem bateria e espaço no armazenamento interno.</p>
+      <p class="text-just">Quando você liga um celular Android pela primeira vez, o sistema começa a construir o cache do <em>Dalvik</em> e instalar os aplicativos do sistema na partição de dados, alguns aplicativos são apenas pacotes vazios que serão mais tarde instalados pela PlayStore sem a interação do usuário.</p>
+      <p class="text-just">Esses aplicativos são chamados de <em>STUB</em> e você normalmente vai querer removê-los nesse processo de <em>Debloat</em>.</p>
+      <p class="text-just">Os aplicativos de sistema no Android são guardados nas pastas <em>/system/priv-app/</em> e <em>/system/app/</em>. Além dela, existem outras partições que guardam aplicativos de terceiros e de operadoras como por exemplo as partições hidden e product, nós abordaremos essas partições mais pro final. Vamos começar removendo os aplicativos não essenciais da partição do sistema.</p>
       <h2 class="text-center">Enxugando a partição do sistema</h2>
-      <p>Entre na pasta "system" que você acabou de montar:</p>
+      <p class="text-just">Entre na pasta "system" que você acabou de montar:</p>
       <code># cd system</code>
       <br>
-      <p>Liste os aplicativos:</p>
+      <p class="text-just">Liste os aplicativos:</p>
       <div class="img-container mw-75-md mx-auto">
         <img src="./figura3.png">
       </div>
-      <p>Note que na saída do comando acima, muitos aplicativos estão alojados na parte privilegiada do sistema, muitos deles você consegue distinguir pelo nome e outros são simplesmente difíceis de dizer, mesmo pesquisando na internet. Outros fazem parte do coração do sistema e você simplesmente não pode removê-los, pois se fizer isso o sistema poderá deixar de funcionar. Um bom exemplo disso é o framework de pagamentos da Samsung!</p>
-      <p>Também note que ali existem alguns Stubs que farão o seu celular instalar sozinho outros aplicativos que não vieram de fábrica, como por exemplo o PreloadInstaller.</p>
-      <p>Se você já tem uma noção, você já pode começar removendo os APPs que você sabe que não são essenciais, como por exemplo o instalador do Facebook:</p>
+      <p class="text-just">Note que na saída do comando acima, muitos aplicativos estão alojados na parte privilegiada do sistema, muitos deles você consegue distinguir pelo nome e outros são simplesmente difíceis de dizer, mesmo pesquisando na internet. Outros fazem parte do coração do sistema e você simplesmente não pode removê-los, pois se fizer isso o sistema poderá deixar de funcionar. Um bom exemplo disso é o framework de pagamentos da Samsung!</p>
+      <p class="text-just">Também note que ali existem alguns Stubs que farão o seu celular instalar sozinho outros aplicativos que não vieram de fábrica, como por exemplo o PreloadInstaller.</p>
+      <p class="text-just">Se você já tem uma noção, você já pode começar removendo os APPs que você sabe que não são essenciais, como por exemplo o instalador do Facebook:</p>
       <code>$ sudo rm -rfv "./system/priv-app/FBInstaller_NS/"</code>
       <br>
-      <samp>Removido './system/priv-app/FBInstaller_NS/FBInstaller_NS.apk'<br>Foi removido o diretório: './system/priv-app/FBInstaller_NS/'</samp>
-      <br>
-      <p>Ou, o instalador de múltiplos Bloatwares que mencionei antes:</p>
-      <code>$ sudo rm -rfv "./system/priv-app/PreloadInstaller/"</code>
-      <br>
-      <samp>Removido './system/priv-app/PreloadInstaller/PreloadInstaller.apk'<br>
-        Foi removido o diretório: './system/priv-app/PreloadInstaller/'<br>
-      </samp>
-      <p>Eu compilei uma lista de todos os Bloatwares que removi do meu smartfone sem quebrar o meu sistema, vou compartilhar com vocês para terem uma ideia:</p>
-      <samp>
-        <pre>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp>Removido './system/priv-app/FBInstaller_NS/FBInstaller_NS.apk'<br>Foi removido o diretório: './system/priv-app/FBInstaller_NS/'</samp>
+</div>
+        <br>
+        <p class="text-just">Ou, o instalador de múltiplos Bloatwares que mencionei antes:</p>
+        <code>$ sudo rm -rfv "./system/priv-app/PreloadInstaller/"</code>
+        <br>
+        <div class="fg-black bg-lightOrange mw-50">
+          <samp>Removido './system/priv-app/PreloadInstaller/PreloadInstaller.apk'<br>
+            Foi removido o diretório: './system/priv-app/PreloadInstaller/'<br>
+        </samp>
+</div>
+          <p class="text-just">Eu compilei uma lista de todos os Bloatwares que removi do meu smartfone sem quebrar o meu sistema, vou compartilhar com vocês para terem uma ideia:</p>
+          <div class="fg-black bg-lightOrange mw-50">
+            <samp>
+              <pre>
 ./system/app/AutomationTest_FB
 ./system/app/BasicDreams
 ./system/app/BBCAgent
@@ -247,238 +252,259 @@
 ./system/priv-app/SmartManager_v5
 ./system/priv-app/ThemeCenter
 ./system/priv-app/ThemeStore</pre>
-      </samp>
-      <p>É lógico que nem tudo nessa lista pode ser considerado um Bloatware, para algumas pessoas, a pasta segura da Samsung (SecureFolder) pode ser útil. Além disso, a remoção de alguns aplicativos pode causar algum efeito colateral, como por exemplo o Knox parar de funcionar. A lista pode variar de aparelho para aparelho e nem todos os nomes de aplicativos serão iguais a esses que eu listei, então, tome cuidado ao usar listas pegas da internet feitas por terceiros.</p>
-      <p>Para usar essa lista é bem simples, coloque ela na raiz do sistema Android, na pasta onde você montou o arquivo de imagem e rode o seguinte loop como usuário root:</p>
-      <code># while IFS= read line<br>&gt do<br>&gt rm -rf "$line"<br>&gt done &lt bloatware_list.txt</code>
-      <p>Após este processo, a partição de sistema da sua ROM já deve estar alguns quilos mais leve. O próximo passo agora é remover os aplicativos de outra partição que normalmente vêm instalados de fábrica.</p>
-      <p>Ah, não esqueça de tirar a lista de dentro do sistema!</p>
-      <code># mv bloatware_list.txt ../</code>
-      <h2 class="text-center">Enxugando a partição do produto</h2>
-      <p>Outro lugar que costuma ter aplicativos pré-instalados é a partição "product", mas isso pode variar de celular para celular. Por sorte, o Galaxy-A20 costuma trazer aplicativos ali, então eu vou mostrar como removê-los.</p>
-      <p>Entre na pasta "product", onde você montou o arquivo de imagem "product.raw" anteriormente:</p>
-      <code># cd ../product</code>
-      <p>Dê um <strong>ls</strong>:</p>
-      <code># ls</code>
-      <br>
-      <samp>app  build.prop  etc  HWRDB  lost+found  omc  priv-app  sipdb</samp>
-      <p>Como você pode ver, existe uma pasta "app" e uma "priv-app", o que quer dizer que existem aplicativos ali. Remova todos os que você julgar necessário.</p>
-      <code># rm -rfv app/* priv-app/*</code>
-      <p>No meu, só tinha um manual de usuário, SamsungMax e o SamsungDTI.</p>
-      <code># rm etc/permissions/privapp-permissions-com.dti.samsung.xml</code>
-      <p>Também removi o arquivo que dava permissão para o SamsungDTI fazer mudanças no aparelho.</p>
-      <h2 class="text-center">Enxugando a partição hidden</h2>
-      <p>Outra partição que costuma ter APPs de terceiros é a partição "hidden", como o Galaxy-A20 não possui essa partição, eu vou mostrar um exemplo pego de um Samsung Galaxy J7 (2016).</p>
-      <code># ls ./hidden</code>
-      <br>
-      <samp>Common_app  INTERNAL_SDCARD  lost+found</samp>
-      <br>
-      <code># ls ./hidden/Common_app/</code>
-      <br>
-      <samp>apps_brasil_v1.0.1_signed_aligned.apk  mcare-recarga-multi-samsung-v1.3.0-r3.apk<br>  SamsungAppsClube_v1.19.201.apk  smarttutor_b212.apk<br></samp>
-      <code># rm ./hidden/Common_app/*</code>
-      <p>Como você pode ver, eu removi todos os APKs dentro da pasta "Common_app", isso quer dizer que eles não existirão mais no aparelho. Com as partições devidamente enxugadas, vamos para o próximo passo.</p>
-      <h2 class="text-center">Bloqueio de propagandas e malware</h2>
-      <p>Todo mundo sabe que dá para bloquear propagandas através de um método clássico no Unix, que é o bloqueio de DNS por arquivo hosts. No Android não é diferente, por ser um derivado do Unix, você vai achar o arquivo "hosts" na barra etc do sistema.</p>
-      <p>Entre no ponto de montagem do sistema:</p>
-      <code># cd ../system<br># file etc</code>
-      <br>
-      <samp>etc: broken symbolic link to /system/etc</samp>
-      <p>O etc na raiz é um link simbólico para a pasta "etc" dentro da pasta "system". Então, entre nela com o seguinte comando:</p>
-      <code># cd ./system/etc</code>
-      <p>E veja o conteúdo do arquivo hosts:</p>
-      <code># cat hosts</code>
-      <br>
-      <samp>127.0.0.1       localhost<br>::1             ip6-localhost</samp>
-      <p>Bem simplesinho, não? Agora substitua ele com algum arquivo bem gordo de sua preferência.</p>
-      <p>Um local de boa reputação para baixar um arquivo hosts é o repositório do <a class="fg-lightBlue" href="https://github.com/StevenBlack/hosts" target="_blank">StevenBlack</a> no Github. Lá, você escolhe as variantes do que deseja bloquear e pode baixar para o seu computador.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura4.png">
-      </div>
-      <p>Copie o link da variante desejada e cole no terminal para baixar.</p>
-      <code># rm hosts<br># wget "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts" -O hosts</code>
-      <br>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura5.png">
-      </div>
-      <p>É isso, agora considere o seu sistema livre de propagandas (ou pelo menos, a maioria delas).</p>
-      <h2 class="text-center">Instalando o Aurora Services</h2>
-      <p>Se você tem o desejo de tirar o Google do seu smartfone, então essa página pode interessar a você.</p>
-      <p>O <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS" target="_blank">Aurora Store</a> é um cliente para o serviço do Google PlayStore que visa respeitar a sua privacidade ao máximo, ele oferece atualizações e um serviço chamado "Aurora protect", que mostra quantos rastreadores um aplicativo tem.</p>
-      <p>Este aplicativo é ideal para pessoas que se preocupam com o rastreamento e querem usar alguma alternativa em software livre para a gigante das buscas em seu smartfone.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura6.png">
-      </div>
-      <p>O Aurora store pode instalar os aplicativos de vários jeitos, como usuário root, sem root ou como aplicativo privilegiado do sistema (semelhante à forma que a PlayStore utiliza). Aqui eu vou ensinar como instalar ele na parte privilegiada do sistema.</p>
-      <p>Primeiro, vá até a página de releases do AuroraStore:</p>
-      <ul>
-        <li><a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraStore/-/releases" target="_blank">Releases · Aurora OSS / AuroraStore · GitLab</a></li>
-      </ul>
-      <p>E baixe o último APK para o seu computador:</p>
-      <code># cd ../../../<br>
-        # wget https://gitlab.com/AuroraOSS/AuroraStore/uploads/2b8a9544eb228170e5708ffb46cb55f5/AuroraStore_3.2.9.apk<br>
-      </code>
-      <p>Crie uma pasta dentro do "priv-app" do seu sistema:</p>
-      <code># mkdir -p ./system/system/priv-app/AuroraStore</code>
-      <p>E mova o APK para esta pasta:</p>
-      <code># mv AuroraStore_3.2.9.apk ./system/system/priv-app/AuroraStore/</code>
-      <p>Outro cliente que pode te interessar é o Aurora Droid que serve para baixar aplicativos de software livre do f-droid.org:</p>
-      <ul>
-        <li>
-          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/auroradroid/-/releases" target="_blank">Releases · Aurora OSS / AuroraDroid · GitLab</a>
-        </li>
-      </ul>
-      <p>Baixe o último APK do link acima e mova para a partição de sistema do seu Android:</p>
-      <code># wget https://gitlab.com/AuroraOSS/auroradroid/uploads/58c94351a4b08d65e41501a1bf1ab1a4/AuroraDroid_1.0.6.apk<br># mkdir ./system/system/priv-app/AuroraDroid<br># mv AuroraDroid_1.0.6.apk ./system/system/priv-app/AuroraDroid/
-      </code>
-      <p>Ainda não acabou, o Aurora Store precisa de mais um aplicativo para funcionar completamente, ele é chamado de Aurora Services. Baixe o último APK do Aurora Services nessa página:</p>
-      <ul>
-        <li>
-          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraServices/-/releases" target="_blank">Releases · Aurora OSS / Aurora Services · GitLab</a>
-        </li>
-      </ul>
-      <code># wget https://gitlab.com/AuroraOSS/AuroraServices/uploads/c80bee54c1dc782df78a31065c710e59/AuroraServices-v1.0.6.apk</code>
-      <p>Crie uma pasta para ele na pasta "priv-app" do sistema e mova o APK para lá.</p>
-      <code># mkdir ./system/system/priv-app/AuroraServices<br># mv AuroraServices-v1.0.6.apk ./system/system/priv-app/AuroraServices/
-      </code>
-      <p>Nesse conjunto de aplicações, o Aurora Store e o Aurora Droid dependem do Aurora Services para instalar e remover os aplicativos no sistema e para dar esse privilégio, nós precisamos de um arquivo XML especial que vai ser lido pelo sistema Android durante a inicialização, esse arquivo pode ser encontrado na seguinte página do código-fonte do Aurora Services:</p>
-      <ul>
-        <li>
-          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraServices/-/tree/master/app/src/main/assets" target="_blank">app/src/main/assets · master · Aurora OSS / Aurora Services · GitLab</a>
-        </li>
-      </ul>
-      <p>Baixe-o para o seu computador e mova para a seguinte pasta na partição do sistema Android:</p>
-      <code># wget https://gitlab.com/AuroraOSS/AuroraServices/raw/master/app/src/main/assets/permissions_com.aurora.services.xml<br># mv permissions_com.aurora.services.xml ./system/system/etc/permissions/</code>
-      <p>Agora vem a parte mais importante, o Android não vai reconhecer os aplicativos se as permissões Unix deles estiverem erradas. As pastas devem ser 0755, os APKs 0644 e todos devem pertencer ao root, então antes de mais nada dê uma checada:</p>
-      <code># chmod 0755 ./system/system/priv-app/Aurora*</code>
-      <p>O comando acima vai aplicar o modo 0755 para todas as pastas do Aurora e o comando abaixo vai aplicar o modo correto para todos os APKs do Aurora:</p>
-      <code># chmod 0644 ./system/system/priv-app/Aurora*/*.apk</code>
-      <p>E por último, só para garantir:</p>
-      <code># chown -R root ./system/system/priv-app/Aurora*</code>
-      <p>No fim, você vai acabar com 4 lojas de aplicativos no seu aparelho:</p>
-      <ul>
-        <li>O Google Play Store</li>
-        <li>Galaxy Apps (da Samsung)</li>
-        <li>Aurora Store</li>
-        <li>Aurora Droid</li>
-      </ul>
-      <p>Se você quiser, pode remover a Play Store com o seguinte comando:</p>
-      <code># rm -rf ./system/system/priv-app/Phonesky</code>
-      <p>E o Galaxy Apps com esse comando:</p>
-      <code># rm -rf ./system/system/priv-app/GalaxyApps_OPEN</code>
-      <p>E por que não remover o Google Play Services? Bom, muitos aplicativos dependem do GMSCore para funcionar, exemplos são os aplicativos de bancos e aplicativos do governo, além do mais as notificações push do Android precisam do Play Services funcionando e atualizado, caso contrário, você não receberá as notificações dos aplicativos.</p>
-      <p>Mesmo assim, se você tiver absoluta certeza de que não quer mais nenhum resquício do Google, você pode removê-lo com o seguinte comando:</p>
-      <code># rm -rf ./system/system/priv-app/GmsCore/</code>
-      <p>A esse ponto do artigo, já devemos ter uma ROM bastante customizada e agora livre dos serviços do Google.</p>
-      <h2 class="text-center">Como reempacotar a sua ROM</h2>
-      <p>Agora que chegamos à reta final da nossa série de customizações Android, eu vou mostrar para vocês como se faz para reempacotar a imagem do sistema e a imagem da partição "product" que modificamos antes.</p>
-      <p>Como falei, a imagem que o Android usa são imagens esparsas; diferente das partições normais do Linux, as imagens esparsas são somente-leitura e mais compactas.</p>
-      <p>O pacote "android-tools-fsutils" nos provê um comando muito útil para esse caso. Primeiro, desmonte as imagens do Android:</p>
-      <code># umount ./system/ ./product/</code>
-      <p>Certifique-se de ter desmontado bem a imagem do sistema Android, pois se houver alguma queda de energia durante o processo de customização, o journal do sistema de arquivos pode ser corrompido e você pode acabar causando um soft-brick no seu smartfone na hora de instalar a custom ROM.</p>
-      <p>Agora, converta as imagens cruas para imagens esparsas:</p>
-      <code># ext2simg ./system.raw ./system_modificado.img<br># ext2simg ./product.raw ./product_modificado.img</code>
-      <p>Confira se as imagens modificadas têm mais ou menos o mesmo número de chunks que as imagens originais:</p>
-      <code># cd ..<br># file ./modified/system.img</code>
-      <br>
-      <samp>./modified/system.img: Android sparse image, version: 1.0, Total of 1038058 4096-byte output blocks in 139 input chunks.</samp>
-      <br>
-      <code># file ./stock/system.img</code>
-      <br>
-      <samp>./stock/system.img: Android sparse image, version: 1.0, Total of 1054720 4096-byte output blocks in 27 input chunks.</samp>
-      <br>
-      <code># file ./modified/product.img</code>
-      <br>
-      <samp>./modified/product.img: Android sparse image, version: 1.0, Total of 100764 4096-byte output blocks in 10 input chunks.</samp>
-      <br>
-      <code># file ./stock/product.img</code>
-      <br>
-      <samp>./stock/product.img: Android sparse image, version: 1.0, Total of 102400 4096-byte output blocks in 17 input chunks.</samp>
-      <p>Isso é bom sinal, quer dizer que as imagens vão funcionar. Se alguma imagem tiver um número absurdo de input chunks, como por exemplo mais de "1000 input chunks", repita o processo, isso quer dizer que a imagem do sistema foi criada com os parâmetros errados pelo ext2simg.</p>
-      <p>Isso pode acontecer caso você cancele a desmontagem ou corrompa o journal do sistema de arquivos.</p>
-      <h2 class="text-center">Resultado e instalação</h2>
-      <p>Agora que temos a nossa custom ROM, vamos instalar ela no smartphone usando o Heimdall, para quem não sabe, o Heimdall é uma ferramenta nativa do Linux que serve para instalar ROMs nos celulares da Samsung.</p>
-      <p>Para mais detalhes, veja:</p>
-      <ul>
-        <li>
-          <a class="fg-lightBlue" href="../introducao-ao-heimdall/index.html">Introdução ao Heimdall</a>
-        </li>
-        <li>
-          <a class="fg-lightBlue" href="../como-usar-o-heimdall/index.html">Como usar o Heimdall</a>
-        </li>
-      </ul>
-      <p>Nos tutoriais acima, eu ensino a compilar o Heimdall direto da fonte, mas se você estiver usando o Debian testing ou superior, você já pode instalá-lo direto dos repositórios.</p>
-      <code># apt-get install heimdall-flash</code>
-      <p>Agora, para podermos instalar a custom ROM, precisamos desbloquear o bootloader do celular. Caso não tenha desbloqueado o bootloader, eu recomendo que siga esse tutorial:</p>
-      <ul>
-        <li>
-          <a class="fg-lightBlue" href="../como-desbloquear-o-bootloader-em-celulares-samsung/index.html">Como desbloquear o bootloader em celulares Samsung</a>
-        </li>
-      </ul>
-      <p>Além disso, precisamos de um vbmeta vazio para instalar no seu aparelho, sem ele o smartphone vai disparar o seguinte erro:</p>
-      <blockquote>
-        Only official binaries are allowed to be flashed
-      </blockquote>
-      <p>Por quê isso acontece? Porque o sistema Android quando é inicializado, verifica a assinatura da ROM para ver se ela é genuína e caso você instale alguma coisa que não seja a original da fabricante, você será levado para a tela de download toda vez que ligar o smartphone, o único jeito de corrigir este erro é reinstalando a stock ROM completa do seu aparelho.</p>
-      <p>Para burlar isso você, deve instalar um arquivo vazio na partição VBMETA logo depois de desbloquear o bootloader, pois assim você garantirá que o aparelho não vai colocar impeditivos na hora de customizar a ROM.</p>
-      <p>Para conseguir o arquivo "vbmeta.img" compatível com o seu smartphone, siga o tutorial do link abaixo:</p>
-      <ul>
-        <li>
-          <a class="fg-lightBlue" href="../como-fazer-root-em-celulares-samsung/index.html">Como fazer root em celulares Samsung</a>
-        </li>
-      </ul>
-      <p>Porém, não instale nada ainda, apenas pegue o arquivo "magisk_patched.tar" proveniente daquele tutorial, passe para o computador, extraia o arquivo "vbmeta.img" e coloque-o na pasta "modified", onde você guarda as suas ROMs customizadas.</p>
-      <p>É dessa forma que você vai instalar a custom ROM sem precisar fazer root no aparelho. Se você já fez root usando o método Magisk, então você já tem a partição VBMETA vazia e pode pular esta etapa.</p>
-      <p>A princípio, tudo está preparado para instalarmos a custom ROM no aparelho. Desligue o celular, pressione os dois botões de volume ao mesmo e ligue ao computador para entrar no modo download.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura7.png">
-      </div>
-      <p>Veja se o Heimdall detecta o aparelho antes de começar:</p>
-      <code># heimdall detect</code>
-      <br>
-      <samp>Device detected</samp>
-      <p>E agora instale a custom ROM com o seguinte comando:</p>
-      <code># heimdall flash --pit ../stock/A20_SWA_OPEN.pit --VBMETA vbmeta.img --SYSTEM system_modificado.img --PRODUCT product_modificado.img</code>
-      <p>Onde:</p>
-      <ul>
-        <li><strong>--pit</strong> (vai o arquivo "pit" que veio junto com os arquivos da stock ROM);</li>
-        <li><strong>--VBMETA</strong> (aqui vai o arquivo "vbmeta" vazio produzido pelo Magisk);</li>
-        <li><strong>--SYSTEM</strong> (a imagem de sistema da sua custom ROM);</li>
-        <li><strong>--PRODUCT</strong> (a imagem da partição "product" que você modificou antes).</li>
-      </ul>
-      <p>Agora o seu smartfone já deve iniciar com a ROM customizada. :)</p>
-      <p>Para o melhor resultado, entre no modo recovery, formate o cache Dalvik e faça a restauração de fábrica. É normal que a primeira inicialização demore, pois ele estará construindo o cache de novo e instalando os aplicativos do sistema, isso pode variar de uns 5 a 10 minutos.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura8.png">
-      </div>
-      <p>Após passar as configurações iniciais do aparelho, você poderá notar o quão limpo ele deve estar.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura9.png">
-      </div>
-      <p>A maioria dos aplicativos você mesmo terá que instalar, mas antes abra o Aurora Services, dê as permissões para ele e toque no Whitelist.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura10.png">
-      </div>
-      <p>Marque o Aurora Store e o Aurora Droid para permitir que eles instalem aplicativos no sistema.</p>
-      <p>Agora, abra o Aurora Store, passe as configurações iniciais e vá em "Configurações". Depois vá em "Instalações", mude o método de instalação para: Aurora Services</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura11.png">
-      </div>
-      <p>Faça o mesmo para o Aurora Droid e pronto! Agora você está livre para instalar aplicativos no celular.</p>
-      <h2 class="text-center">Considerações finais</h2>
-      <p>Só para constar, a ROM do meu aparelho ficou quase 1GB mais leve depois do processo de remoção de APPs, como você pode ver nas imagem abaixo:</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura12.png">
-      </div>
-      <p>Este é o tamanho da imagem original do sistema, enquanto que esse é o tamanho da ROM customizada:</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura13.png">
-      </div>
-      <p>Além disso, a bateria está durando até dois dias, já que não há nenhum serviço de sincronização em nuvem instalado. Por outro, lado a conveniência de se ter becapes automáticos para TUDO, foi sacrificada. Então, toda vez que eu for instalar uma nova versão da ROM, um becape manual deverá ser feito.</p>
-      <p>Perceba também que não fizemos ROOT no aparelho, por essa razão o smartfone aparecerá como "limpo" para aplicativos que detectam isso e o sistema será marcado como seguro.</p>
-      <p>É isso pessoal, espero que tenham curtido esse método de customização de ROMs e fica o aviso: O Viva o Linux e o autor se eximem da responsabilidade pela perda de celulares através da modificação do firmware.</p>
-      <p>Siga este procedimento por sua própria conta e risco.</p>
-      <p>Over 'n out.</p>
+          </samp>
+</div>
+            <p class="text-just">É lógico que nem tudo nessa lista pode ser considerado um Bloatware, para algumas pessoas, a pasta segura da Samsung (SecureFolder) pode ser útil. Além disso, a remoção de alguns aplicativos pode causar algum efeito colateral, como por exemplo o Knox parar de funcionar. A lista pode variar de aparelho para aparelho e nem todos os nomes de aplicativos serão iguais a esses que eu listei, então, tome cuidado ao usar listas pegas da internet feitas por terceiros.</p>
+            <p class="text-just">Para usar essa lista é bem simples, coloque ela na raiz do sistema Android, na pasta onde você montou o arquivo de imagem e rode o seguinte loop como usuário root:</p>
+            <code># while IFS= read line<br>&gt do<br>&gt rm -rf "$line"<br>&gt done &lt bloatware_list.txt</code>
+            <p class="text-just">Após este processo, a partição de sistema da sua ROM já deve estar alguns quilos mais leve. O próximo passo agora é remover os aplicativos de outra partição que normalmente vêm instalados de fábrica.</p>
+            <p class="text-just">Ah, não esqueça de tirar a lista de dentro do sistema!</p>
+            <code># mv bloatware_list.txt ../</code>
+            <h2 class="text-center">Enxugando a partição do produto</h2>
+            <p class="text-just">Outro lugar que costuma ter aplicativos pré-instalados é a partição "product", mas isso pode variar de celular para celular. Por sorte, o Galaxy-A20 costuma trazer aplicativos ali, então eu vou mostrar como removê-los.</p>
+            <p class="text-just">Entre na pasta "product", onde você montou o arquivo de imagem "product.raw" anteriormente:</p>
+            <code># cd ../product</code>
+            <p class="text-just">Dê um <strong>ls</strong>:</p>
+            <code># ls</code>
+            <br>
+            <div class="fg-black bg-lightOrange mw-50">
+              <samp>app  build.prop  etc  HWRDB  lost+found  omc  priv-app  sipdb</samp>
+</div>
+              <p class="text-just">Como você pode ver, existe uma pasta "app" e uma "priv-app", o que quer dizer que existem aplicativos ali. Remova todos os que você julgar necessário.</p>
+              <code># rm -rfv app/* priv-app/*</code>
+              <p class="text-just">No meu, só tinha um manual de usuário, SamsungMax e o SamsungDTI.</p>
+              <code># rm etc/permissions/privapp-permissions-com.dti.samsung.xml</code>
+              <p class="text-just">Também removi o arquivo que dava permissão para o SamsungDTI fazer mudanças no aparelho.</p>
+              <h2 class="text-center">Enxugando a partição hidden</h2>
+              <p class="text-just">Outra partição que costuma ter APPs de terceiros é a partição "hidden", como o Galaxy-A20 não possui essa partição, eu vou mostrar um exemplo pego de um Samsung Galaxy J7 (2016).</p>
+              <code># ls ./hidden</code>
+              <br>
+              <div class="fg-black bg-lightOrange mw-50">
+                <samp>Common_app  INTERNAL_SDCARD  lost+found</samp>
+</div>
+                <br>
+                <code># ls ./hidden/Common_app/</code>
+                <br>
+                <div class="fg-black bg-lightOrange mw-50">
+                  <samp>apps_brasil_v1.0.1_signed_aligned.apk  mcare-recarga-multi-samsung-v1.3.0-r3.apk<br>  SamsungAppsClube_v1.19.201.apk  smarttutor_b212.apk<br></samp>
+</div>
+                  <code># rm ./hidden/Common_app/*</code>
+                  <p class="text-just">Como você pode ver, eu removi todos os APKs dentro da pasta "Common_app", isso quer dizer que eles não existirão mais no aparelho. Com as partições devidamente enxugadas, vamos para o próximo passo.</p>
+                  <h2 class="text-center">Bloqueio de propagandas e malware</h2>
+                  <p class="text-just">Todo mundo sabe que dá para bloquear propagandas através de um método clássico no Unix, que é o bloqueio de DNS por arquivo hosts. No Android não é diferente, por ser um derivado do Unix, você vai achar o arquivo "hosts" na barra etc do sistema.</p>
+                  <p class="text-just">Entre no ponto de montagem do sistema:</p>
+                  <code># cd ../system<br># file etc</code>
+                  <br>
+                  <div class="fg-black bg-lightOrange mw-50">
+                    <samp>etc: broken symbolic link to /system/etc</samp>
+</div>
+                    <p class="text-just">O etc na raiz é um link simbólico para a pasta "etc" dentro da pasta "system". Então, entre nela com o seguinte comando:</p>
+                    <code># cd ./system/etc</code>
+                    <p class="text-just">E veja o conteúdo do arquivo hosts:</p>
+                    <code># cat hosts</code>
+                    <br>
+                    <div class="fg-black bg-lightOrange mw-50">
+                      <samp>127.0.0.1       localhost<br>::1             ip6-localhost</samp>
+</div>
+                      <p class="text-just">Bem simplesinho, não? Agora substitua ele com algum arquivo bem gordo de sua preferência.</p>
+                      <p class="text-just">Um local de boa reputação para baixar um arquivo hosts é o repositório do <a class="fg-lightBlue" href="https://github.com/StevenBlack/hosts" target="_blank">StevenBlack</a> no Github. Lá, você escolhe as variantes do que deseja bloquear e pode baixar para o seu computador.</p>
+                      <div class="img-container mw-50-md mx-auto mb-3">
+                        <img src="./figura4.png">
+                      </div>
+                      <p class="text-just">Copie o link da variante desejada e cole no terminal para baixar.</p>
+                      <code># rm hosts<br># wget "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts" -O hosts</code>
+                      <br>
+                      <div class="img-container mw-50-md mx-auto mb-3">
+                        <img src="./figura5.png">
+                      </div>
+                      <p class="text-just">É isso, agora considere o seu sistema livre de propagandas (ou pelo menos, a maioria delas).</p>
+                      <h2 class="text-center">Instalando o Aurora Services</h2>
+                      <p class="text-just">Se você tem o desejo de tirar o Google do seu smartfone, então essa página pode interessar a você.</p>
+                      <p class="text-just">O <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS" target="_blank">Aurora Store</a> é um cliente para o serviço do Google PlayStore que visa respeitar a sua privacidade ao máximo, ele oferece atualizações e um serviço chamado "Aurora protect", que mostra quantos rastreadores um aplicativo tem.</p>
+                      <p class="text-just">Este aplicativo é ideal para pessoas que se preocupam com o rastreamento e querem usar alguma alternativa em software livre para a gigante das buscas em seu smartfone.</p>
+                      <div class="img-container mw-50-md mx-auto mb-3">
+                        <img src="./figura6.png">
+                      </div>
+                      <p class="text-just">O Aurora store pode instalar os aplicativos de vários jeitos, como usuário root, sem root ou como aplicativo privilegiado do sistema (semelhante à forma que a PlayStore utiliza). Aqui eu vou ensinar como instalar ele na parte privilegiada do sistema.</p>
+                      <p class="text-just">Primeiro, vá até a página de releases do AuroraStore:</p>
+                      <ul>
+                        <li><a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraStore/-/releases" target="_blank">Releases · Aurora OSS / AuroraStore · GitLab</a></li>
+                      </ul>
+                      <p class="text-just">E baixe o último APK para o seu computador:</p>
+                      <code># cd ../../../<br>
+                        # wget https://gitlab.com/AuroraOSS/AuroraStore/uploads/2b8a9544eb228170e5708ffb46cb55f5/AuroraStore_3.2.9.apk<br>
+                      </code>
+                      <p class="text-just">Crie uma pasta dentro do "priv-app" do seu sistema:</p>
+                      <code># mkdir -p ./system/system/priv-app/AuroraStore</code>
+                      <p class="text-just">E mova o APK para esta pasta:</p>
+                      <code># mv AuroraStore_3.2.9.apk ./system/system/priv-app/AuroraStore/</code>
+                      <p class="text-just">Outro cliente que pode te interessar é o Aurora Droid que serve para baixar aplicativos de software livre do f-droid.org:</p>
+                      <ul>
+                        <li>
+                          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/auroradroid/-/releases" target="_blank">Releases · Aurora OSS / AuroraDroid · GitLab</a>
+                        </li>
+                      </ul>
+                      <p class="text-just">Baixe o último APK do link acima e mova para a partição de sistema do seu Android:</p>
+                      <code># wget https://gitlab.com/AuroraOSS/auroradroid/uploads/58c94351a4b08d65e41501a1bf1ab1a4/AuroraDroid_1.0.6.apk<br># mkdir ./system/system/priv-app/AuroraDroid<br># mv AuroraDroid_1.0.6.apk ./system/system/priv-app/AuroraDroid/
+                      </code>
+                      <p class="text-just">Ainda não acabou, o Aurora Store precisa de mais um aplicativo para funcionar completamente, ele é chamado de Aurora Services. Baixe o último APK do Aurora Services nessa página:</p>
+                      <ul>
+                        <li>
+                          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraServices/-/releases" target="_blank">Releases · Aurora OSS / Aurora Services · GitLab</a>
+                        </li>
+                      </ul>
+                      <code># wget https://gitlab.com/AuroraOSS/AuroraServices/uploads/c80bee54c1dc782df78a31065c710e59/AuroraServices-v1.0.6.apk</code>
+                      <p class="text-just">Crie uma pasta para ele na pasta "priv-app" do sistema e mova o APK para lá.</p>
+                      <code># mkdir ./system/system/priv-app/AuroraServices<br># mv AuroraServices-v1.0.6.apk ./system/system/priv-app/AuroraServices/
+                      </code>
+                      <p class="text-just">Nesse conjunto de aplicações, o Aurora Store e o Aurora Droid dependem do Aurora Services para instalar e remover os aplicativos no sistema e para dar esse privilégio, nós precisamos de um arquivo XML especial que vai ser lido pelo sistema Android durante a inicialização, esse arquivo pode ser encontrado na seguinte página do código-fonte do Aurora Services:</p>
+                      <ul>
+                        <li>
+                          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraServices/-/tree/master/app/src/main/assets" target="_blank">app/src/main/assets · master · Aurora OSS / Aurora Services · GitLab</a>
+                        </li>
+                      </ul>
+                      <p class="text-just">Baixe-o para o seu computador e mova para a seguinte pasta na partição do sistema Android:</p>
+                      <code># wget https://gitlab.com/AuroraOSS/AuroraServices/raw/master/app/src/main/assets/permissions_com.aurora.services.xml<br># mv permissions_com.aurora.services.xml ./system/system/etc/permissions/</code>
+                      <p class="text-just">Agora vem a parte mais importante, o Android não vai reconhecer os aplicativos se as permissões Unix deles estiverem erradas. As pastas devem ser 0755, os APKs 0644 e todos devem pertencer ao root, então antes de mais nada dê uma checada:</p>
+                      <code># chmod 0755 ./system/system/priv-app/Aurora*</code>
+                      <p class="text-just">O comando acima vai aplicar o modo 0755 para todas as pastas do Aurora e o comando abaixo vai aplicar o modo correto para todos os APKs do Aurora:</p>
+                      <code># chmod 0644 ./system/system/priv-app/Aurora*/*.apk</code>
+                      <p class="text-just">E por último, só para garantir:</p>
+                      <code># chown -R root ./system/system/priv-app/Aurora*</code>
+                      <p class="text-just">No fim, você vai acabar com 4 lojas de aplicativos no seu aparelho:</p>
+                      <ul>
+                        <li>O Google Play Store</li>
+                        <li>Galaxy Apps (da Samsung)</li>
+                        <li>Aurora Store</li>
+                        <li>Aurora Droid</li>
+                      </ul>
+                      <p class="text-just">Se você quiser, pode remover a Play Store com o seguinte comando:</p>
+                      <code># rm -rf ./system/system/priv-app/Phonesky</code>
+                      <p class="text-just">E o Galaxy Apps com esse comando:</p>
+                      <code># rm -rf ./system/system/priv-app/GalaxyApps_OPEN</code>
+                      <p class="text-just">E por que não remover o Google Play Services? Bom, muitos aplicativos dependem do GMSCore para funcionar, exemplos são os aplicativos de bancos e aplicativos do governo, além do mais as notificações push do Android precisam do Play Services funcionando e atualizado, caso contrário, você não receberá as notificações dos aplicativos.</p>
+                      <p class="text-just">Mesmo assim, se você tiver absoluta certeza de que não quer mais nenhum resquício do Google, você pode removê-lo com o seguinte comando:</p>
+                      <code># rm -rf ./system/system/priv-app/GmsCore/</code>
+                      <p class="text-just">A esse ponto do artigo, já devemos ter uma ROM bastante customizada e agora livre dos serviços do Google.</p>
+                      <h2 class="text-center">Como reempacotar a sua ROM</h2>
+                      <p class="text-just">Agora que chegamos à reta final da nossa série de customizações Android, eu vou mostrar para vocês como se faz para reempacotar a imagem do sistema e a imagem da partição "product" que modificamos antes.</p>
+                      <p class="text-just">Como falei, a imagem que o Android usa são imagens esparsas; diferente das partições normais do Linux, as imagens esparsas são somente-leitura e mais compactas.</p>
+                      <p class="text-just">O pacote "android-tools-fsutils" nos provê um comando muito útil para esse caso. Primeiro, desmonte as imagens do Android:</p>
+                      <code># umount ./system/ ./product/</code>
+                      <p class="text-just">Certifique-se de ter desmontado bem a imagem do sistema Android, pois se houver alguma queda de energia durante o processo de customização, o journal do sistema de arquivos pode ser corrompido e você pode acabar causando um soft-brick no seu smartfone na hora de instalar a custom ROM.</p>
+                      <p class="text-just">Agora, converta as imagens cruas para imagens esparsas:</p>
+                      <code># ext2simg ./system.raw ./system_modificado.img<br># ext2simg ./product.raw ./product_modificado.img</code>
+                      <p class="text-just">Confira se as imagens modificadas têm mais ou menos o mesmo número de chunks que as imagens originais:</p>
+                      <code># cd ..<br># file ./modified/system.img</code>
+                      <br>
+                      <div class="fg-black bg-lightOrange mw-50">
+                        <samp>./modified/system.img: Android sparse image, version: 1.0, Total of 1038058 4096-byte output blocks in 139 input chunks.</samp>
+</div>
+                        <br>
+                        <code># file ./stock/system.img</code>
+                        <br>
+                        <div class="fg-black bg-lightOrange mw-50">
+                          <samp>./stock/system.img: Android sparse image, version: 1.0, Total of 1054720 4096-byte output blocks in 27 input chunks.</samp>
+</div>
+                          <br>
+                          <code># file ./modified/product.img</code>
+                          <br>
+                          <div class="fg-black bg-lightOrange mw-50">
+                            <samp>./modified/product.img: Android sparse image, version: 1.0, Total of 100764 4096-byte output blocks in 10 input chunks.</samp>
+</div>
+                            <br>
+                            <code># file ./stock/product.img</code>
+                            <br>
+                            <div class="fg-black bg-lightOrange mw-50">
+                              <samp>./stock/product.img: Android sparse image, version: 1.0, Total of 102400 4096-byte output blocks in 17 input chunks.</samp>
+</div>
+                              <p class="text-just">Isso é bom sinal, quer dizer que as imagens vão funcionar. Se alguma imagem tiver um número absurdo de input chunks, como por exemplo mais de "1000 input chunks", repita o processo, isso quer dizer que a imagem do sistema foi criada com os parâmetros errados pelo ext2simg.</p>
+                              <p class="text-just">Isso pode acontecer caso você cancele a desmontagem ou corrompa o journal do sistema de arquivos.</p>
+                              <h2 class="text-center">Resultado e instalação</h2>
+                              <p class="text-just">Agora que temos a nossa custom ROM, vamos instalar ela no smartphone usando o Heimdall, para quem não sabe, o Heimdall é uma ferramenta nativa do Linux que serve para instalar ROMs nos celulares da Samsung.</p>
+                              <p class="text-just">Para mais detalhes, veja:</p>
+                              <ul>
+                                <li>
+                                  <a class="fg-lightBlue" href="../introducao-ao-heimdall/index.html">Introdução ao Heimdall</a>
+                                </li>
+                                <li>
+                                  <a class="fg-lightBlue" href="../como-usar-o-heimdall/index.html">Como usar o Heimdall</a>
+                                </li>
+                              </ul>
+                              <p class="text-just">Nos tutoriais acima, eu ensino a compilar o Heimdall direto da fonte, mas se você estiver usando o Debian testing ou superior, você já pode instalá-lo direto dos repositórios.</p>
+                              <code># apt-get install heimdall-flash</code>
+                              <p class="text-just">Agora, para podermos instalar a custom ROM, precisamos desbloquear o bootloader do celular. Caso não tenha desbloqueado o bootloader, eu recomendo que siga esse tutorial:</p>
+                              <ul>
+                                <li>
+                                  <a class="fg-lightBlue" href="../como-desbloquear-o-bootloader-em-celulares-samsung/index.html">Como desbloquear o bootloader em celulares Samsung</a>
+                                </li>
+                              </ul>
+                              <p class="text-just">Além disso, precisamos de um vbmeta vazio para instalar no seu aparelho, sem ele o smartphone vai disparar o seguinte erro:</p>
+                              <blockquote>
+                                Only official binaries are allowed to be flashed
+                              </blockquote>
+                              <p class="text-just">Por quê isso acontece? Porque o sistema Android quando é inicializado, verifica a assinatura da ROM para ver se ela é genuína e caso você instale alguma coisa que não seja a original da fabricante, você será levado para a tela de download toda vez que ligar o smartphone, o único jeito de corrigir este erro é reinstalando a stock ROM completa do seu aparelho.</p>
+                              <p class="text-just">Para burlar isso você, deve instalar um arquivo vazio na partição VBMETA logo depois de desbloquear o bootloader, pois assim você garantirá que o aparelho não vai colocar impeditivos na hora de customizar a ROM.</p>
+                              <p class="text-just">Para conseguir o arquivo "vbmeta.img" compatível com o seu smartphone, siga o tutorial do link abaixo:</p>
+                              <ul>
+                                <li>
+                                  <a class="fg-lightBlue" href="../como-fazer-root-em-celulares-samsung/index.html">Como fazer root em celulares Samsung</a>
+                                </li>
+                              </ul>
+                              <p class="text-just">Porém, não instale nada ainda, apenas pegue o arquivo "magisk_patched.tar" proveniente daquele tutorial, passe para o computador, extraia o arquivo "vbmeta.img" e coloque-o na pasta "modified", onde você guarda as suas ROMs customizadas.</p>
+                              <p class="text-just">É dessa forma que você vai instalar a custom ROM sem precisar fazer root no aparelho. Se você já fez root usando o método Magisk, então você já tem a partição VBMETA vazia e pode pular esta etapa.</p>
+                              <p class="text-just">A princípio, tudo está preparado para instalarmos a custom ROM no aparelho. Desligue o celular, pressione os dois botões de volume ao mesmo e ligue ao computador para entrar no modo download.</p>
+                              <div class="img-container mw-50-md mx-auto mb-3">
+                                <img src="./figura7.png">
+                              </div>
+                              <p class="text-just">Veja se o Heimdall detecta o aparelho antes de começar:</p>
+                              <code># heimdall detect</code>
+                              <br>
+                              <div class="fg-black bg-lightOrange mw-50">
+                                <samp>Device detected</samp>
+</div>
+                                <p class="text-just">E agora instale a custom ROM com o seguinte comando:</p>
+                                <code># heimdall flash --pit ../stock/A20_SWA_OPEN.pit --VBMETA vbmeta.img --SYSTEM system_modificado.img --PRODUCT product_modificado.img</code>
+                                <p class="text-just">Onde:</p>
+                                <ul>
+                                  <li><strong>--pit</strong> (vai o arquivo "pit" que veio junto com os arquivos da stock ROM);</li>
+                                  <li><strong>--VBMETA</strong> (aqui vai o arquivo "vbmeta" vazio produzido pelo Magisk);</li>
+                                  <li><strong>--SYSTEM</strong> (a imagem de sistema da sua custom ROM);</li>
+                                  <li><strong>--PRODUCT</strong> (a imagem da partição "product" que você modificou antes).</li>
+                                </ul>
+                                <p class="text-just">Agora o seu smartfone já deve iniciar com a ROM customizada. :)</p>
+                                <p class="text-just">Para o melhor resultado, entre no modo recovery, formate o cache Dalvik e faça a restauração de fábrica. É normal que a primeira inicialização demore, pois ele estará construindo o cache de novo e instalando os aplicativos do sistema, isso pode variar de uns 5 a 10 minutos.</p>
+                                <div class="img-container mw-50-md mx-auto mb-3">
+                                  <img src="./figura8.png">
+                                </div>
+                                <p class="text-just">Após passar as configurações iniciais do aparelho, você poderá notar o quão limpo ele deve estar.</p>
+                                <div class="img-container mw-50-md mx-auto mb-3">
+                                  <img src="./figura9.png">
+                                </div>
+                                <p class="text-just">A maioria dos aplicativos você mesmo terá que instalar, mas antes abra o Aurora Services, dê as permissões para ele e toque no Whitelist.</p>
+                                <div class="img-container mw-50-md mx-auto mb-3">
+                                  <img src="./figura10.png">
+                                </div>
+                                <p class="text-just">Marque o Aurora Store e o Aurora Droid para permitir que eles instalem aplicativos no sistema.</p>
+                                <p class="text-just">Agora, abra o Aurora Store, passe as configurações iniciais e vá em "Configurações". Depois vá em "Instalações", mude o método de instalação para: Aurora Services</p>
+                                <div class="img-container mw-50-md mx-auto mb-3">
+                                  <img src="./figura11.png">
+                                </div>
+                                <p class="text-just">Faça o mesmo para o Aurora Droid e pronto! Agora você está livre para instalar aplicativos no celular.</p>
+                                <h2 class="text-center">Considerações finais</h2>
+                                <p class="text-just">Só para constar, a ROM do meu aparelho ficou quase 1GB mais leve depois do processo de remoção de APPs, como você pode ver nas imagem abaixo:</p>
+                                <div class="img-container mw-50-md mx-auto mb-3">
+                                  <img src="./figura12.png">
+                                </div>
+                                <p class="text-just">Este é o tamanho da imagem original do sistema, enquanto que esse é o tamanho da ROM customizada:</p>
+                                <div class="img-container mw-50-md mx-auto mb-3">
+                                  <img src="./figura13.png">
+                                </div>
+                                <p class="text-just">Além disso, a bateria está durando até dois dias, já que não há nenhum serviço de sincronização em nuvem instalado. Por outro, lado a conveniência de se ter becapes automáticos para TUDO, foi sacrificada. Então, toda vez que eu for instalar uma nova versão da ROM, um becape manual deverá ser feito.</p>
+                                <p class="text-just">Perceba também que não fizemos ROOT no aparelho, por essa razão o smartfone aparecerá como "limpo" para aplicativos que detectam isso e o sistema será marcado como seguro.</p>
+                                <p class="text-just">É isso pessoal, espero que tenham curtido esse método de customização de ROMs e fica o aviso: O Viva o Linux e o autor se eximem da responsabilidade pela perda de celulares através da modificação do firmware.</p>
+                                <p class="text-just">Siga este procedimento por sua própria conta e risco.</p>
+                                <p class="text-just">Over 'n out.</p>
     </main>
   </body>
 </html>

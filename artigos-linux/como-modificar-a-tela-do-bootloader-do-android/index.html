@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
   <body class="bg-black fg-white">
-    <main class="container mt-10 mb-10 pt-5 pb-5">
+    <main class="container mt-10 mb-10 pt-5 pb-5 bg-dark">
       <h1 class="text-center">Como modificar a tela do bootloader do Android</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>6 de novembro de 2020</em></h3>
-      <p>Requisitos:</p>
+      <p class="text-just">Requisitos:</p>
       <ul>
         <li>Ter o <a class="fg-lightBlue" href="../como-desbloquear-o-bootloader-em-celulares-samsung/index.html">bootloader desbloqueado</a></li>
         <li>Saber usar o <a class="fg-lightBlue" href="../como-usar-o-heimdall/index.html">Heimdall</a></li>
         <li>A partição VBMETA do celular vazia.</li>
       </ul>
-      <p>NOTA: você perderá a garantia se modificar o firmware do aparelho.</p>
+      <p class="text-just">NOTA: você perderá a garantia se modificar o firmware do aparelho.</p>
       <h2 class="text-center">Introdução rápida</h2>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura1.png">
@@ -28,68 +28,73 @@
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura2.png">
       </div>
-      <p>Isso acontece porque o bootloader foi desbloqueado e o sistema foi modificado de algum jeito, seja com uma custom ROM ou root. Quando você vai instalar uma custom ROM, a partição VBMETA é a primeira partição que você vai querer mexer, pois ela impede que você inicialize o sistema, caso ele não seja original da fabricante. </p>
+      <p class="text-just">Isso acontece porque o bootloader foi desbloqueado e o sistema foi modificado de algum jeito, seja com uma custom ROM ou root. Quando você vai instalar uma custom ROM, a partição VBMETA é a primeira partição que você vai querer mexer, pois ela impede que você inicialize o sistema, caso ele não seja original da fabricante. </p>
       <h2 class="text-center">Como esvaziar o VBMETA</h2>
-      <p>Caso você tenha feito root usando o <a class="fg-lightBlue" href="../como-fazer-root-em-celulares-samsung/index.html">método Magisk</a> você já tem o VBMETA em branco no seu celular, mas caso queira mudar a tela do bootloader sem fazer root, você ainda pode fazê-lo extraindo o arquivo "vbmeta.img" proveniente daquele tutorial, extraia o arquivo de dentro do magisk_patched.tar e instale usando o Heimdall na partição VBMETA.</p>
-      <p>Se você usar o VBMETA original do aparelho, poderá dar de cara com o seguinte erro:</p>
+      <p class="text-just">Caso você tenha feito root usando o <a class="fg-lightBlue" href="../como-fazer-root-em-celulares-samsung/index.html">método Magisk</a> você já tem o VBMETA em branco no seu celular, mas caso queira mudar a tela do bootloader sem fazer root, você ainda pode fazê-lo extraindo o arquivo "vbmeta.img" proveniente daquele tutorial, extraia o arquivo de dentro do magisk_patched.tar e instale usando o Heimdall na partição VBMETA.</p>
+      <p class="text-just">Se você usar o VBMETA original do aparelho, poderá dar de cara com o seguinte erro:</p>
       <br>
       <blockquote>
         Only official binaries are allowed to be flashed.
       </blockquote>
-      <p>E no fim, será obrigado a instalar toda a stock ROM por completo de novo.</p>
+      <p class="text-just">E no fim, será obrigado a instalar toda a stock ROM por completo de novo.</p>
       <h2 class="text-center">Como vamos fazer</h2>
-      <p>A partição responsável por essa mensagem na tela de inicialização é a PARAM, quando você baixa a stock ROM do site da Samsung, o arquivo que vai nessa partição é o "param.bin".</p>
-      <p>Se você olhar no terminal, vai perceber que esse arquivo é um mero arquivo ".tar":</p>
+      <p class="text-just">A partição responsável por essa mensagem na tela de inicialização é a PARAM, quando você baixa a stock ROM do site da Samsung, o arquivo que vai nessa partição é o "param.bin".</p>
+      <p class="text-just">Se você olhar no terminal, vai perceber que esse arquivo é um mero arquivo ".tar":</p>
       <code>$ file param.bin</code>
       <br>
-      <samp>param.bin: POSIX tar archive (GNU)</samp>
-      <p>Com isso, então podemos extraí-lo em algum lugar.</p>
-      <code>$ mkdir PARAM<br>$ tar -xf param.bin -C PARAM/<br></code>
-      <p>Dentro dessa pasta, você vai ver que existe um monte de arquivos de imagens.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura3.png">
-      </div>
-      <p>Antes que você saia modificando tudo por aí, vale ressaltar que todos os arquivos têm permissões diferentes e você deve lembrá-las antes de empacotar o "param.bin" de novo.</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura4.png">
-      </div>
-      <p>Como por exemplo esse arquivo de imagem, no final do processo ele deve voltar a ser somente-leitura.</p>
-      <h2 class="text-center">Mão na massa</h2>
-      <p>Você lembra das mensagens na tela de boot?</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura1.png">
-      </div>
-      <p>Estas mensagens são meros arquivos de imagem e você pode editá-los, procure na pasta PARAM os mesmos arquivos e abra com algum editor de sua preferência.</p>
-      <p>No meu caso, eu usei o Inkscape:</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura5.png">
-      </div>
-      <p>Coloquei um quadrado preto em cima da imagem com a mesma resolução e depois salvei o arquivo como "booting_warning.png":</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura6.png">
-      </div>
-      <p>Agora, é só converter o PNG para JPG, substituir o arquivo original com esse que você modificou e 'Voilà'. Ao invés da mensagem de aviso, você só vai ter um quadrado preto invisível na tela inicial.</p>
-      <p>Não se esqueça de alterar o modo do arquivo para o mesmo que tava antes, no meu caso era o 0444.</p>
-      <code>$ chmod 0444 boot_warning.jpg</code>
-      <p>Alguns modos podem variar dependendo o arquivo.</p>
-      <p>O próximo arquivo que vamos editar é o "svb_orange.jpg", ele é o responsável pela segunda mensagem na tela de boot:</p>
-      <div class="img-container mw-50-md mx-auto mb-3">
-        <img src="./figura2.png">
-      </div>
-      <p>O que vamos fazer, simplesmente, é apagar ele e substituir com outra tela normal, nesse caso o "logo.jpg":</p>
-      <code>$ rm svb_orange.jpg</code>
-      <br>
-      <samp>rm: remover arquivo comum 'svb_orange.jpg' protegido contra escrita? <strong>Sim</strong></samp>
-      <br>
-      <code>$ cp logo.jpg svb_orange.jpg</code>
-      <br>
-      <p>Edite todas as imagens que achar necessário e deixe-as limpas, com nenhuma mensagem de aviso. Após todas as edições junte todos os arquivos dessa pasta em um novo arquivo ".tar".</p>
-      <code>$ tar -cf param_modificado.bin *</code>
-      <p>Este novo arquivo "param_modificado.bin" será instalado na partição PARAM do seu celular. Coloque o celular no modo download e conecte-o ao computador.</p>
-      <p>Use o seguinte o comando do Heimdall para instalar o arquivo na partição certa.</p>
-      <code>$ sudo heimdall flash --pit A20_SWA_OPEN.pit --PARAM param.bin</code>
-      <br>
-      <samp><pre>. . .
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp>param.bin: POSIX tar archive (GNU)</samp>
+</div>
+        <p class="text-just">Com isso, então podemos extraí-lo em algum lugar.</p>
+        <code>$ mkdir PARAM<br>$ tar -xf param.bin -C PARAM/<br></code>
+        <p class="text-just">Dentro dessa pasta, você vai ver que existe um monte de arquivos de imagens.</p>
+        <div class="img-container mw-50-md mx-auto mb-3">
+          <img src="./figura3.png">
+        </div>
+        <p class="text-just">Antes que você saia modificando tudo por aí, vale ressaltar que todos os arquivos têm permissões diferentes e você deve lembrá-las antes de empacotar o "param.bin" de novo.</p>
+        <div class="img-container mw-50-md mx-auto mb-3">
+          <img src="./figura4.png">
+        </div>
+        <p class="text-just">Como por exemplo esse arquivo de imagem, no final do processo ele deve voltar a ser somente-leitura.</p>
+        <h2 class="text-center">Mão na massa</h2>
+        <p class="text-just">Você lembra das mensagens na tela de boot?</p>
+        <div class="img-container mw-50-md mx-auto mb-3">
+          <img src="./figura1.png">
+        </div>
+        <p class="text-just">Estas mensagens são meros arquivos de imagem e você pode editá-los, procure na pasta PARAM os mesmos arquivos e abra com algum editor de sua preferência.</p>
+        <p class="text-just">No meu caso, eu usei o Inkscape:</p>
+        <div class="img-container mw-50-md mx-auto mb-3">
+          <img src="./figura5.png">
+        </div>
+        <p class="text-just">Coloquei um quadrado preto em cima da imagem com a mesma resolução e depois salvei o arquivo como "booting_warning.png":</p>
+        <div class="img-container mw-50-md mx-auto mb-3">
+          <img src="./figura6.png">
+        </div>
+        <p class="text-just">Agora, é só converter o PNG para JPG, substituir o arquivo original com esse que você modificou e 'Voilà'. Ao invés da mensagem de aviso, você só vai ter um quadrado preto invisível na tela inicial.</p>
+        <p class="text-just">Não se esqueça de alterar o modo do arquivo para o mesmo que tava antes, no meu caso era o 0444.</p>
+        <code>$ chmod 0444 boot_warning.jpg</code>
+        <p class="text-just">Alguns modos podem variar dependendo o arquivo.</p>
+        <p class="text-just">O próximo arquivo que vamos editar é o "svb_orange.jpg", ele é o responsável pela segunda mensagem na tela de boot:</p>
+        <div class="img-container mw-50-md mx-auto mb-3">
+          <img src="./figura2.png">
+        </div>
+        <p class="text-just">O que vamos fazer, simplesmente, é apagar ele e substituir com outra tela normal, nesse caso o "logo.jpg":</p>
+        <code>$ rm svb_orange.jpg</code>
+        <br>
+        <div class="fg-black bg-lightOrange mw-50">
+          <samp>rm: remover arquivo comum 'svb_orange.jpg' protegido contra escrita? <strong>Sim</strong></samp>
+</div>
+          <br>
+          <code>$ cp logo.jpg svb_orange.jpg</code>
+          <br>
+          <p class="text-just">Edite todas as imagens que achar necessário e deixe-as limpas, com nenhuma mensagem de aviso. Após todas as edições junte todos os arquivos dessa pasta em um novo arquivo ".tar".</p>
+          <code>$ tar -cf param_modificado.bin *</code>
+          <p class="text-just">Este novo arquivo "param_modificado.bin" será instalado na partição PARAM do seu celular. Coloque o celular no modo download e conecte-o ao computador.</p>
+          <p class="text-just">Use o seguinte o comando do Heimdall para instalar o arquivo na partição certa.</p>
+          <code>$ sudo heimdall flash --pit A20_SWA_OPEN.pit --PARAM param.bin</code>
+          <br>
+          <div class="fg-black bg-lightOrange mw-50">
+            <samp><pre>. . .
 Uploading PARAM
 100%
 PARAM upload successful
@@ -98,13 +103,14 @@ Ending session...
 Rebooting device...
 Releasing device interface...
 . . .</pre></samp>
-        <p>Depois disso, o celular vai reiniciar já com a nova tela, confira os resultados do meu:</p>
-        <div class="img-container mw-50-md mx-auto mb-3">
-          <img src="./figura7.png">
-        </div>
-        <p>É isso, lembrando que você pode desenhar qualquer coisa naquelas imagens, não precisa deixar a logo da Samsung necessariamente.</p>
-        <p>Testado no Galaxy A20 (2019).</p>
-        <p>Over 'n out.</p>
+</div>
+            <p class="text-just">Depois disso, o celular vai reiniciar já com a nova tela, confira os resultados do meu:</p>
+            <div class="img-container mw-50-md mx-auto mb-3">
+              <img src="./figura7.png">
+            </div>
+            <p class="text-just">É isso, lembrando que você pode desenhar qualquer coisa naquelas imagens, não precisa deixar a logo da Samsung necessariamente.</p>
+            <p class="text-just">Testado no Galaxy A20 (2019).</p>
+            <p class="text-just">Over 'n out.</p>
     </main>
   </body>
 </html>
