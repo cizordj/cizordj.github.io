@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
-  <body>
+  <body class="bg-black fg-white">
     <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1 class="text-center">Como montar arquivos .img do Android</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>24 de janeiro de 2020</em></h3>
       <h3 class="text-center"><em>Editado: 2 de fevereiro de 2021</em></h3>
       <p>Olá, pessoal do VOL.</p>
-      <p class="indent-letter">Enfrentei este problema recentemente, quando precisei extrair um arquivo da Stock ROM do meu celular, baixei a stock ROM da <a href="https://www.sammobile.com/">Sammobile</a> e me deparei com arquivos .img impossíveis de abrir.</p>
+      <p class="indent-letter">Enfrentei este problema recentemente, quando precisei extrair um arquivo da Stock ROM do meu celular, baixei a stock ROM da <a class="fg-lightBlue" href="https://www.sammobile.com/">Sammobile</a> e me deparei com arquivos .img impossíveis de abrir.</p>
       <p>Primeiro, as novas ROMs da Samsung vêm comprimidas pelo algoritmo LZ4, após você extrair o ".tar", você vai se deparar com um monte desses tipos de arquivos. Para extraí-los, você precisa instalar o pacote não-livre na distros Debian-like com o seguinte comando:</p>
       <code>$ sudo apt install liblz4-tool</code>
       <p>E depois, para a descompressão:</p>
@@ -34,7 +34,7 @@
         <p>Mais detalhes em como reempacotar a imagem do sistema para você instalar no celular, você encontra neste link:</p>
         <ul>
           <li>
-            <a href="https://web.archive.org/web/20141021103926/http://andwise.net/?p=403">Unpack/repack ext4 Android system images « AndWise</a>
+            <a class="fg-lightBlue" href="https://web.archive.org/web/20141021103926/http://andwise.net/?p=403">Unpack/repack ext4 Android system images « AndWise</a>
           </li>
         </ul>
         <p>Over and out!</p>

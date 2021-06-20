@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
-  <body>
+  <body class="bg-black fg-white">
     <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1 class="text-center">Como modificar a tela do bootloader do Android</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
       <h3 class="text-center"><em>6 de novembro de 2020</em></h3>
       <p>Requisitos:</p>
       <ul>
-        <li>Ter o <a href="../como-desbloquear-o-bootloader-em-celulares-samsung/index.html">bootloader desbloqueado</a></li>
-        <li>Saber usar o <a href="../como-usar-o-heimdall/index.html">Heimdall</a></li>
+        <li>Ter o <a class="fg-lightBlue" href="../como-desbloquear-o-bootloader-em-celulares-samsung/index.html">bootloader desbloqueado</a></li>
+        <li>Saber usar o <a class="fg-lightBlue" href="../como-usar-o-heimdall/index.html">Heimdall</a></li>
         <li>A partição VBMETA do celular vazia.</li>
       </ul>
       <p>NOTA: você perderá a garantia se modificar o firmware do aparelho.</p>
@@ -30,7 +30,7 @@
       </div>
       <p>Isso acontece porque o bootloader foi desbloqueado e o sistema foi modificado de algum jeito, seja com uma custom ROM ou root. Quando você vai instalar uma custom ROM, a partição VBMETA é a primeira partição que você vai querer mexer, pois ela impede que você inicialize o sistema, caso ele não seja original da fabricante. </p>
       <h2 class="text-center">Como esvaziar o VBMETA</h2>
-      <p>Caso você tenha feito root usando o <a href="../como-fazer-root-em-celulares-samsung/index.html">método Magisk</a> você já tem o VBMETA em branco no seu celular, mas caso queira mudar a tela do bootloader sem fazer root, você ainda pode fazê-lo extraindo o arquivo "vbmeta.img" proveniente daquele tutorial, extraia o arquivo de dentro do magisk_patched.tar e instale usando o Heimdall na partição VBMETA.</p>
+      <p>Caso você tenha feito root usando o <a class="fg-lightBlue" href="../como-fazer-root-em-celulares-samsung/index.html">método Magisk</a> você já tem o VBMETA em branco no seu celular, mas caso queira mudar a tela do bootloader sem fazer root, você ainda pode fazê-lo extraindo o arquivo "vbmeta.img" proveniente daquele tutorial, extraia o arquivo de dentro do magisk_patched.tar e instale usando o Heimdall na partição VBMETA.</p>
       <p>Se você usar o VBMETA original do aparelho, poderá dar de cara com o seguinte erro:</p>
       <br>
       <blockquote>

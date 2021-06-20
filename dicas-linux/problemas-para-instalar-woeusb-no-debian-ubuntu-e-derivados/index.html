@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
-  <body>
+  <body class="bg-black fg-white">
     <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1 class="text-center">Problemas para instalar o WoeUSB no Debian, Ubuntu e derivados [Resolvido]</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
@@ -17,7 +17,7 @@
       <p>O WoeUSB está com problemas de empacotamento, principalmente nas distros Debian. Ele depende de um pacote chamado libwxgtk3.0-dev o qual não está mais disponível no repositório e isso faz com que ele não seja possível de instalar no Debian e Ubuntu, nem mesmo a versão do PPA do Ubuntu está funcionando. Isso acontece porque o pacote mudou de nome, logo o mantenedor do pacote deveria atualizar o sistema de empacotamento para a dependência com o novo nome libwxgtk3.0-gtk3-dev.</p>
       <p>Como resolver este problema? Teoricamente qualquer pessoa pode baixar o código-fonte do WoeUSB, atualizar as dependências no arquivo <em>WoeUSB/debian/control</em> e fazer um novo pacote .deb.</p>
       <p>Mas como essa dica é voltada a iniciantes, então eu vou passar o link de alguém que já fez isso.</p>
-      <p>Acesse esse link: <a href="https://github.com/slacka/WoeUSB/issues/311#issuecomment-628021588">WoeUSB doesn't install on Ubuntu 20.04 - Issue #311 - slacka/WoeUSB - GitHub</a></p>
+      <p>Acesse esse link: <a class="fg-lightBlue" href="https://github.com/slacka/WoeUSB/issues/311#issuecomment-628021588">WoeUSB doesn't install on Ubuntu 20.04 - Issue #311 - slacka/WoeUSB - GitHub</a></p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura1.png">
       </div>

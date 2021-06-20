@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
-  <body>
+  <body class="bg-black fg-white">
     <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1 class="text-center">I3 para computadores antigos</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
@@ -17,7 +17,7 @@
       <p class="indent-letter pt-5 pb-5">Bom dia a todos do VOL, hoje vou mostrar como vocês podem usar uma interface minimalista e bela para dar vida a um computador antigo de um jeito bem simples.</p>
       <p>Aqui nessa dica eu mostro como fiz para ressuscitar um <em>notebook Acer Aspire 5570Z</em> de 32 bits e usá-lo no meu dia a dia como programador de sites.</p>
       <p>O <em>i3</em> é um gerenciador de janelas conhecido pelo seu fluxo de trabalho orientado a teclado, isto é, nenhum mouse é necessário para a maioria das aplicações, além disso o i3wm consome poucos recursos de hardware e é muito customizável.</p>
-      <p>Tendo isso em mente vamos instalar o <a href="https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/weekly-builds/" target="_blank">Debian testing non-free</a> sem interface gráfica no computador. Após o primeiro boot entre como usuário root e faça aquela rotina de atualizações básicas antes de começar:</p>
+      <p>Tendo isso em mente vamos instalar o <a class="fg-lightBlue" href="https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/weekly-builds/" target="_blank">Debian testing non-free</a> sem interface gráfica no computador. Após o primeiro boot entre como usuário root e faça aquela rotina de atualizações básicas antes de começar:</p>
       <code># apt-get update<br>
         # apt-get upgrade
       </code>
@@ -82,13 +82,13 @@
       <code># apt-get install firefox-esr-l10n-pt-br</code>
       <Br>
       <h2 class="text-center">Editor de texto</h2>
-      <p>Um editor que eu uso para programar é o NeoVim, ele fica ainda mais poderoso quanto se usa os plugins do site <a href="https://vim-bootstrap.com/" target="_blank">Vim-bootstrap</a>. Para instalar o NeoVim use o seguinte comando:</p>
+      <p>Um editor que eu uso para programar é o NeoVim, ele fica ainda mais poderoso quanto se usa os plugins do site <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">Vim-bootstrap</a>. Para instalar o NeoVim use o seguinte comando:</p>
       <code># apt-get install neovim</code>
       <br>
       <p>Para instalar o plugins do site que mencionei instale as dependências:</p>
       <code># apt-get install git exuberant-ctags ncurses-term curl</code>
       <br>
-      <p>Entre no site <a href="https://vim-bootstrap.com/" target="_blank">vim-bootstrap.com</a>, escolha as linguagens de programação que você usa e baixe o arquivo de configuração. Após o download mova o arquivo de configuração para a pasta do NeoVim.</p>
+      <p>Entre no site <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">vim-bootstrap.com</a>, escolha as linguagens de programação que você usa e baixe o arquivo de configuração. Após o download mova o arquivo de configuração para a pasta do NeoVim.</p>
       <code>$ mkdir -p ~/.config/nvim<br>$ mv ~/Downloads/generate.vim ~/.config/nvim/init.vim<br></code>
       <p>E agora abra o NeoVim para baixar os plugins automaticamente.</p>
       <code>$ nvim</code>
@@ -110,12 +110,12 @@
       <h2 class="text-center">Git</h2>
       <p>Se você é um camarada que trabalha com o git, é bom você configurar o seu e-mail e nome de usuário padrão para não perder seus pontos de contribuição no GitHub.</p>
       <code>$ git config --global user.name "seuNomeDeUsuário"<br>$ git config --global user.email "seu email"<br></code>
-      <p>É isso, essa é uma forma de você reutilizar um computador antigo se você souber como se virar com o i3, lógico que mais aplicativos são necessários, tais como, visualizadores de PDF, de imagens, mas isso depende inteiramente da necessidade do usuário. O conteúdo deste artigo gerou o seguinte screenshot aqui no VOL: <a href="https://www.vivaolinux.com.br/screenshot/Tiling-window-manager-i3-notebook-velho/" target="_blank">Screenshot GNU/Linux &gt i3 + notebook velho</a></p>
+      <p>É isso, essa é uma forma de você reutilizar um computador antigo se você souber como se virar com o i3, lógico que mais aplicativos são necessários, tais como, visualizadores de PDF, de imagens, mas isso depende inteiramente da necessidade do usuário. O conteúdo deste artigo gerou o seguinte screenshot aqui no VOL: <a class="fg-lightBlue" href="https://www.vivaolinux.com.br/screenshot/Tiling-window-manager-i3-notebook-velho/" target="_blank">Screenshot GNU/Linux &gt i3 + notebook velho</a></p>
       <p>Over and out.</p>
       <p>Fontes:</p>
       <ul>
-        <li>Vim bootstrap - <a href="https://vim-bootstrap.com/" target="_blank">https://vim-bootstrap.com/</a></li>
-        <li>i3-themer - <a href="https://github.com/cizordj/i3-themer/" target="_blank">https://github.com/cizordj/i3-themer/</a></li>
+        <li>Vim bootstrap - <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">https://vim-bootstrap.com/</a></li>
+        <li>i3-themer - <a class="fg-lightBlue" href="https://github.com/cizordj/i3-themer/" target="_blank">https://github.com/cizordj/i3-themer/</a></li>
       </ul>
     </main>
   </body>

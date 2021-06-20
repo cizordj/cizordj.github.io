@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro.min.css">
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-colors.min.css">
   </head>
-  <body>
+  <body class="bg-black fg-white">
     <main class="container mt-10 mb-10 pt-5 pb-5">
       <h1 class="text-center">Como customizar sua ROM Android</h1>
       <h2 class="text-center">Autor: Cézar Augusto de Campos</h2>
@@ -61,21 +61,21 @@
       <p>A partições do Android são, em sua maioria, imagens esparsas de algum sistema de arquivos EXT4. O Android, quando inicia, monta as partições a partir de blocos que são arquivos de imagem somente leitura, elas permanecem assim pelo resto da vida, a não ser que o fabricante torne a modificá-los através de alguma atualização ou o usuário instale uma ROM customizada.</p>
       <p>Algumas partições podem conter arquivos TAR, ao invés de um sistema de arquivos, como mostrado no artigo:</p>
       <ul>
-        <li><a href="../como-modificar-a-tela-do-bootloader-do-android/index.html">Como modificar a tela do bootloader do Android</a></li>
+        <li><a class="fg-lightBlue" href="../como-modificar-a-tela-do-bootloader-do-android/index.html">Como modificar a tela do bootloader do Android</a></li>
       </ul>
       <p>Mas por quê as imagens são esparsas? A ideia por trás disso é economizar espaço, visto que o armazenamento de memória nos celulares é muito limitado. Os Bytes vazios são cortados e o tamanho da imagem só aumenta conforme o usuário adiciona dados ao aparelho, consumindo apenas o espaço guardado nele, isso no caso da partição de dados que é dinâmica.</p>
       <p>Para montar uma imagem esparsa no Linux, você primeiro tem que converter ela para uma imagem crua e depois montá-la. Note que depois da conversão, o arquivo de imagem vai mostrar o seu real tamanho.</p>
       <h2 class="text-center">Download da stock ROM</h2>
       <p>Primeiro, baixe a ROM original do seu aparelho no site da Samsung, pesquise pelo modelo do celular, país e operadora. Os sites onde você pode baixar são esses, mas podem haver muitos outros também:</p>
       <ul>
-        <li><a href="https://www.sammobile.com/firmwares/" target="_blank">Site oficial da Samsung</a></li>
-        <li><a href="https://samdb.org/" target="_blank">SamDB</a></li>
-        <li><a href="https://samfw.com/" target="_blank">SamFW</a></li>
-        <li><a href="https://kfhost.net/" target="_blank">KFhost</a></li>
+        <li><a class="fg-lightBlue" href="https://www.sammobile.com/firmwares/" target="_blank">Site oficial da Samsung</a></li>
+        <li><a class="fg-lightBlue" href="https://samdb.org/" target="_blank">SamDB</a></li>
+        <li><a class="fg-lightBlue" href="https://samfw.com/" target="_blank">SamFW</a></li>
+        <li><a class="fg-lightBlue" href="https://kfhost.net/" target="_blank">KFhost</a></li>
       </ul>
       <p>Após descompactar o arquivo ".zip", você vai ver que os arquivos terminam com ".tar".md5. Você pode verificar a integridade deles com essa dica:</p>
       <ul>
-        <li><a href="../../dicas-linux/como-verificar-a-integridade-das-stock-roms-da-samsung/index.html">Como verificar a integridade das stock ROMs da Samsung</a></li>
+        <li><a class="fg-lightBlue" href="../../dicas-linux/como-verificar-a-integridade-das-stock-roms-da-samsung/index.html">Como verificar a integridade das stock ROMs da Samsung</a></li>
       </ul>
       <p>Se decidir pular a verificação, então descompacte os arquivos com qualquer programa de sua preferência. Se a ROM tiver comprimida com LZ4, instale o seguinte pacote para descomprimi-lo:</p>
       <code># apt install liblz4-tool</code>
@@ -291,7 +291,7 @@
       <br>
       <samp>127.0.0.1       localhost<br>::1             ip6-localhost</samp>
       <p>Bem simplesinho, não? Agora substitua ele com algum arquivo bem gordo de sua preferência.</p>
-      <p>Um local de boa reputação para baixar um arquivo hosts é o repositório do <a href="https://github.com/StevenBlack/hosts" target="_blank">StevenBlack</a> no Github. Lá, você escolhe as variantes do que deseja bloquear e pode baixar para o seu computador.</p>
+      <p>Um local de boa reputação para baixar um arquivo hosts é o repositório do <a class="fg-lightBlue" href="https://github.com/StevenBlack/hosts" target="_blank">StevenBlack</a> no Github. Lá, você escolhe as variantes do que deseja bloquear e pode baixar para o seu computador.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura4.png">
       </div>
@@ -304,7 +304,7 @@
       <p>É isso, agora considere o seu sistema livre de propagandas (ou pelo menos, a maioria delas).</p>
       <h2 class="text-center">Instalando o Aurora Services</h2>
       <p>Se você tem o desejo de tirar o Google do seu smartfone, então essa página pode interessar a você.</p>
-      <p>O <a href="https://gitlab.com/AuroraOSS" target="_blank">Aurora Store</a> é um cliente para o serviço do Google PlayStore que visa respeitar a sua privacidade ao máximo, ele oferece atualizações e um serviço chamado "Aurora protect", que mostra quantos rastreadores um aplicativo tem.</p>
+      <p>O <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS" target="_blank">Aurora Store</a> é um cliente para o serviço do Google PlayStore que visa respeitar a sua privacidade ao máximo, ele oferece atualizações e um serviço chamado "Aurora protect", que mostra quantos rastreadores um aplicativo tem.</p>
       <p>Este aplicativo é ideal para pessoas que se preocupam com o rastreamento e querem usar alguma alternativa em software livre para a gigante das buscas em seu smartfone.</p>
       <div class="img-container mw-50-md mx-auto mb-3">
         <img src="./figura6.png">
@@ -312,7 +312,7 @@
       <p>O Aurora store pode instalar os aplicativos de vários jeitos, como usuário root, sem root ou como aplicativo privilegiado do sistema (semelhante à forma que a PlayStore utiliza). Aqui eu vou ensinar como instalar ele na parte privilegiada do sistema.</p>
       <p>Primeiro, vá até a página de releases do AuroraStore:</p>
       <ul>
-        <li><a href="https://gitlab.com/AuroraOSS/AuroraStore/-/releases" target="_blank">Releases · Aurora OSS / AuroraStore · GitLab</a></li>
+        <li><a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraStore/-/releases" target="_blank">Releases · Aurora OSS / AuroraStore · GitLab</a></li>
       </ul>
       <p>E baixe o último APK para o seu computador:</p>
       <code># cd ../../../<br>
@@ -325,7 +325,7 @@
       <p>Outro cliente que pode te interessar é o Aurora Droid que serve para baixar aplicativos de software livre do f-droid.org:</p>
       <ul>
         <li>
-          <a href="https://gitlab.com/AuroraOSS/auroradroid/-/releases" target="_blank">Releases · Aurora OSS / AuroraDroid · GitLab</a>
+          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/auroradroid/-/releases" target="_blank">Releases · Aurora OSS / AuroraDroid · GitLab</a>
         </li>
       </ul>
       <p>Baixe o último APK do link acima e mova para a partição de sistema do seu Android:</p>
@@ -334,7 +334,7 @@
       <p>Ainda não acabou, o Aurora Store precisa de mais um aplicativo para funcionar completamente, ele é chamado de Aurora Services. Baixe o último APK do Aurora Services nessa página:</p>
       <ul>
         <li>
-          <a href="https://gitlab.com/AuroraOSS/AuroraServices/-/releases" target="_blank">Releases · Aurora OSS / Aurora Services · GitLab</a>
+          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraServices/-/releases" target="_blank">Releases · Aurora OSS / Aurora Services · GitLab</a>
         </li>
       </ul>
       <code># wget https://gitlab.com/AuroraOSS/AuroraServices/uploads/c80bee54c1dc782df78a31065c710e59/AuroraServices-v1.0.6.apk</code>
@@ -344,7 +344,7 @@
       <p>Nesse conjunto de aplicações, o Aurora Store e o Aurora Droid dependem do Aurora Services para instalar e remover os aplicativos no sistema e para dar esse privilégio, nós precisamos de um arquivo XML especial que vai ser lido pelo sistema Android durante a inicialização, esse arquivo pode ser encontrado na seguinte página do código-fonte do Aurora Services:</p>
       <ul>
         <li>
-          <a href="https://gitlab.com/AuroraOSS/AuroraServices/-/tree/master/app/src/main/assets" target="_blank">app/src/main/assets · master · Aurora OSS / Aurora Services · GitLab</a>
+          <a class="fg-lightBlue" href="https://gitlab.com/AuroraOSS/AuroraServices/-/tree/master/app/src/main/assets" target="_blank">app/src/main/assets · master · Aurora OSS / Aurora Services · GitLab</a>
         </li>
       </ul>
       <p>Baixe-o para o seu computador e mova para a seguinte pasta na partição do sistema Android:</p>
@@ -401,10 +401,10 @@
       <p>Para mais detalhes, veja:</p>
       <ul>
         <li>
-          <a href="../introducao-ao-heimdall/index.html">Introdução ao Heimdall</a>
+          <a class="fg-lightBlue" href="../introducao-ao-heimdall/index.html">Introdução ao Heimdall</a>
         </li>
         <li>
-          <a href="../como-usar-o-heimdall/index.html">Como usar o Heimdall</a>
+          <a class="fg-lightBlue" href="../como-usar-o-heimdall/index.html">Como usar o Heimdall</a>
         </li>
       </ul>
       <p>Nos tutoriais acima, eu ensino a compilar o Heimdall direto da fonte, mas se você estiver usando o Debian testing ou superior, você já pode instalá-lo direto dos repositórios.</p>
@@ -412,7 +412,7 @@
       <p>Agora, para podermos instalar a custom ROM, precisamos desbloquear o bootloader do celular. Caso não tenha desbloqueado o bootloader, eu recomendo que siga esse tutorial:</p>
       <ul>
         <li>
-          <a href="../como-desbloquear-o-bootloader-em-celulares-samsung/index.html">Como desbloquear o bootloader em celulares Samsung</a>
+          <a class="fg-lightBlue" href="../como-desbloquear-o-bootloader-em-celulares-samsung/index.html">Como desbloquear o bootloader em celulares Samsung</a>
         </li>
       </ul>
       <p>Além disso, precisamos de um vbmeta vazio para instalar no seu aparelho, sem ele o smartphone vai disparar o seguinte erro:</p>
@@ -424,7 +424,7 @@
       <p>Para conseguir o arquivo "vbmeta.img" compatível com o seu smartphone, siga o tutorial do link abaixo:</p>
       <ul>
         <li>
-          <a href="../como-fazer-root-em-celulares-samsung/index.html">Como fazer root em celulares Samsung</a>
+          <a class="fg-lightBlue" href="../como-fazer-root-em-celulares-samsung/index.html">Como fazer root em celulares Samsung</a>
         </li>
       </ul>
       <p>Porém, não instale nada ainda, apenas pegue o arquivo "magisk_patched.tar" proveniente daquele tutorial, passe para o computador, extraia o arquivo "vbmeta.img" e coloque-o na pasta "modified", onde você guarda as suas ROMs customizadas.</p>
