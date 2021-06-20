@@ -28,48 +28,48 @@ the protocol.
 Your xorg.conf file is /root/xorg.conf.new
 
 To test the server, run 'X -config /root/xorg.conf.new'</pre></samp>
-</div>
-        <p class="text-just">E agora movemos o arquivo para o diretório correto:</p>
-        <code># mv /root/xorg.conf.new /etc/X11/xorg.conf</code>
-        <p class="text-just">Abra o arquivo com o seu editor de texto favorito:</p>
-        <code># editor /etc/X11/xorg.conf</code>
-        <p class="text-just">Procure pela sessão "monitor" do arquivo, que é mais ou menos assim:</p>
-        <div class="fg-black bg-lightOrange mw-50">
-          <samp><pre> Section "Monitor"
+      </div>
+      <p class="text-just">E agora movemos o arquivo para o diretório correto:</p>
+      <code># mv /root/xorg.conf.new /etc/X11/xorg.conf</code>
+      <p class="text-just">Abra o arquivo com o seu editor de texto favorito:</p>
+      <code># editor /etc/X11/xorg.conf</code>
+      <p class="text-just">Procure pela sessão "monitor" do arquivo, que é mais ou menos assim:</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre> Section "Monitor"
         Identifier   "Monitor0"
         VendorName   "Monitor Vendor"
         ModelName    "Monitor Model"
 EndSection</pre></samp>
-</div>
-          <p class="text-just">Como você pode ver, não está especificado nenhuma resolução para este monitor, então vamos fazer isso. Use o utilitário gtf para gerar a linha de configuração que você vai colocar no xorg.conf, a sintaxe é a seguinte:</p>
-          <code>$ gtf &ltlargura&gt &ltaltura&gt &ltframes por segundo&lt</code>
-          <p class="text-just">No meu caso:</p>
-          <code># gtf 1280 720 60</code>
-          <div class="fg-black bg-lightOrange mw-50">
-            <samp><pre># 1280x720 @ 60.00 Hz (GTF) hsync: 44.76 kHz; pclk: 74.48 MHz
+      </div>
+      <p class="text-just">Como você pode ver, não está especificado nenhuma resolução para este monitor, então vamos fazer isso. Use o utilitário gtf para gerar a linha de configuração que você vai colocar no xorg.conf, a sintaxe é a seguinte:</p>
+      <code>$ gtf &ltlargura&gt &ltaltura&gt &ltframes por segundo&lt</code>
+      <p class="text-just">No meu caso:</p>
+      <code># gtf 1280 720 60</code>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre># 1280x720 @ 60.00 Hz (GTF) hsync: 44.76 kHz; pclk: 74.48 MHz
   Modeline "1280x720_60.00"  74.48  1280 1336 1472 1664  720 721 724 746  -HSync +Vsync</pre></samp>
-</div>
-            <p class="text-just">Copie a linha Modeline para dentro da sessão "Monitor" do Xorg.conf:</p>
-            <div class="fg-black bg-lightOrange mw-50">
-              <samp><pre> Section "Monitor"
+      </div>
+      <p class="text-just">Copie a linha Modeline para dentro da sessão "Monitor" do Xorg.conf:</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre> Section "Monitor"
         Identifier   "Monitor0"
         VendorName   "Monitor Vendor"
         ModelName    "Monitor Model"
         <strong>Modeline     "1280x720_60.00"  74.48  1280 1336 1472 1664  720 721 724 746  -HSync +Vsyn</strong>
 EndSection</pre></samp>
-</div>
-              <p class="text-just">E agora para terminar adicione a opção "preferredMode" embaixo do Modeline:</p>
-              <div class="fg-black bg-lightOrange mw-50">
-                <samp><pre> Section "Monitor"
+      </div>
+      <p class="text-just">E agora para terminar adicione a opção "preferredMode" embaixo do Modeline:</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre> Section "Monitor"
         Identifier   "Monitor0"
         VendorName   "Monitor Vendor"
         ModelName    "Monitor Model"
         Modeline     "1280x720_60.00"  74.48  1280 1336 1472 1664  720 721 724 746  -HSync +Vsyn
         <strong>Option       "PreferredMode" "1280x720_60.00"</strong>
 EndSection</pre></samp>
-</div>
-                <p class="text-just">Desse jeito o Xorg vai sempre usar esta resolução que escolhemos para este monitor em específico, não precisando alterar o modo de outros monitores.</p>
-                <p class="text-just">É isso.</p>
+      </div>
+      <p class="text-just">Desse jeito o Xorg vai sempre usar esta resolução que escolhemos para este monitor em específico, não precisando alterar o modo de outros monitores.</p>
+      <p class="text-just">É isso.</p>
     </main>
   </body>
 </html>

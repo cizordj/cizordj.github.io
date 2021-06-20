@@ -67,80 +67,78 @@
       <br>
       <div class="fg-black bg-lightOrange mw-50">
         <samp>000 001 002 003<br>004 005 006 007<br>008 009 010 011<br>012 013 014<br></samp>
-</div>
-        <br>
-        <p class="text-just">E aplicar de acordo:</p>
-        <code>$ ./i3-themer -a 005</code>
-        <div class="img-container mw-50-md mx-auto mb-3">
-          <img src="./figura5.png">
-        </div>
-        <p class="text-just">Aqui vai uma lista de teclas de atalho pré-definidas nesses temas:</p>
-        <div class="fg-black bg-lightOrange mw-50">
-          <div class="fg-black bg-lightOrange mw-50">
-            <samp>
-              Super+F1&#9;Alsamixer<br>
-              Super+F2&#9;Navegador web padrão<br>
-              Super+F3&#9;Gestor de arquivos<br>
-              Super+F4&#9;Calculadora do gnome<br>
-              Super+F5&#9;CMUS (aplicativo de música no terminal)<br>
-              Super+0&#9;Menu de energia do Polybar<br>
-              Super+D&#9;Menu de aplicativos<br>
-              Print&#9;Tira screenshot da tela inteira<br>
-              Shift+Print&#9;Tira screenshot parcial da tela<br>
-              Alt+Print&#9;Tira screenshot da janela ativa<br>
-          </samp>
-</div>
-        </div>
-        <p class="text-just">Para demais atalhos, consulte o arquivo de configuração do i3 em ~/.config/i3/config.</p>
-        <p class="text-just">i3-themer é de código aberto, se puder contribua com a melhoria do programa no GitHub, seja com novos temas ou código-fonte.</p>
-        <h2 class="text-center">Aplicativos</h2>
-        <p class="text-just">Essa parte do artigo é extremamente pessoal, visto que isso depende das necessidades de cada um. O i3 não faz nada sozinho, então precisamos instalar alguns aplicativos.</p>
-        <h2 class="text-center">Navegador web</h2>
-        <p class="text-just">Um navegador bom e que funciona até em notebooks de 32 bits é o Firefox, para instalá-lo diretamente em português brasileiro utilize o seguinte comando:</p>
-        <code># apt-get install firefox-esr-l10n-pt-br</code>
-        <Br>
-        <h2 class="text-center">Editor de texto</h2>
-        <p class="text-just">Um editor que eu uso para programar é o NeoVim, ele fica ainda mais poderoso quanto se usa os plugins do site <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">Vim-bootstrap</a>. Para instalar o NeoVim use o seguinte comando:</p>
-        <code># apt-get install neovim</code>
-        <br>
-        <p class="text-just">Para instalar o plugins do site que mencionei instale as dependências:</p>
-        <code># apt-get install git exuberant-ctags ncurses-term curl</code>
-        <br>
-        <p class="text-just">Entre no site <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">vim-bootstrap.com</a>, escolha as linguagens de programação que você usa e baixe o arquivo de configuração. Após o download mova o arquivo de configuração para a pasta do NeoVim.</p>
-        <code>$ mkdir -p ~/.config/nvim</code>
-        <br>
-        <code>$ mv ~/Downloads/generate.vim ~/.config/nvim/init.vim</code>
-        <br>
-        <p class="text-just">E agora abra o NeoVim para baixar os plugins automaticamente.</p>
-        <code>$ nvim</code>
-        <br>
-        <h2 class="text-center">Wi-Fi</h2>
-        <p class="text-just">Como instalei o Debian em um notebook, precisei de uma ferramenta para gerenciar a rede sem fio. O wicd-curses foi para mim a ferramenta mais simples pois ela tem uma interface fácil.</p>
-        <code># apt-get install wicd-curses</code>
-        <br>
-        <p class="text-just">Para ver as redes de WIFI disponíveis, digite isso no terminal:</p>
-        <code>$ wicd-curses</code>
-        <br>
-        <div class="img-container mw-50-md mx-auto mb-3">
-          <img src="./figura1.png">
-        </div>
-        <h2 class="text-center">Navegador de arquivos</h2>
-        <p class="text-just">Isso depende inteiramente de você, o gerenciador que escolhi para a máquina velha é o thunar:</p>
-        <code># apt-get install thunar</code>
-        <p class="text-just">Ele será aberto automaticamente pelo i3 quando você pressionar as teclas <em>Super+F3</em></p>
-        <h2 class="text-center">Git</h2>
-        <p class="text-just">Se você é um camarada que trabalha com o git, é bom você configurar o seu e-mail e nome de usuário padrão para não perder seus pontos de contribuição no GitHub.</p>
-        <code>$ git config --global user.name "seuNomeDeUsuário"</code>
-        <br>
-        <code>$ git config --global user.email "seu email"</code>
-        <br>
-        <p class="text-just">É isso, essa é uma forma de você reutilizar um computador antigo se você souber como se virar com o i3, lógico que mais aplicativos são necessários, tais como, visualizadores de PDF, de imagens, mas isso depende inteiramente da necessidade do usuário. O conteúdo deste artigo gerou o seguinte screenshot aqui no VOL: <a class="fg-lightBlue" href="https://www.vivaolinux.com.br/screenshot/Tiling-window-manager-i3-notebook-velho/" target="_blank">Screenshot GNU/Linux &gt i3 + notebook velho</a></p>
-        <p class="text-just">Over and out.</p>
-        <p class="text-just">Fontes:</p>
-        <ul>
-          <li>Vim bootstrap - <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">https://vim-bootstrap.com/</a></li>
-          <li>i3-themer - <a class="fg-lightBlue" href="https://github.com/cizordj/i3-themer/" target="_blank">https://github.com/cizordj/i3-themer/</a></li>
-        </ul>
+      </div>
+      <br>
+      <p class="text-just">E aplicar de acordo:</p>
+      <code>$ ./i3-themer -a 005</code>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura5.png">
+      </div>
+      <p class="text-just">Aqui vai uma lista de teclas de atalho pré-definidas nesses temas:</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp>
+          Super+F1&#9;Alsamixer<br>
+          Super+F2&#9;Navegador web padrão<br>
+          Super+F3&#9;Gestor de arquivos<br>
+          Super+F4&#9;Calculadora do gnome<br>
+          Super+F5&#9;CMUS (aplicativo de música no terminal)<br>
+          Super+0&#9;Menu de energia do Polybar<br>
+          Super+D&#9;Menu de aplicativos<br>
+          Print&#9;Tira screenshot da tela inteira<br>
+          Shift+Print&#9;Tira screenshot parcial da tela<br>
+          Alt+Print&#9;Tira screenshot da janela ativa<br>
+        </samp>
+      </div>
+      <p class="text-just">Para demais atalhos, consulte o arquivo de configuração do i3 em ~/.config/i3/config.</p>
+      <p class="text-just">i3-themer é de código aberto, se puder contribua com a melhoria do programa no GitHub, seja com novos temas ou código-fonte.</p>
+      <h2 class="text-center">Aplicativos</h2>
+      <p class="text-just">Essa parte do artigo é extremamente pessoal, visto que isso depende das necessidades de cada um. O i3 não faz nada sozinho, então precisamos instalar alguns aplicativos.</p>
+      <h2 class="text-center">Navegador web</h2>
+      <p class="text-just">Um navegador bom e que funciona até em notebooks de 32 bits é o Firefox, para instalá-lo diretamente em português brasileiro utilize o seguinte comando:</p>
+      <code># apt-get install firefox-esr-l10n-pt-br</code>
+      <Br>
+      <h2 class="text-center">Editor de texto</h2>
+      <p class="text-just">Um editor que eu uso para programar é o NeoVim, ele fica ainda mais poderoso quanto se usa os plugins do site <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">Vim-bootstrap</a>. Para instalar o NeoVim use o seguinte comando:</p>
+      <code># apt-get install neovim</code>
+      <br>
+      <p class="text-just">Para instalar o plugins do site que mencionei instale as dependências:</p>
+      <code># apt-get install git exuberant-ctags ncurses-term curl</code>
+      <br>
+      <p class="text-just">Entre no site <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">vim-bootstrap.com</a>, escolha as linguagens de programação que você usa e baixe o arquivo de configuração. Após o download mova o arquivo de configuração para a pasta do NeoVim.</p>
+      <code>$ mkdir -p ~/.config/nvim</code>
+      <br>
+      <code>$ mv ~/Downloads/generate.vim ~/.config/nvim/init.vim</code>
+      <br>
+      <p class="text-just">E agora abra o NeoVim para baixar os plugins automaticamente.</p>
+      <code>$ nvim</code>
+      <br>
+      <h2 class="text-center">Wi-Fi</h2>
+      <p class="text-just">Como instalei o Debian em um notebook, precisei de uma ferramenta para gerenciar a rede sem fio. O wicd-curses foi para mim a ferramenta mais simples pois ela tem uma interface fácil.</p>
+      <code># apt-get install wicd-curses</code>
+      <br>
+      <p class="text-just">Para ver as redes de WIFI disponíveis, digite isso no terminal:</p>
+      <code>$ wicd-curses</code>
+      <br>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura1.png">
+      </div>
+      <h2 class="text-center">Navegador de arquivos</h2>
+      <p class="text-just">Isso depende inteiramente de você, o gerenciador que escolhi para a máquina velha é o thunar:</p>
+      <code># apt-get install thunar</code>
+      <p class="text-just">Ele será aberto automaticamente pelo i3 quando você pressionar as teclas <em>Super+F3</em></p>
+      <h2 class="text-center">Git</h2>
+      <p class="text-just">Se você é um camarada que trabalha com o git, é bom você configurar o seu e-mail e nome de usuário padrão para não perder seus pontos de contribuição no GitHub.</p>
+      <code>$ git config --global user.name "seuNomeDeUsuário"</code>
+      <br>
+      <code>$ git config --global user.email "seu email"</code>
+      <br>
+      <p class="text-just">É isso, essa é uma forma de você reutilizar um computador antigo se você souber como se virar com o i3, lógico que mais aplicativos são necessários, tais como, visualizadores de PDF, de imagens, mas isso depende inteiramente da necessidade do usuário. O conteúdo deste artigo gerou o seguinte screenshot aqui no VOL: <a class="fg-lightBlue" href="https://www.vivaolinux.com.br/screenshot/Tiling-window-manager-i3-notebook-velho/" target="_blank">Screenshot GNU/Linux &gt i3 + notebook velho</a></p>
+      <p class="text-just">Over and out.</p>
+      <p class="text-just">Fontes:</p>
+      <ul>
+        <li>Vim bootstrap - <a class="fg-lightBlue" href="https://vim-bootstrap.com/" target="_blank">https://vim-bootstrap.com/</a></li>
+        <li>i3-themer - <a class="fg-lightBlue" href="https://github.com/cizordj/i3-themer/" target="_blank">https://github.com/cizordj/i3-themer/</a></li>
+      </ul>
     </main>
   </body>
 </html>

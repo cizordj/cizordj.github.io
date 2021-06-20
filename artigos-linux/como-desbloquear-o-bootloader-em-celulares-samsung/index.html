@@ -21,44 +21,44 @@
       <p class="text-just">Configurações → Sobre o telefone → Informações de software → Versão da banda de base</p>
       <p class="text-just">Resultado do meu: <div class="fg-black bg-lightOrange mw-50">
         <samp>A205GNDXS<strong>5</strong>ATA2</samp>
-</div></p>
-        <p class="text-just">Preste atenção no quinto último dígito deste código, esta é a versão do seu bootloader, no meu caso a versão é <strong>5</strong>.</p>
-        <h2 class="text-center">Habilitando o modo desenvolvedor</h2>
-        <p class="text-just">Habilite o modo desenvolvedor, vá em: Configurações → Sobre o telefone → Informações do software - Toque o "Número de compilação" 7 vezes.</p>
-        <p class="text-just">Isso vai mostrar as opções do desenvolvedor nas configurações do Android. Vá para as opções do desenvolvedor: Configurações → Opções do desenvolvedor.</p>
-        <div class="img-container mw-50-md mx-auto mb-3">
-          <img src="./figura1.jpg">
-        </div>
-        <p class="text-just">Como você pode ver, a opção "desbloquear bootloader" não está presente, então você vai ter que esperar 7 dias para isso (teoricamente). Esse é um truque que a Samsung implementou para impedir que os desenvolvedores desbloqueiem o bootloader por engano.</p>
-        <p class="text-just">Existe uma forma de contornar essa espera? Sim:</p>
-        <ul>
-          <li>Primeiro, você deve desligar as conexões com a internet, deixe seu smartphone totalmente offline.</li>
-          <li>Ajuste a data manualmente para 8 dias antes de hoje.</li>
-          <li>No momento que estou escrevendo isso (dia 22 de abril), eu ajustei a data para 14 de abril.</li>
-          <li>Agora conecte o aparelho à Internet.</li>
-          <li>Vá em Configurações e atualize o Android: Configurações → Atualização de software → Baixar e instalar.</li>
-        </ul>
-        <p class="text-just">Você vai ver uma mensagem de toast dizendo "Registrando o dispositivo", este truque fará com que o smartphone 'pense' que foi desbloqueado 8 dias atrás e vai liberar a opção no menu dos desenvolvedores para você desbloquear o bootloader.</p>
-        <p class="text-just">Agora, você pode voltar à data atual ajustando a data e hora conforme a rede.</p>
-        <p class="text-just">Vá nas opções do desenvolvedor:</p>
-        <div class="img-container mw-50-md mx-auto mb-3">
-          <img src="./figura2.jpg">
-        </div>
-        <p class="text-just">...e selecione a opção <strong>"Desbloqueio por OEM"</strong>.</p>
-        <p class="text-just">No meu está em cinza, porque eu já fiz este processo antes, mas para você não acabou ainda. O próximo passo é reiniciar o celular no modo download, faça isso via ADB ou teclas de combinação:</p>
-        <code>$ adb reboot bootloader</code>
-        <h2 class="text-center">Via teclas de combinação</h2>
-        <p class="text-just">Desligue o celular, conecte-o no PC e antes que ele acenda a tela, pressione os dois botões de volume ao mesmo tempo - Testado no <em>Galaxy-A20</em>.</p>
-        <p class="text-just">Uma vez em modo download, segure o botão de volume pra cima até ele desbloquear o bootloader.</p>
-        <p class="text-just">NOTA: este procedimento vai apagar todos os seus dados e reiniciar automaticamente.</p>
-        <p class="text-just">Agora o bootloader foi liberado? A resposta ainda é não, temos que confirmar o desbloqueio para que o aparelho não rejeite os binários modificados futuramente evitando esse famigerado erro:</p>
-        <blockquote class="m-5"><div class="fg-black bg-lightOrange mw-50">
-            <samp>Only official released binaries are allowed to be flashed</samp>
-</div></blockquote>
-            <p class="text-just">Veja: <a class="fg-lightBlue" href="https://forum.xda-developers.com/galaxy-note-8/help/official-released-binaries-allowed-to-t3681883">Only Official binaries are allowed to be flashed</a></p>
-            <p class="text-just">Passe as configurações iniciais do aparelho, de preferência conectado à Internet. Não coloque muitos dados aqui, pois o dispositivo será formatado depois quando você fizer root. Ative as opções de desenvolvedor e confirme se a opção "Desbloqueio por OEM" está acinzentada, assim como a imagem acima.</p>
-            <p class="text-just">Pronto! Seu bootloader deve aceitar agora binários não oficiais, permitindo você a fazer root e instalar custom ROMs.</p>
-            <p class="text-just">Over 'n out!</p>
+      </div></p>
+      <p class="text-just">Preste atenção no quinto último dígito deste código, esta é a versão do seu bootloader, no meu caso a versão é <strong>5</strong>.</p>
+      <h2 class="text-center">Habilitando o modo desenvolvedor</h2>
+      <p class="text-just">Habilite o modo desenvolvedor, vá em: Configurações → Sobre o telefone → Informações do software - Toque o "Número de compilação" 7 vezes.</p>
+      <p class="text-just">Isso vai mostrar as opções do desenvolvedor nas configurações do Android. Vá para as opções do desenvolvedor: Configurações → Opções do desenvolvedor.</p>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura1.jpg">
+      </div>
+      <p class="text-just">Como você pode ver, a opção "desbloquear bootloader" não está presente, então você vai ter que esperar 7 dias para isso (teoricamente). Esse é um truque que a Samsung implementou para impedir que os desenvolvedores desbloqueiem o bootloader por engano.</p>
+      <p class="text-just">Existe uma forma de contornar essa espera? Sim:</p>
+      <ul>
+        <li>Primeiro, você deve desligar as conexões com a internet, deixe seu smartphone totalmente offline.</li>
+        <li>Ajuste a data manualmente para 8 dias antes de hoje.</li>
+        <li>No momento que estou escrevendo isso (dia 22 de abril), eu ajustei a data para 14 de abril.</li>
+        <li>Agora conecte o aparelho à Internet.</li>
+        <li>Vá em Configurações e atualize o Android: Configurações → Atualização de software → Baixar e instalar.</li>
+      </ul>
+      <p class="text-just">Você vai ver uma mensagem de toast dizendo "Registrando o dispositivo", este truque fará com que o smartphone 'pense' que foi desbloqueado 8 dias atrás e vai liberar a opção no menu dos desenvolvedores para você desbloquear o bootloader.</p>
+      <p class="text-just">Agora, você pode voltar à data atual ajustando a data e hora conforme a rede.</p>
+      <p class="text-just">Vá nas opções do desenvolvedor:</p>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura2.jpg">
+      </div>
+      <p class="text-just">...e selecione a opção <strong>"Desbloqueio por OEM"</strong>.</p>
+      <p class="text-just">No meu está em cinza, porque eu já fiz este processo antes, mas para você não acabou ainda. O próximo passo é reiniciar o celular no modo download, faça isso via ADB ou teclas de combinação:</p>
+      <code>$ adb reboot bootloader</code>
+      <h2 class="text-center">Via teclas de combinação</h2>
+      <p class="text-just">Desligue o celular, conecte-o no PC e antes que ele acenda a tela, pressione os dois botões de volume ao mesmo tempo - Testado no <em>Galaxy-A20</em>.</p>
+      <p class="text-just">Uma vez em modo download, segure o botão de volume pra cima até ele desbloquear o bootloader.</p>
+      <p class="text-just">NOTA: este procedimento vai apagar todos os seus dados e reiniciar automaticamente.</p>
+      <p class="text-just">Agora o bootloader foi liberado? A resposta ainda é não, temos que confirmar o desbloqueio para que o aparelho não rejeite os binários modificados futuramente evitando esse famigerado erro:</p>
+      <blockquote class="m-5"><div class="fg-black bg-lightOrange mw-50">
+          <samp>Only official released binaries are allowed to be flashed</samp>
+        </div></blockquote>
+        <p class="text-just">Veja: <a class="fg-lightBlue" href="https://forum.xda-developers.com/galaxy-note-8/help/official-released-binaries-allowed-to-t3681883">Only Official binaries are allowed to be flashed</a></p>
+        <p class="text-just">Passe as configurações iniciais do aparelho, de preferência conectado à Internet. Não coloque muitos dados aqui, pois o dispositivo será formatado depois quando você fizer root. Ative as opções de desenvolvedor e confirme se a opção "Desbloqueio por OEM" está acinzentada, assim como a imagem acima.</p>
+        <p class="text-just">Pronto! Seu bootloader deve aceitar agora binários não oficiais, permitindo você a fazer root e instalar custom ROMs.</p>
+        <p class="text-just">Over 'n out!</p>
     </main>
   </body>
 </html>

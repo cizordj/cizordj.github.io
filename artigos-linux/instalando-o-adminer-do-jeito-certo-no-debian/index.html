@@ -40,38 +40,38 @@ Alias /URL_IMPOSSIVEL_DE_ACHAR /etc/adminer
   DirectoryIndex conf.php
 &lt/Directory&gt
         </pre></samp>
-</div>
-        <p class="text-just">Após a alteração desse arquivo, recarregue o Apache.</p>
-        <code># systemctl reload apache2</code>
-        <br>
-        <div class="img-container mw-50-md mx-auto mb-3">
-          <img src="./figura1.png">
-        </div>
-        <h2 class="text-center">Perfumaria</h2>
-        <p class="text-just">Se você é um camarada que gosta de embelezar as coisas, você pode baixar temas customizados para a interface do seu Adminer. Para isso, vá até o site:</p>
-        <ul>
-          <li>
-            <a class="fg-lightBlue" href="https://www.adminer.org/">Adminer - Database management in a single PHP file</a>
-          </li>
-        </ul>
-        <p class="text-just">...e baixe o CSS do tema que mais lhe agrada. No meu caso, eu baixei o tema Pepa-linha-dark pois é o tema que possui o visual mais consistente.</p>
-        <code># wget https://raw.githubusercontent.com/pepa-linha/Adminer-Design-Dark/master/adminer.css</code>
-        <br>
-        <p class="text-just">Na documentação, diz que você deve colocar o "adminer.css" do lado do "adminer.php", porém isso não funciona no Debian. O local correto é o /etc/adminer, onde fica o arquivo "conf.php":</p>
-        <code># mv adminer.css /etc/adminer/</code>
-        <p class="text-just">Se você atualizar a página, vai ver que o Adminer agora está customizado.</p>
-        <div class="img-container mw-50-md mx-auto mb-3">
-          <img src="./figura2.png">
-        </div>
-        <p class="text-just">É isso, para fazer login no Adminer, crie um usuário no banco de dados e dê a ele as permissões necessárias para fazer o login, lembrando que não é recomendado entrar como root, pois pode expor muita coisa sobre o teu banco de dados na WEB.</p>
-        <h2 class="text-center">Fontes</h2>
-        <p class="text-just">Arquivos de documentação no pacote do Adminer:</p>
-        <ul>
-          <li>/usr/share/doc/adminer/readme-designs.txt</li>
-          <li>/usr/share/doc/adminer/readme.txt</li>
-          <li>/usr/share/doc/adminer/README.Debian</li>
-        </ul>
-        <p class="text-just">Testado no Debian Bullseye.</p>
+      </div>
+      <p class="text-just">Após a alteração desse arquivo, recarregue o Apache.</p>
+      <code># systemctl reload apache2</code>
+      <br>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura1.png">
+      </div>
+      <h2 class="text-center">Perfumaria</h2>
+      <p class="text-just">Se você é um camarada que gosta de embelezar as coisas, você pode baixar temas customizados para a interface do seu Adminer. Para isso, vá até o site:</p>
+      <ul>
+        <li>
+          <a class="fg-lightBlue" href="https://www.adminer.org/">Adminer - Database management in a single PHP file</a>
+        </li>
+      </ul>
+      <p class="text-just">...e baixe o CSS do tema que mais lhe agrada. No meu caso, eu baixei o tema Pepa-linha-dark pois é o tema que possui o visual mais consistente.</p>
+      <code># wget https://raw.githubusercontent.com/pepa-linha/Adminer-Design-Dark/master/adminer.css</code>
+      <br>
+      <p class="text-just">Na documentação, diz que você deve colocar o "adminer.css" do lado do "adminer.php", porém isso não funciona no Debian. O local correto é o /etc/adminer, onde fica o arquivo "conf.php":</p>
+      <code># mv adminer.css /etc/adminer/</code>
+      <p class="text-just">Se você atualizar a página, vai ver que o Adminer agora está customizado.</p>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura2.png">
+      </div>
+      <p class="text-just">É isso, para fazer login no Adminer, crie um usuário no banco de dados e dê a ele as permissões necessárias para fazer o login, lembrando que não é recomendado entrar como root, pois pode expor muita coisa sobre o teu banco de dados na WEB.</p>
+      <h2 class="text-center">Fontes</h2>
+      <p class="text-just">Arquivos de documentação no pacote do Adminer:</p>
+      <ul>
+        <li>/usr/share/doc/adminer/readme-designs.txt</li>
+        <li>/usr/share/doc/adminer/readme.txt</li>
+        <li>/usr/share/doc/adminer/README.Debian</li>
+      </ul>
+      <p class="text-just">Testado no Debian Bullseye.</p>
     </main>
   </body>
 </html>

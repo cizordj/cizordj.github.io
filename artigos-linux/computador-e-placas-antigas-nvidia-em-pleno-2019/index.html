@@ -66,41 +66,41 @@
       <br>
       <div class="fg-black bg-lightOrange mw-50">
         <samp>4.4.0-141-lowlatency</samp>
-</div>
-        <p class="text-just">Se for parecida com essa, então você iniciou com o kernel certo.</p>
-        <p class="text-just">Comecemos a instalação do bendito driver, invoque os poderes do apt com o seguinte comando:</p>
-        <code>$ sudo apt install nvidia-304</code>
-        <p class="text-just">Isso irá instalar o driver na versão que está ali, junto também do build-essentials que irá compilar todo o seu kernel baixa latência, a fim dos drivers serem posto lá no meio. Se o texto final for semelhante a esse, então você está pronto para continuar:</p>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura5.png">
-        </div>
-        <p class="text-just">O próximo passo, é configurar o X, faça isso com um só comando:</p>
-        <code>$ sudo nvidia-xconfig</code>
-        <p class="text-just">Com o servidor X configurado, reinicie a máquina. ;)</p>
-        <h2 class="text-center">Conclusão</h2>
-        <p class="text-just">Após a reinicialização se tudo der certo, o GRUB deve iniciar somente no kernel baixa latência, com os drivers de vídeo que você instalou.</p>
-        <p class="text-just">Confira, após o login, se existe um aplicativo chamado Nvidia no menu de aplicações e abra-o. Se tiver uma cara igual a essa abaixo, então parabéns, você é o cara! Ou, a cara. rsrs</p>
-        <div class="img-container mw-75-md mx-auto">
-          <img src="./figura6.png">
-        </div>
-        <p class="text-just">Aproveite seu "novo velho computador", enquanto as distros ainda suportam ele até 2021.</p>
-        <p class="text-just">A simplicidade de um ambiente bonito, mesmo o seu hardware sendo antigo e mal suportado em uma interface leve com o XFCE. Se você for audacioso(a), dá até para jogar nesse estado.</p>
-        <p class="text-just">É isso. Espero ter esclarecido o por quê as distros Linux não funcionarem de primeira em algumas máquinas, principalmente com drivers de código fechado, que não é obrigação das distribuições suportá-los. ;)</p>
-        <h2 class="text-center">Bibliografia</h2>
-        <ul>
-          <li>O que é um driver legacy?<br><a class="fg-lightBlue" target="_blank" href="https://www.nvidia.com/object/IO_32667.html">What's a legacy driver?</a>
-          </li>
-          <li>Requisitos mínimos de software para o driver Legacy:<br><a class="fg-lightBlue" target="_blank" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.137/README/minimumrequirements.html">Chapter 2. Minimum software requirements</a>
-          </li>
-          <li>Tabela com as versões de pacote no Ubuntu LTS (consultado a versão do Xorg):<br>
-            <a class="fg-lightBlue" target="_blank" href="https://distrowatch.com/table.php?distribution=ubuntu">DistroWatch.com: Ubuntu</a>
-          </li>
-          <li>Tempo de suporte do Ubuntu LTS 16.04 (tempo até você comprar uma máquina nova):<br>
-            <a class="fg-lightBlue" target="_blank" href="https://www.ubuntu.com/about/release-cycle">Ubuntu release cycle &lt&lt Ubuntu</a>
-          </li>
-          <li>Versões de lançamento Linux e suas datas:<br><a class="fg-lightBlue" target="_blank" href="https://www.kernel.org/category/releases.html">The Linux Kernel Archives - Release</a>
-          </li>
-        </ul>
+      </div>
+      <p class="text-just">Se for parecida com essa, então você iniciou com o kernel certo.</p>
+      <p class="text-just">Comecemos a instalação do bendito driver, invoque os poderes do apt com o seguinte comando:</p>
+      <code>$ sudo apt install nvidia-304</code>
+      <p class="text-just">Isso irá instalar o driver na versão que está ali, junto também do build-essentials que irá compilar todo o seu kernel baixa latência, a fim dos drivers serem posto lá no meio. Se o texto final for semelhante a esse, então você está pronto para continuar:</p>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura5.png">
+      </div>
+      <p class="text-just">O próximo passo, é configurar o X, faça isso com um só comando:</p>
+      <code>$ sudo nvidia-xconfig</code>
+      <p class="text-just">Com o servidor X configurado, reinicie a máquina. ;)</p>
+      <h2 class="text-center">Conclusão</h2>
+      <p class="text-just">Após a reinicialização se tudo der certo, o GRUB deve iniciar somente no kernel baixa latência, com os drivers de vídeo que você instalou.</p>
+      <p class="text-just">Confira, após o login, se existe um aplicativo chamado Nvidia no menu de aplicações e abra-o. Se tiver uma cara igual a essa abaixo, então parabéns, você é o cara! Ou, a cara. rsrs</p>
+      <div class="img-container mw-75-md mx-auto">
+        <img src="./figura6.png">
+      </div>
+      <p class="text-just">Aproveite seu "novo velho computador", enquanto as distros ainda suportam ele até 2021.</p>
+      <p class="text-just">A simplicidade de um ambiente bonito, mesmo o seu hardware sendo antigo e mal suportado em uma interface leve com o XFCE. Se você for audacioso(a), dá até para jogar nesse estado.</p>
+      <p class="text-just">É isso. Espero ter esclarecido o por quê as distros Linux não funcionarem de primeira em algumas máquinas, principalmente com drivers de código fechado, que não é obrigação das distribuições suportá-los. ;)</p>
+      <h2 class="text-center">Bibliografia</h2>
+      <ul>
+        <li>O que é um driver legacy?<br><a class="fg-lightBlue" target="_blank" href="https://www.nvidia.com/object/IO_32667.html">What's a legacy driver?</a>
+        </li>
+        <li>Requisitos mínimos de software para o driver Legacy:<br><a class="fg-lightBlue" target="_blank" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.137/README/minimumrequirements.html">Chapter 2. Minimum software requirements</a>
+        </li>
+        <li>Tabela com as versões de pacote no Ubuntu LTS (consultado a versão do Xorg):<br>
+          <a class="fg-lightBlue" target="_blank" href="https://distrowatch.com/table.php?distribution=ubuntu">DistroWatch.com: Ubuntu</a>
+        </li>
+        <li>Tempo de suporte do Ubuntu LTS 16.04 (tempo até você comprar uma máquina nova):<br>
+          <a class="fg-lightBlue" target="_blank" href="https://www.ubuntu.com/about/release-cycle">Ubuntu release cycle &lt&lt Ubuntu</a>
+        </li>
+        <li>Versões de lançamento Linux e suas datas:<br><a class="fg-lightBlue" target="_blank" href="https://www.kernel.org/category/releases.html">The Linux Kernel Archives - Release</a>
+        </li>
+      </ul>
     </main>
   </body>
 </html>

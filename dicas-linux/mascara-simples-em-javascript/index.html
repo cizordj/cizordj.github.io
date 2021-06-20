@@ -38,13 +38,13 @@
     &lt/form&gt
 &lt/body&gt
 &lt/html&gt</pre></samp>
-</div>
-        <p class="text-just">O input deve chamar a função javascript a cada digitação do usuário, então a função se responsabilizará pela formatação do dado durante o preenchimento do formulário.</p>
-        <p class="text-just">
-        Agora vamos implementar a função em javascript que vai manipular o dado de acordo o padrão que queremos (ABC-1234) e devolver ao formulário enquanto o usuário digita.</p>
-        <p class="text-just">Para isso foi criado uma função que transforma as três primeiras letras em maiúsculas e adiciona um hífen automaticamente toda vez que o usuário termina de digitar as três primeiras letras.</p>
-        <div class="fg-black bg-lightOrange mw-50">
-          <samp><pre>&ltscript&gt
+      </div>
+      <p class="text-just">O input deve chamar a função javascript a cada digitação do usuário, então a função se responsabilizará pela formatação do dado durante o preenchimento do formulário.</p>
+      <p class="text-just">
+      Agora vamos implementar a função em javascript que vai manipular o dado de acordo o padrão que queremos (ABC-1234) e devolver ao formulário enquanto o usuário digita.</p>
+      <p class="text-just">Para isso foi criado uma função que transforma as três primeiras letras em maiúsculas e adiciona um hífen automaticamente toda vez que o usuário termina de digitar as três primeiras letras.</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre>&ltscript&gt
 function validarPlaca(entradaDoUsuario) {
         var placa = entradaDoUsuario.value; // Passa para a variável 'placa' o que o usuário digitar no formulário
 
@@ -62,13 +62,13 @@ function validarPlaca(entradaDoUsuario) {
     }
 }
 &lt/script&gt</pre></samp>
-</div>
-          <p class="text-just">Após adicionar esse trecho de código no seu arquivo html você poderá ver o mascaramento em ação.</p>
-          <div class="img-container mw-50-md mx-auto mb-3">
-            <img src="./figura2.gif">
-          </div>
-          <p class="text-just">É isso, eu usei o atributo onkeyup ao invés do onkeydown pois o último atrapalha um monte na hora de apagar, caso o usuário cometa um erro de digitação ele pode ficar frustrado ao perceber que não consegue apagar o que digitou XD. É bom ficar ligado nisso também.</p>
-          <p class="text-just">Até a próxima =)</p>
+      </div>
+      <p class="text-just">Após adicionar esse trecho de código no seu arquivo html você poderá ver o mascaramento em ação.</p>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura2.gif">
+      </div>
+      <p class="text-just">É isso, eu usei o atributo onkeyup ao invés do onkeydown pois o último atrapalha um monte na hora de apagar, caso o usuário cometa um erro de digitação ele pode ficar frustrado ao perceber que não consegue apagar o que digitou XD. É bom ficar ligado nisso também.</p>
+      <p class="text-just">Até a próxima =)</p>
     </main>
   </body>
 </html>

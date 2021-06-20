@@ -25,11 +25,11 @@ echo "Senha correta"
 else
 echo "Senha ERRADA!"
 fi</pre></samp>
-</div>
-        <p class="text-just">Por que este método é errado? Colocar a senha em texto puro no script é uma tremenda falha de segurança, qualquer espertinho pode dar um <em>grep</em> no seu script e localizá-la. Mas como verificar a senha sem expô-la no shell script? Usando uma soma de verificação.</p>
-        <p class="text-just">Sinta-se livre para testar o código abaixo e digite a mesma senha que estava exposta no código acima.</p>
-        <div class="fg-black bg-lightOrange mw-50">
-          <samp><pre>#!/bin/sh
+      </div>
+      <p class="text-just">Por que este método é errado? Colocar a senha em texto puro no script é uma tremenda falha de segurança, qualquer espertinho pode dar um <em>grep</em> no seu script e localizá-la. Mas como verificar a senha sem expô-la no shell script? Usando uma soma de verificação.</p>
+      <p class="text-just">Sinta-se livre para testar o código abaixo e digite a mesma senha que estava exposta no código acima.</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre>#!/bin/sh
 echo Digite a sua senha...
 read senha
 echo "dbbe235510a12c4ceea53cfa2150859e  senha" > senha.md5
@@ -41,14 +41,14 @@ else
 echo "Senha ERRADA!"
 fi
 rm senha.md5 senha</pre></samp>
-</div>
-          <p class="text-just">Viu como funciona? Foi criado uma forma de verificação da senha ao invés de expor no código fonte o seu conteúdo cru. Bem mais seguro, sem falar que você pode usar verificações ainda mais pesadas como <em>SHA256</em> ou <em>SHA512</em>.</p>
-          <h2 class="text-center">Criando a soma de verificação</h2>
-          <p class="text-just">Para criar a soma de verificação da sua senha é simples. Faça no terminal:</p>
-          <code>$ echo sua_senha &gt arquivoqualquer</code>
-          <p class="text-just">e depois:</p>
-          <code>$ md5sum arquivoqualquer</code>
-          <p class="text-just">que vai sair com a soma de verificação da sua senha para você pô-la no código-fonte.</p>
+      </div>
+      <p class="text-just">Viu como funciona? Foi criado uma forma de verificação da senha ao invés de expor no código fonte o seu conteúdo cru. Bem mais seguro, sem falar que você pode usar verificações ainda mais pesadas como <em>SHA256</em> ou <em>SHA512</em>.</p>
+      <h2 class="text-center">Criando a soma de verificação</h2>
+      <p class="text-just">Para criar a soma de verificação da sua senha é simples. Faça no terminal:</p>
+      <code>$ echo sua_senha &gt arquivoqualquer</code>
+      <p class="text-just">e depois:</p>
+      <code>$ md5sum arquivoqualquer</code>
+      <p class="text-just">que vai sair com a soma de verificação da sua senha para você pô-la no código-fonte.</p>
     </main>
   </body>
 </html>

@@ -25,21 +25,21 @@
       <code>$ mount -o loop system.img /mnt/system</code>
       <div class="fg-black bg-lightOrange mw-50">
         <samp><pre>mount: /mnt/system: tipo de sistema de arquivos incorreto, opção inválida, superbloco inválido em /dev/loop3, página de código ou programa auxiliar faltando ou outro erro.</pre></samp>
-</div>
-        <p class="text-just">Então, consegui resolver esse impasse com a seguinte solução. Se estiver usando alguma distro Debian-like, instale o pacote "simg2img":</p>
-        <code>$ sudo apt install simg2img</code>
-        <p class="text-just">Após isso, digite no terminal:</p>
-        <code>$ simg2img system.img system.raw</code>
-        <p class="text-just">Sendo "system.img" o arquivo da ROM que você quer montar. Após a descompressão, você deve ter um arquivo RAW na sua pasta, então pegue e monte-o normalmente:</p>
-        <code>$ mount system.raw system/</code>
-        <p class="text-just">Nesse caso, montei na pasta "system" do meu diretório atual, agora é só abrir esta pasta e fazer o que você quiser.</p>
-        <p class="text-just">Mais detalhes em como reempacotar a imagem do sistema para você instalar no celular, você encontra neste link:</p>
-        <ul>
-          <li>
-            <a class="fg-lightBlue" href="https://web.archive.org/web/20141021103926/http://andwise.net/?p=403">Unpack/repack ext4 Android system images « AndWise</a>
-          </li>
-        </ul>
-        <p class="text-just">Over and out!</p>
+      </div>
+      <p class="text-just">Então, consegui resolver esse impasse com a seguinte solução. Se estiver usando alguma distro Debian-like, instale o pacote "simg2img":</p>
+      <code>$ sudo apt install simg2img</code>
+      <p class="text-just">Após isso, digite no terminal:</p>
+      <code>$ simg2img system.img system.raw</code>
+      <p class="text-just">Sendo "system.img" o arquivo da ROM que você quer montar. Após a descompressão, você deve ter um arquivo RAW na sua pasta, então pegue e monte-o normalmente:</p>
+      <code>$ mount system.raw system/</code>
+      <p class="text-just">Nesse caso, montei na pasta "system" do meu diretório atual, agora é só abrir esta pasta e fazer o que você quiser.</p>
+      <p class="text-just">Mais detalhes em como reempacotar a imagem do sistema para você instalar no celular, você encontra neste link:</p>
+      <ul>
+        <li>
+          <a class="fg-lightBlue" href="https://web.archive.org/web/20141021103926/http://andwise.net/?p=403">Unpack/repack ext4 Android system images « AndWise</a>
+        </li>
+      </ul>
+      <p class="text-just">Over and out!</p>
     </main>
   </body>
 </html>

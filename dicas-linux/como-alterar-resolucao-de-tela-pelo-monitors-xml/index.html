@@ -19,14 +19,14 @@
       <p class="text-just">Na pasta HOME do usuário:</p>
       <div class="fg-black bg-lightOrange mw-50">
         <samp>/home/$USER/.config/monitors.xml</samp>
-</div>
-        <p class="text-just">e na pasta da tela de login do sistema:</p>
-        <div class="fg-black bg-lightOrange mw-50">
-          <samp>/var/lib/gdm3/.config/monitors.xml</samp>
-</div>
-          <p class="text-just">Dependendo de qual seja a sua interface a pasta de login pode variar, se você tem um monitor que não é reconhecido então você terá que preencher esses dois arquivos a fim de resolver o problema. O formato desse arquivo é mais ou menos esse:</p>
-          <div class="fg-black bg-lightOrange mw-50">
-            <samp><pre>&ltmonitors version="2"&gt
+      </div>
+      <p class="text-just">e na pasta da tela de login do sistema:</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp>/var/lib/gdm3/.config/monitors.xml</samp>
+      </div>
+      <p class="text-just">Dependendo de qual seja a sua interface a pasta de login pode variar, se você tem um monitor que não é reconhecido então você terá que preencher esses dois arquivos a fim de resolver o problema. O formato desse arquivo é mais ou menos esse:</p>
+      <div class="fg-black bg-lightOrange mw-50">
+        <samp><pre>&ltmonitors version="2"&gt
   &ltconfiguration&gt
     &ltlogicalmonitor&gt
       &ltx&gt0&lt/x&gt
@@ -49,22 +49,22 @@
     &lt/logicalmonitor&gt
   &lt/configuration&gt
 &lt/monitors&gt</pre></samp>
-</div>
-            <p class="text-just">Mas calma, você não precisa ser um expert e escrever isso do zero, vamos com um passo a passo mais simples.</p>
-            <p class="text-just">No Elementary OS, vá em:</p>
-            <p class="text-just">Configurações do sistema -> Telas -> Configurações do monitor</p>
-            <p class="text-just">defina a resolução correta do seu monitor de salve.</p>
-            <div class="img-container mw-50-md mx-auto mb-3">
-              <img src="./figura1.png">
-            </div>
-            <p class="text-just">Agora você terá o arquivo monitors.xml na sua pasta de usuário, para aplicar a mesma resolução na tela de login copie o arquivo para o diretório do sistema.</p>
-            <p class="text-just">No caso do Elementary OS:</p>
-            <code>$ sudo cp /home/$USER/.config/monitors.xml /var/lib/lightdm/.config/</code>
-            <p class="text-just">Se você estiver usando a interface Gnome, o comando é esse:</p>
-            <code>$ sudo cp /home/$USER/.config/monitors.xml /var/lib/gdm3/.config/</code>
-            <p class="text-just">Pronto! A resolução de tela agora estará fixada tanto na tela de login quanto na sessão do usuário.</p>
-            <p class="text-just">É isso.</p>
-            <p class="text-just">* Testado no Debian Gnome e Elementary OS.</p>
+      </div>
+      <p class="text-just">Mas calma, você não precisa ser um expert e escrever isso do zero, vamos com um passo a passo mais simples.</p>
+      <p class="text-just">No Elementary OS, vá em:</p>
+      <p class="text-just">Configurações do sistema -> Telas -> Configurações do monitor</p>
+      <p class="text-just">defina a resolução correta do seu monitor de salve.</p>
+      <div class="img-container mw-50-md mx-auto mb-3">
+        <img src="./figura1.png">
+      </div>
+      <p class="text-just">Agora você terá o arquivo monitors.xml na sua pasta de usuário, para aplicar a mesma resolução na tela de login copie o arquivo para o diretório do sistema.</p>
+      <p class="text-just">No caso do Elementary OS:</p>
+      <code>$ sudo cp /home/$USER/.config/monitors.xml /var/lib/lightdm/.config/</code>
+      <p class="text-just">Se você estiver usando a interface Gnome, o comando é esse:</p>
+      <code>$ sudo cp /home/$USER/.config/monitors.xml /var/lib/gdm3/.config/</code>
+      <p class="text-just">Pronto! A resolução de tela agora estará fixada tanto na tela de login quanto na sessão do usuário.</p>
+      <p class="text-just">É isso.</p>
+      <p class="text-just">* Testado no Debian Gnome e Elementary OS.</p>
     </main>
   </body>
 </html>
