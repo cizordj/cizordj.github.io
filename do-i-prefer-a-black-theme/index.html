@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -55,6 +55,8 @@ h1, h2 {
     var userLang = navigator.language || navigator.userLanguage;
 switch(userLang){
   case "pt-BR":
+    document.title = 'Eu prefiro um tema escuro?';
+    document.querySelector('html').setAttribute('lang', 'pt-br');
     document.getElementById("dark-title").innerText = "Sim";
     document.getElementById("dark-subtitle").innerText = "Seu navegador nos diz que você quer usar um tema escuro na internet";
     document.getElementById("light-title").innerText = "Não";
